@@ -1,0 +1,41 @@
+.logo {
+  max-width: 130px;
+  max-height: 130px;
+  width: 100%;
+  height: auto;
+  margin-left: 0; /* Remove left margin */
+}
+
+.customBackground {
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    335deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(255, 239, 239, 0.9234287464985994) 100%
+  );
+}
+
+.loginButton {
+  background: #f7b2b0;
+  border-radius: 110px;
+  border: none;
+  width: 15%;
+  margin-left: 4%;
+}
+
+.loginButton:hover {
+  background: #d2f2fa;
+}
+
+/* Media query for mobile devices */
+@media only screen and (max-width: 900px) {
+  .logo {
+    max-width: 30%;
+    margin-left: 0;
+    margin-bottom: 0px;
+  }
+
+  .MuiButton-root {
+    margin-left: 0; /* Ensure no left margin on buttons */
+  }
+}

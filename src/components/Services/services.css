@@ -1,0 +1,463 @@
+@import "~@fontsource/m-plus-rounded-1c/index.css";
+
+.body {
+    font-family: "M PLUS Rounded 1c", sans-serif;
+}
+
+.body {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background: rgb(0, 0, 0);
+    background: linear-gradient(285deg, rgba(0, 0, 0, 0) 0%, rgba(255, 239, 239, 0.6125043767507004) 100%);
+    margin: 0%;
+    padding: 0%;
+}
+
+.mainhead {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+}
+
+.head {
+    min-width: 80%;
+    padding: 0px;
+    margin: 100px 100px 30px 100px;
+}
+
+.head2 {
+    width: 100%;
+}
+
+.head3 {
+    width: 100%;
+}
+
+.line {
+    width: 60%;
+    height: 3px;
+}
+
+.btn,
+.btn2 {
+    margin-top: 10px;
+    /* font-family: 'Roboto', sans-serif; */
+    width: fit-content;
+    background-color: #EDB5B2;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 19px;
+    font-size: 16px;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+.vector {
+    /* max-width: 60%; */
+    justify-content: left;
+
+}
+
+.vector2 {
+    /* max-width: 30%; */
+    justify-content: right;
+
+}
+
+.frame1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 50px 100px;
+    align-items: center;
+    margin-left: 7%;
+    margin-right: 7%;
+}
+.frame5 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 50px 100px;
+    align-items: center;
+    margin-left: 7%;
+    margin-right: 7%;
+}
+
+.frame2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    margin: 50px 100px;
+    padding: 15px;
+    border-radius: 40px;
+    background-color: #FDF2F2;
+    margin-left: 7%;
+    margin-right: 7%;
+}
+
+.frame4 {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    margin: 50px 100px;
+    padding: 15px;
+    border-radius: 40px;
+    background-color: #EDF8FC;
+    margin-left: 7%;
+    margin-right: 7%;
+}
+
+.frame3 {
+    display: flex;
+    flex-direction: row;
+    margin-top: 100px;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.funsl {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-left: 20px;
+}
+
+.funb {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.heading {
+    /* font-family: 'Roboto', sans-serif; */
+    font-size: 48px;
+    font-weight: 300;
+    color: #000000;
+    margin: 0px;
+
+}
+
+.text {
+
+    font-size: 16px;
+    font-weight: 500;
+    /* margin-top: -20px; */
+
+
+}
+.funtext{
+    
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.imgr {
+    display: flex;
+    align-items: right;
+    justify-content: center;
+    width: 100%;
+
+}
+.imgsl {
+    display: flex;
+    align-items: left;
+    justify-content: center;
+    width: 100%;
+
+}
+.imgbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+}
+.imgbox2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+
+}
+
+.item2 {
+    flex: 3;
+    text-align: center;
+
+
+
+}
+
+.headingnew {
+    font-size: 48px;
+    font-weight: 500;
+    margin: 0px;
+    margin-right: 20%;
+    text-align: center;
+
+
+}
+
+.textnew {
+    color: black;
+    font-size: 16px;
+    font-weight: 400;
+    margin-right: 20%;
+    text-align: center;
+
+}
+
+.item1,
+.item3 {
+    flex: 1;
+    /* Each of these items will take up 1 part of the available space */
+}
+
+.flex-item {
+    /* Common styles for flex items can go here */
+    padding: 20px;
+
+
+}
+
+.slcon {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    padding: 40px;
+    align-items: center;
+}
+
+.slincon {
+    display: flex;
+    flex-direction: column;
+    background: #FAF6FC;
+    border-radius: 30px;
+    padding-left: 30px;
+    padding-right: 20px;
+    align-items: center;
+    margin-top: 20px;
+    width: 400px;
+}
+
+.line2 {
+    width: 80%;
+    align-items: center;
+    padding-bottom: 10px;
+}
+
+.imgfun {
+
+    width: 400px;
+}
+
+.text5 {
+    color: black;
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+
+}
+
+.pinkhead {
+    font-size: 52px;
+    font-weight: 500;
+    color: #EDB5B2;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.text2 {
+    color: black;
+    font-size: 16px;
+    font-weight: 400;
+    width: 90%;
+
+}
+
+.inframel {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+    padding: 20px;
+    width: 100%;
+}
+
+.lefts {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    margin-right: 150px;
+    margin-left: 50px;
+    padding: 14px;
+    border-radius: 40px;
+
+}
+
+.rights {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    margin-right: 50px;
+    margin-left: 50px;
+    padding: 14px;
+    
+    border-radius: 40px;
+
+}
+
+.centertext {
+    display: flex;
+    padding-top: 2%;
+    padding-left: 30%;
+    padding-right: 30%;
+    color: black;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+
+    .frame1,
+    .frame2,
+    .frame4 {
+        flex-direction: column;
+        padding: 15px;
+        margin: 10px;
+    }
+
+    .heading,
+    .headingnew,
+    .pinkhead {
+        font-size: 30px;
+        align-items: center;
+    }
+    .pinkhead{
+        text-align: center;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .text,
+    .text2,
+    .textnew,
+    .text5,
+    .centertext {
+        font-size: 14px;
+        
+    }
+
+    .btn,
+    .btn2 {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+    .inframel{
+        width: 100%;
+        
+        text-align: center;
+        
+    }
+    .frame1{
+        flex-direction: column-reverse;
+    }
+    .rights{
+        margin-right: 0px;
+        margin-left: 0px;
+        align-items: center;
+    }
+    .lefts{
+        margin-right: 0px;
+        margin-left: 0px;
+        align-items: center;
+/* text-align: center;    } */}
+    .head2{
+        display: none;
+
+    }
+    .heading{
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    .frame4{
+        flex-direction: column-reverse;
+    }
+    .newnewimg{display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+    .centertext{
+        margin-top: 3%;
+        padding-left: 3%;
+        padding-right: 3%;
+    }
+    .mainhead{
+        margin-top: 0%;
+    }
+    .frame5{
+        flex-direction: column;
+        padding-left: 0px;
+        padding-right: 0px;
+        margin-bottom: -90px;
+    }
+    .text{
+        margin-top: 0px;
+    }
+    .vector, .vector2{
+        display: none;
+    }
+    .funsl{
+        margin-left: 0px;
+
+    }
+    .funb{
+        flex-direction: column;
+    }
+    .slcon{
+        padding: 10px;
+    }
+    .slincon{
+        width: 90%;
+    }
+    .line2{
+        width: 70%;
+    }
+    .imgfun{
+        width:350px;
+    }
+    .funtext{
+        margin-top: 10px;
+    }
+    .textnew{
+        
+        margin-right: 0px;
+        padding-left: 3%;
+        padding-right: 3%;
+    }
+    .headingnew{
+        margin-top: -20px;
+        margin-right: 0px;
+    }
+    .text5{
+        margin-top: -10px;
+    }
+
+
+    
+}

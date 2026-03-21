@@ -1,0 +1,24 @@
+/* In your CSS file or component styles */
+.imageContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  background-color: #ffe3f4;
+}
+
+.fullWidthImage {
+  width: 90vw;
+  /* Using viewport width to make images responsive */
+  max-width: 50%;
+  margin-bottom: 20px;
+  /* Adjust spacing between images */
+}
+
+@media (max-width: 600px) {
+  .fullWidthImage {
+    max-width: 90%;
+
+    /* Set width to 90% on mobile devices */
+  }
+}

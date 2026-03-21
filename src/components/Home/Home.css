@@ -1,0 +1,25 @@
+.mainhead {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+    margin-top: -40px;
+}
+
+.head2 {
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .mainhead {
+        margin-top: 0%;
+        display: none;
+        flex-direction: column;
+        margin-top: -10px;
+
+    }
+    .head2{
+        width: 100%;
+        display: flex;
+    }
+}
