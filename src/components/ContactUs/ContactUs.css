@@ -371,20 +371,22 @@ body {
     }
 
     .innerimgfirst {
-        max-width: 80%;
-        margin-right: 0;
-        margin-left: 0;
-        justify-content: center; /* Centers the image wrapper */
+        width: 100%; /* Forces the container to take up the full screen width */
+        max-width: 100%;
+        margin: 20px 0; /* Adds a little breathing room above and below the image */
+        display: flex;
+        justify-content: center; /* Centers the image inside it */
     }
 
     .imagedog {
-        max-width: 100%;
+        width: 100%; /* Tells the image to actually draw itself on the screen */
+        max-width: 300px; /* Prevents it from becoming massively stretched */
         height: auto;
-        width: auto;
-        /* --- THIS IS THE FIX! We are explicitly removing the huge desktop padding --- */
-        padding-right: 0; 
-        margin-left: 0;
-        /* -------------------------------------------------------------------------- */
+        
+        /* The !important tags act as an override switch to guarantee the desktop rules don't bleed through */
+        padding: 0 !important; 
+        margin: 0 !important; 
+        display: block;
     }
 
     .head2 {
