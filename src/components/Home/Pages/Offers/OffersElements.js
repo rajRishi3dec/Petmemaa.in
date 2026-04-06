@@ -1,13 +1,27 @@
 import styled from "styled-components";
 
 export const OffersContainer = styled.div`
-  width: 80%;
+  width: 90%;
+  max-width: 1200px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  align-items: center; /* This forces the title and slider to the center */
+  justify-content: center; /* Fixed typo from "centre" */
   text-align: center;
   margin-bottom: 10%;
+  padding-top: 50px;
+`;
+
+export const SliderWrapper = styled.div`
+  width: 100%;
+  margin-top: 40px;
+
+  /* This forces the individual cards to sit perfectly in the center of their slide area */
+  .slick-slide > div {
+    display: flex;
+    justify-content: center;
+  }
 `;
 
 export const CardContainer = styled.div`
@@ -58,8 +72,10 @@ export const InnerCardHeading = styled.span`
 `;
 
 export const InnerCardSubText = styled.span`
-  font-weight: 500;
+  font-weight: 600;
   font-size: 12px;
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
   line-height: 24px;
   letter-spacing: 0.07em;
   @media screen and (max-width: 1290px) {
@@ -84,6 +100,7 @@ export const TextOverlay = styled.div`
   width: 100%;
   height: 100%;
   color: #fff;
+  align-items: center;
   opacity: 0;
   transition: opacity 0.5s ease-out;
 `;

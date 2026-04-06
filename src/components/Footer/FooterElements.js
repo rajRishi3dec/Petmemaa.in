@@ -110,6 +110,8 @@ export const FooterLink = styled(Link)`
   line-height: 21px;
   font-weight: 400;
   opacity: 0.8;
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
 
   &:hover {
     color: #01bf71;
@@ -127,6 +129,8 @@ export const StyledAnchor = styled.a`
   line-height: 21px;
   font-weight: 400;
   opacity: 0.8;
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
 
   &:hover {
     color: #01bf71;
@@ -154,6 +158,8 @@ export const SocialMediaWrap = styled.div`
 
 export const WebsiteRights = styled.small`
   color: black;
+  font-weight:500px;
+  font-family: 'Inter', sans-serif;
 `;
 
 export const SocialIcons = styled.div`

@@ -9,8 +9,8 @@ import car5 from "../../../../Assets/Dining/car5.webp";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { Link } from "react-router-dom";
-import styled from "styled-components";
+// import { Link } from "react-router-dom"; // Commented out to fix unused warning
+// import styled from "styled-components"; // Commented out to fix unused warning
 
 import {
   DiningContainer,
@@ -25,18 +25,15 @@ import {
   // DiningImage,
   DiningWrapper2,
   Title,
-  SubText2,
-  ImgWrapCar,
-  DiningBtn2,
-  ButtonWrapper,
+  ImgWrapCar
 } from "./DiningElements";
 import { SubText } from "../Services/ServiceElements";
 
-// Create a wrapper styled component for the Link
-const LinkWrapper = styled(Link)`
-  text-decoration: none; /* Reset text-decoration to none */
-  color: inherit; /* Inherit the color from the parent */
-`;
+// Commented out to fix the ESLint warning since it's not currently being used in the return block
+// const LinkWrapper = styled(Link)`
+//   text-decoration: none;
+//   color: inherit; 
+// `;
 
 const Dining = () => {
   var settings = {
@@ -80,7 +77,7 @@ const Dining = () => {
 
         <DiningWrapper2>
           <Title> <b>Get Started Now</b></Title>
-          <SubText2>By Signing Up</SubText2>
+          
           <br />
           <br />
           <Slider {...settings}>
@@ -108,13 +105,7 @@ const Dining = () => {
             reliable information, tips, and resources to ensure your furry,
             feathery, or scaly companions lead happy, healthy lives.
           </SubText>
-          <ButtonWrapper>
-            <LinkWrapper to="/contactus">
-              <DiningBtn2>
-                <h3>Contact Us ›</h3>
-              </DiningBtn2>
-            </LinkWrapper>
-          </ButtonWrapper>
+          
         </DiningWrapper2>
       </DiningContainer>
     </>

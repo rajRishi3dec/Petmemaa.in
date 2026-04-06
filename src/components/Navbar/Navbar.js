@@ -1,5 +1,6 @@
-import React, { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import React, { useState, useRef } from "react";
+import { useLocation } from "react-router-dom";
+import { HashLink as Link } from "react-router-hash-link";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -15,17 +16,21 @@ import "./Navbar.css";
 
 const pages = [
   { name: "Home", path: "/" },
-  // { name: "About", path: "/about" },
-  { name: "Cafe", path: "/cafe" },
-  { name: "Services", path: "/services" },
-  { name: "Menu", path: "/menu" },
+  { name: "Founder Message", path: "/#founder" }, 
+  { name: "Why Us", path: "/#about" },
+  { name: "Our Services", path: "/#services" },
+  { name: "Gallery", path: "/gallery" },
+  { name: "Testimonial", path: "/#testimonial" },
+  { name: "Make Payment", path: "/#payment" },
   { name: "Contact Us", path: "/contactus" }
 ];
 
 function Navbar() {
   const [anchorElNav, setAnchorElNav] = useState(null);
-  const [activePage, setActivePage] = useState("/");
-  const location = useLocation();
+  const location = useLocation(); 
+
+  // ADDED THIS: A smarter memory tracker to know exactly which page we are on
+  const isSamePage = useRef(true);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -35,79 +40,125 @@ function Navbar() {
     setAnchorElNav(null);
   };
 
-  // Update active page when location changes
-  React.useEffect(() => {
-    setActivePage(location.pathname);
-  }, [location]);
+  // ADDED THIS: Checks if the button we clicked is on the same page we are currently looking at
+  const handleLinkClick = (path) => {
+    const targetBasePage = path.split('#')[0]; // Grabs just the "/" or "/gallery" part
+    const currentBasePage = location.pathname;
+    
+    // If they match, we are on the same page. If not, we are jumping from somewhere else!
+    isSamePage.current = (targetBasePage === currentBasePage);
+
+    if (path === "/") {
+      window.scrollTo(0, 0);
+    }
+  };
+
+  // UPDATED THIS: Removed the 400ms delay and added the instant vs smooth logic
+  const scrollWithOffset = (el) => {
+    const yCoordinate = el.getBoundingClientRect().top + window.scrollY;
+    const yOffset = -90; 
+    
+    // If we are on the same page, slide smoothly. If coming from another page, snap instantly!
+    window.scrollTo({ 
+      top: yCoordinate + yOffset, 
+      behavior: isSamePage.current ? 'smooth' : 'auto' 
+    });
+  };
+
+  const isLinkActive = (path) => {
+    const currentFullPath = location.pathname + location.hash;
+    if (path === "/") {
+      return currentFullPath === "/";
+    }
+    return currentFullPath === path;
+  };
 
   return (
     <AppBar
       className="customBackground"
-      position="static"
-      sx={{ boxShadow: "none", backgroundColor: "transparent" }}
+      position="sticky" 
+      sx={{ boxShadow: "none" }}
     >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <Box sx={{ flexGrow: 1, display: "flex", alignItems: "center" }}>
-            <Link to="/">
+          {/* Desktop Logo */}
+          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" }, alignItems: "center" }}>
+            <Link to="/" onClick={() => window.scrollTo(0, 0)}>
               <img src={logo} alt="logo" className="logo" />
             </Link>
           </Box>
 
-          <Box sx={{ display: { xs: "none", md: "flex" }, ml: "auto" }}>
-            {pages.map((page) => (
-              <Button
-                key={page.name}
-                sx={{
-                  mx: 1,
-                  color: page.path === activePage ? "red" : "black" // Change color for active page
-                }}
-                style={{ textTransform: "none", fontSize: "17px" }}
-                component={Link}
-                to={page.path}
-              >
-                {page.name}
-              </Button>
-            ))}
-          </Box>
-
+          {/* Mobile Menu Icon */}
           <Box sx={{ display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
-              aria-label="account of current user"
+              aria-label="menu"
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
-              color="black"
+              sx={{ color: "#333" }}
             >
               <MenuIcon />
             </IconButton>
             <Menu
               id="menu-appbar"
               anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "left",
-              }}
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "left",
-              }}
+              anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
+              transformOrigin={{ vertical: "top", horizontal: "left" }}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
+              sx={{ display: { xs: "block", md: "none" } }}
+              PaperProps={{
+                style: {
+                  borderRadius: "15px",
+                  boxShadow: "0px 8px 24px rgba(0, 0, 0, 0.1)",
+                  padding: "10px 0"
+                }
+              }}
             >
               {pages.map((page) => (
-                <MenuItem key={page.name} onClick={handleCloseNavMenu}>
+                <MenuItem key={page.name} onClick={handleCloseNavMenu} className="mobile-menu-item">
                   <Typography
                     component={Link}
                     to={page.path}
-                    style={{ textDecoration: 'none', color: 'inherit' }}
+                    scroll={el => scrollWithOffset(el)} 
+                    onClick={() => handleLinkClick(page.path)} /* APPLIED THE CLICK HANDLER HERE */
+                    style={{ 
+                      textDecoration: 'none', 
+                      color: isLinkActive(page.path) ? "#ec4899" : "#333", 
+                      fontWeight: isLinkActive(page.path) ? 600 : 400,
+                      width: "100%"
+                    }}
                   >
                     {page.name}
                   </Typography>
                 </MenuItem>
               ))}
             </Menu>
+          </Box>
+
+          {/* Mobile Logo */}
+          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" }, justifyContent: "center" }}>
+            <Link to="/" onClick={() => window.scrollTo(0, 0)}>
+              <img src={logo} alt="logo" className="logo" />
+            </Link>
+          </Box>
+
+          {/* Desktop Links */}
+          <Box sx={{ display: { xs: "none", md: "flex" }, ml: "auto", flexWrap: "nowrap" }}>
+            {pages.map((page) => (
+              <Button
+                key={page.name}
+                component={Link}
+                to={page.path}
+                scroll={el => scrollWithOffset(el)} 
+                disableRipple
+                className={`nav-button ${isLinkActive(page.path) ? "active" : ""}`}
+                onClick={() => handleLinkClick(page.path)} /* APPLIED THE CLICK HANDLER HERE */
+              >
+                {page.name}
+              </Button>
+            ))}
           </Box>
         </Toolbar>
       </Container>

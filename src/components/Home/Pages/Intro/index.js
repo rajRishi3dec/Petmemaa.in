@@ -4,6 +4,10 @@ import styled from "styled-components";
 import team1 from "../../../../Assets/Intro/team1.webp";
 import team2 from "../../../../Assets/Intro/team2.webp";
 import team3 from "../../../../Assets/Intro/team3.webp";
+import team4 from "../../../../Assets/Intro/team4.webp";
+import team5 from "../../../../Assets/Intro/team5.webp";
+import team6 from "../../../../Assets/Intro/team6.webp";
+import team7 from "../../../../Assets/Intro/team7.webp";
 
 import {
   InfoContainer,
@@ -22,8 +26,8 @@ import {
   OurLovingTeamHeading,
   OurLovingTeamImages,
   TeamImage,
-  TeamImageText,
   TopLineBold,
+  TeamMemberWrapper, // ADDED THIS: Importing the new wrapper
   // IntroButton,
 } from "./IntroElements";
 
@@ -66,12 +70,45 @@ const InfoSection = () => {
                 </Subtitle>
                 <OurLovingTeam>
                   <OurLovingTeamHeading>Our Loving Team</OurLovingTeamHeading>
+                  
+                  {/* UPDATED THIS SECTION: Wrapped images and added names */}
                   <OurLovingTeamImages>
-                    <TeamImage src={team1} alt="..team1" />
-                    <TeamImage src={team2} alt="..team1" />
-                    <TeamImage src={team3} alt="..team1" />
-                    <TeamImageText>+ 10 more</TeamImageText>
+                    <TeamMemberWrapper>
+                      <TeamImage src={team1} alt="Team Member 1" />
+                      <span>Priyanka Yadav</span> 
+                    </TeamMemberWrapper>
+
+                    <TeamMemberWrapper>
+                      <TeamImage src={team2} alt="Team Member 2" />
+                      <span>Neha Gupta</span>
+                    </TeamMemberWrapper>
+
+                    <TeamMemberWrapper>
+                      <TeamImage src={team3} alt="Team Member 3" />
+                      <span>Dr. Pratyush Gautam</span>
+                    </TeamMemberWrapper>
+
+                    <TeamMemberWrapper>
+                      <TeamImage src={team4} alt="Team Member 4" />
+                      <span>Mukesh Kumar</span>
+                    </TeamMemberWrapper>
+
+                    <TeamMemberWrapper>
+                      <TeamImage src={team5} alt="Team Member 5" />
+                      <span>Abhimanyu Singh</span>
+                    </TeamMemberWrapper>
+
+                    <TeamMemberWrapper>
+                      <TeamImage src={team6} alt="Team Member 6" />
+                      <span>Vikas</span>
+                    </TeamMemberWrapper>
+
+                    <TeamMemberWrapper>
+                      <TeamImage src={team7} alt="Team Member 7" />
+                      <span>Laxman Kalauni</span>
+                    </TeamMemberWrapper>
                   </OurLovingTeamImages>
+                  
                 </OurLovingTeam>
               </TextWrapper>
             </Column1>

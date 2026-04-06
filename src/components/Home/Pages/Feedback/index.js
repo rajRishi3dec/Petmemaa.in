@@ -31,14 +31,14 @@ const Feedback = () => {
   };
 
   const submit = (e) => {
-    e.preventDefault();
+    e.preventDefault(); // Prevents the page from reloading on submit
 
     let templateParams = {
       name: name,
       message: message,
     };
 
-    emailjs.send('service_b9j5yqt', 'template_ccttw9b', templateParams, 'CLFW3seFq9MBl4_Rc')
+    emailjs.send('service_kwl9j42', 'template_v34fkbc', templateParams, 'i3v5KIZxmHKMyr9i-')
       .then((response) => {
         console.log('SUCCESS!', response.status, response.text);
         setStatusMessage("Thank you! Your feedback has been sent successfully.");
@@ -56,7 +56,9 @@ const Feedback = () => {
         <LeftPane>
           <Vector src={vector2} />
         </LeftPane>
-        <MiddlePane>
+        
+        {/* Changed this to act as our Form wrapper */}
+        <MiddlePane onSubmit={submit}>
           <Heading>We're All Ears!</Heading>
           <SubText>Tell Us About Your Pet Experience</SubText>
           <TextBox
@@ -65,20 +67,24 @@ const Feedback = () => {
             placeholder="Pet parent’s name"
             value={name}
             onChange={nameHandler}
+            required /* ADDED THIS */
           />
           <FeedbackBox
-            type="text"
             id="message"
             placeholder="Write your experience here..."
             value={message}
             onChange={messageHandler}
+            required /* ADDED THIS */
           />
           <br />
-          <FeedbackBtn type="button" onClick={submit}>
-            <h3>Share your feedback!</h3>
+          {/* Changed onClick to type="submit" and removed the <h3> for cleaner styling */}
+          <FeedbackBtn type="submit">
+            Share your feedback!
           </FeedbackBtn>
+          
           {statusMessage && <Message>{statusMessage}</Message>}
         </MiddlePane>
+        
         <RightPane>
           <Vector src={vector} />
         </RightPane>

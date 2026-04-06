@@ -1,13 +1,22 @@
 .mainhead {
+    overflow-x: hidden; /* ADD THIS: It forces the browser to hide any horizontal overflow */
+  max-width: 100%;
     display: flex;
     flex-direction: column;
+    position: relative;
     align-items: center;
     padding: 0px;
-    margin-top: -40px;
+    margin-top: -110px;
 }
 
 .head2 {
     width: 100%;
+    
+}
+
+body {
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 @media (max-width: 768px) {

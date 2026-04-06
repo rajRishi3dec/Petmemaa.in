@@ -1,148 +1,108 @@
 import styled from "styled-components";
-import { Link as LinkR } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
+
+export const ServicesContainer = styled.div`
+  background: #EAF7FC; /* Light blue background from the image */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+`;
 
 export const TitleContainer = styled.div`
   text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-  width: 60%;
-  margin-top: 5%;
-  @media screen and (max-width: 900px) {
-    margin-top: 40%;
-    width: 80%;
-  }
+  max-width: 900px;
+  margin-bottom: 40px;
 `;
+
 export const Title = styled.h1`
-  font-weight: 500;
+  font-weight: bold;
   font-size: 48px;
-  line-height: 32px;
-  opacity: 0.8;
+  color: #FFB6C1; /* Pink color */
+  margin-bottom: 20px;
+
   @media screen and (max-width: 900px) {
     font-size: 38px;
   }
 `;
 
-export const SubText = styled.h3`
+export const SubText = styled.p`
+  font-family: 'Inter', sans-serif;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 16px;
-  line-height: 24px;
-  opacity: 0.7;
+  line-height: 26px;
+  letter-spacing: 0.3px;
+  color: #444;
+
   @media screen and (max-width: 900px) {
     font-size: 15px;
   }
 `;
 
-export const ServicesContainer = styled.div`
-  @media screen and (max-width: 900px) {
-    padding-left: 10%;
-    padding-right: 10%;
-  }
-`;
-
 export const ServicesWrapper = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
   display: grid;
-  z-index: 1;
-  height: auto;
-  width: 100%;
-  max-width: 1100px;
-  margin-right: auto;
-  margin-left: auto;
-  justify-content: center;
+  grid-template-columns: repeat(3, 1fr); /* 3 Columns */
+  align-items: stretch;
+  grid-gap: 30px;
+  padding: 0 20px;
 
-  @media screen and (max-width: 900px) {
-    padding: 0 0px;
+  @media screen and (max-width: 1000px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media screen and (max-width: 768px) {
+    grid-template-columns: 1fr;
+    padding: 0;
   }
 `;
 
-export const ServicesRow = styled.div`
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 columns */
-  grid-template-rows: repeat(4, 1fr); /* 4 rows */
+export const ServicesCard = styled(HashLink)`
+  background: #fff;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  grid-column-gap: 50px;
-
-  /* Grid template area, used to define orientation of the columns */
-  grid-template-areas: "col1 col2" "col3 col4" "col5 col6" "col7 col8";
-
-  @media screen and (max-width: 900px) {
-    grid-template-areas: "col1 col1" "col2 col2" "col4 col4" "col3 col3" "col5 col5" "col6 col6" "col8 col8" "col7 col7";
-  }
-`;
-
-// Declare what col1 is
-export const Column1 = styled.div`
-  grid-area: col1;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-`;
-
-// Declare what col2 is
-export const Column2 = styled.div`
-  grid-area: col2;
-`;
-
-// Declare what col3 is
-export const Column3 = styled.div`
-  grid-area: col3;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-`;
-
-// Declare what col4 is
-export const Column4 = styled.div`
-  grid-area: col4;
-`;
-
-// Declare what col5 is
-export const Column5 = styled.div`
-  grid-area: col5;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  @media screen and (max-width: 900px) {
-    margin-top: 20%;
-  }
-`;
-
-// Declare what col6 is
-export const Column6 = styled.div`
-  grid-area: col6;
-  @media screen and (max-width: 900px) {
-    margin-top: 10%;
-  }
-`;
-
-// Declare what col7 is
-export const Column7 = styled.div`
-  grid-area: col7;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-`;
-
-// Declare what col8 is
-export const Column8 = styled.div`
-  grid-area: col8;
-  @media screen and (max-width: 900px) {
-    margin-top: 20%;
-  }
-`;
-
-// Text inside services box
-export const TitleServices = styled.span`
-  font-weight: 500;
-  font-size: 32px;
-  line-height: 48px;
-  @media screen and (max-width: 900px) {
-    line-height: 28px;
-  }
-`;
-
-export const StyledLink = styled(LinkR)`
-  color: #f7b2b0;
-  font-weight: bold;
+  border-radius: 20px;
+  padding-bottom: 30px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
   text-decoration: none;
+  transition: all 0.3s ease-in-out;
+  overflow: hidden;
+
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  }
+`;
+
+export const ServicesIcon = styled.img`
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  margin-bottom: 20px;
+`;
+
+export const TitleServices = styled.h2`
+  font-weight: bold;
+  font-size: 22px;
+  color: #000;
+  margin-bottom: 10px;
+  text-align: center;
+`;
+
+export const CardText = styled.p`
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 26px;
+  letter-spacing: 0.3px;
+  color: #444;
+  padding: 0 25px;
+  line-height: 1.5;
 `;

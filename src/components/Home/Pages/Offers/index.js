@@ -1,6 +1,4 @@
-// ScrollingCard.js
 import React from "react";
-import { Link } from "react-router-dom"; // Import Link from react-router-dom
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -11,12 +9,13 @@ import image2 from "../../../../Assets/Offers/slide2.webp";
 import card2 from "../../../../Assets/Offers/Card2.webp";
 import image3 from "../../../../Assets/Offers/slide3.webp";
 import card3 from "../../../../Assets/Offers/Card3.webp";
-import image4 from "../../../../Assets/Offers/slide4.png"; // Add new image for Playground and Swimming Pool
-import card4 from "../../../../Assets/Offers/card4.png"; // Add new card image for Playground and Swimming Pool
+import image4 from "../../../../Assets/Offers/slide4.png"; 
+import card4 from "../../../../Assets/Offers/card4.png"; 
 import vector from "../../../../Assets/Offers/vector.webp";
 
 import {
   OffersContainer,
+  SliderWrapper, 
   CardContainer,
   HoverContainer,
   ImageContainer,
@@ -44,17 +43,17 @@ const Offers = () => {
     autoplaySpeed: 2000,
     responsive: [
       {
-        breakpoint: 900, // Adjust the breakpoint as needed
+        breakpoint: 900,
         settings: {
           slidesToShow: 1,
         },
       },
-      // Add more breakpoints if necessary
     ],
   };
 
   return (
-    <>
+    <OffersContainer>
+      {/* Title is now inside the main centered container */}
       <TitleContainer>
         <Title><b>Our Offers</b></Title>
         <SubText>
@@ -63,146 +62,132 @@ const Offers = () => {
           memorable experiences.
         </SubText>
       </TitleContainer>
-      <OffersContainer>
-        <br />
-        <br />
+
+      {/* Slider is wrapped so the cards center themselves */}
+      <SliderWrapper>
         <Slider {...settings}>
           <div>
-            <Link to="/services">
-              <CardContainer>
-                <HoverContainer>
-                  <ImageContainer>
-                    <ScrollImage src={image1} alt="Scrolling Image" />
-                    <InnerCard>
-                      <InnerCardHeading>Pet Products</InnerCardHeading>
-                      <InnerCardSubText>20% INAUGURAL DISCOUNT</InnerCardSubText>
-                      <VectorImage src={vector} alt="...loading" />
-                    </InnerCard>
-                  </ImageContainer>
-                  <TextOverlay>
-                    <CardImg src={card1} alt="..loading" />
-                  </TextOverlay>
-                </HoverContainer>
-              </CardContainer>
-            </Link>
+            <CardContainer>
+              <HoverContainer>
+                <ImageContainer>
+                  <ScrollImage src={image1} alt="Scrolling Image" />
+                  <InnerCard>
+                    <InnerCardHeading>Pet Products</InnerCardHeading>
+                    <InnerCardSubText>20% INAUGURAL DISCOUNT</InnerCardSubText>
+                    <VectorImage src={vector} alt="...loading" />
+                  </InnerCard>
+                </ImageContainer>
+                <TextOverlay>
+                  <CardImg src={card1} alt="..loading" />
+                </TextOverlay>
+              </HoverContainer>
+            </CardContainer>
           </div>
           <div>
-            <Link to="/services">
-              <CardContainer>
-                <HoverContainer>
-                  <ImageContainer>
-                    <ScrollImage src={image3} alt="Scrolling Image" />
-                    <InnerCard>
-                      <InnerCardHeading>Pet Grooming</InnerCardHeading>
-                      <InnerCardSubText>Starting at ₹849</InnerCardSubText>
-                      <VectorImage src={vector} alt="...loading" />
-                    </InnerCard>
-                  </ImageContainer>
-                  <TextOverlay>
-                    <CardImg src={card3} alt="..loading" />
-                  </TextOverlay>
-                </HoverContainer>
-              </CardContainer>
-            </Link>
+            <CardContainer>
+              <HoverContainer>
+                <ImageContainer>
+                  <ScrollImage src={image3} alt="Scrolling Image" />
+                  <InnerCard>
+                    <InnerCardHeading>Pet Grooming</InnerCardHeading>
+                    <InnerCardSubText>Starting at ₹849</InnerCardSubText>
+                    <VectorImage src={vector} alt="...loading" />
+                  </InnerCard>
+                </ImageContainer>
+                <TextOverlay>
+                  <CardImg src={card3} alt="..loading" />
+                </TextOverlay>
+              </HoverContainer>
+            </CardContainer>
           </div>
           <div>
-            <Link to="/services">
-              <CardContainer>
-                <HoverContainer>
-                  <ImageContainer>
-                    <ScrollImage src={image2} alt="Scrolling Image" />
-                    <InnerCard>
-                      <InnerCardHeading>Home Away From Home</InnerCardHeading>
-                      <InnerCardSubText>Starting at ₹800</InnerCardSubText>
-                      <VectorImage src={vector} alt="...loading" />
-                    </InnerCard>
-                  </ImageContainer>
-                  <TextOverlay>
-                    <CardImg src={card2} alt="..loading" />
-                  </TextOverlay>
-                </HoverContainer>
-              </CardContainer>
-            </Link>
+            <CardContainer>
+              <HoverContainer>
+                <ImageContainer>
+                  <ScrollImage src={image2} alt="Scrolling Image" />
+                  <InnerCard>
+                    <InnerCardHeading>Home Away From Home</InnerCardHeading>
+                    <InnerCardSubText>Starting at ₹800</InnerCardSubText>
+                    <VectorImage src={vector} alt="...loading" />
+                  </InnerCard>
+                </ImageContainer>
+                <TextOverlay>
+                  <CardImg src={card2} alt="..loading" />
+                </TextOverlay>
+              </HoverContainer>
+            </CardContainer>
           </div>
           <div>
-            <Link to="/services">
-              <CardContainer>
-                <HoverContainer>
-                  <ImageContainer>
-                    <ScrollImage src={image1} alt="Scrolling Image" />
-                    <InnerCard>
-                      <InnerCardHeading>Pet Products</InnerCardHeading>
-                      <InnerCardSubText>20% INAUGURAL DISCOUNT</InnerCardSubText>
-                      <VectorImage src={vector} alt="...loading" />
-                    </InnerCard>
-                  </ImageContainer>
-                  <TextOverlay>
-                    <CardImg src={card1} alt="..loading" />
-                  </TextOverlay>
-                </HoverContainer>
-              </CardContainer>
-            </Link>
+            <CardContainer>
+              <HoverContainer>
+                <ImageContainer>
+                  <ScrollImage src={image1} alt="Scrolling Image" />
+                  <InnerCard>
+                    <InnerCardHeading>Pet Products</InnerCardHeading>
+                    <InnerCardSubText>20% INAUGURAL DISCOUNT</InnerCardSubText>
+                    <VectorImage src={vector} alt="...loading" />
+                  </InnerCard>
+                </ImageContainer>
+                <TextOverlay>
+                  <CardImg src={card1} alt="..loading" />
+                </TextOverlay>
+              </HoverContainer>
+            </CardContainer>
           </div>
           <div>
-            <Link to="/services">
-              <CardContainer>
-                <HoverContainer>
-                  <ImageContainer>
-                    <ScrollImage src={image3} alt="Scrolling Image" />
-                    <InnerCard>
-                      <InnerCardHeading>Pet Grooming</InnerCardHeading>
-                      <InnerCardSubText>Starting at ₹849</InnerCardSubText>
-                      <VectorImage src={vector} alt="...loading" />
-                    </InnerCard>
-                  </ImageContainer>
-                  <TextOverlay>
-                    <CardImg src={card3} alt="..loading" />
-                  </TextOverlay>
-                </HoverContainer>
-              </CardContainer>
-            </Link>
+            <CardContainer>
+              <HoverContainer>
+                <ImageContainer>
+                  <ScrollImage src={image3} alt="Scrolling Image" />
+                  <InnerCard>
+                    <InnerCardHeading>Pet Grooming</InnerCardHeading>
+                    <InnerCardSubText>Starting at ₹849</InnerCardSubText>
+                    <VectorImage src={vector} alt="...loading" />
+                  </InnerCard>
+                </ImageContainer>
+                <TextOverlay>
+                  <CardImg src={card3} alt="..loading" />
+                </TextOverlay>
+              </HoverContainer>
+            </CardContainer>
           </div>
           <div>
-            <Link to="/services">
-              <CardContainer>
-                <HoverContainer>
-                  <ImageContainer>
-                    <ScrollImage src={image2} alt="Scrolling Image" />
-                    <InnerCard>
-                      <InnerCardHeading>Home Away From Home</InnerCardHeading>
-                      <InnerCardSubText>Starting at ₹800</InnerCardSubText>
-                      <VectorImage src={vector} alt="...loading" />
-                    </InnerCard>
-                  </ImageContainer>
-                  <TextOverlay>
-                    <CardImg src={card2} alt="..loading" />
-                  </TextOverlay>
-                </HoverContainer>
-              </CardContainer>
-            </Link>
+            <CardContainer>
+              <HoverContainer>
+                <ImageContainer>
+                  <ScrollImage src={image2} alt="Scrolling Image" />
+                  <InnerCard>
+                    <InnerCardHeading>Home Away From Home</InnerCardHeading>
+                    <InnerCardSubText>Starting at ₹800</InnerCardSubText>
+                    <VectorImage src={vector} alt="...loading" />
+                  </InnerCard>
+                </ImageContainer>
+                <TextOverlay>
+                  <CardImg src={card2} alt="..loading" />
+                </TextOverlay>
+              </HoverContainer>
+            </CardContainer>
           </div>
           <div>
-            <Link to="/services">
-              <CardContainer>
-                <HoverContainer>
-                  <ImageContainer>
-                    <ScrollImage src={image4} alt="Scrolling Image" />
-                    <InnerCard>
-                      <InnerCardHeading>Playground and Swimming Pool</InnerCardHeading>
-                      <InnerCardSubText>Starting at ₹299</InnerCardSubText>
-                      <VectorImage src={vector} alt="...loading" />
-                    </InnerCard>
-                  </ImageContainer>
-                  <TextOverlay>
-                    <CardImg src={card4} alt="..loading" />
-                  </TextOverlay>
-                </HoverContainer>
-              </CardContainer>
-            </Link>
+            <CardContainer>
+              <HoverContainer>
+                <ImageContainer>
+                  <ScrollImage src={image4} alt="Scrolling Image" />
+                  <InnerCard>
+                    <InnerCardHeading>Playground and Swimming Pool</InnerCardHeading>
+                    <InnerCardSubText>Starting at ₹299</InnerCardSubText>
+                    <VectorImage src={vector} alt="...loading" />
+                  </InnerCard>
+                </ImageContainer>
+                <TextOverlay>
+                  <CardImg src={card4} alt="..loading" />
+                </TextOverlay>
+              </HoverContainer>
+            </CardContainer>
           </div>
         </Slider>
-      </OffersContainer>
-    </>
+      </SliderWrapper>
+    </OffersContainer>
   );
 };
 

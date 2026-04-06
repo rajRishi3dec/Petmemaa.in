@@ -150,16 +150,25 @@
 
 .text {
 
-    font-size: 16px;
-    font-weight: 500;
-    /* margin-top: -20px; */
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 26px;
+  letter-spacing: 0.3px;
+  color: #444;
 
 
 }
 .funtext{
     
-    font-size: 16px;
-    font-weight: 500;
+    font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 26px;
+  letter-spacing: 0.3px;
+  color: #444;
 }
 
 .imgr {
@@ -194,7 +203,7 @@
 .item2 {
     flex: 3;
     text-align: center;
-
+    
 
 
 }
@@ -210,11 +219,13 @@
 }
 
 .textnew {
-    color: black;
-    font-size: 16px;
-    font-weight: 400;
-    margin-right: 20%;
-    text-align: center;
+    font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 26px;
+  letter-spacing: 0.3px;
+  color: #444;
 
 }
 
@@ -263,9 +274,13 @@
 }
 
 .text5 {
-    color: black;
-    font-size: 14px;
-    font-weight: 400;
+    font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 26px;
+  letter-spacing: 0.3px;
+  color: #444;
     text-align: center;
 
 }
@@ -279,9 +294,13 @@
 }
 
 .text2 {
-    color: black;
-    font-size: 16px;
-    font-weight: 400;
+    font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 26px;
+  letter-spacing: 0.3px;
+  color: #444;
     width: 90%;
 
 }
@@ -325,9 +344,13 @@
     padding-top: 2%;
     padding-left: 30%;
     padding-right: 30%;
-    color: black;
-    font-size: 16px;
-    font-weight: 500;
+    font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 26px;
+  letter-spacing: 0.3px;
+  color: #444;
     text-align: center;
 }
 

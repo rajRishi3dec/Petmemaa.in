@@ -36,17 +36,18 @@ const Footer = () => {
               <FooterLinkItems>
                 <FooterLogoImage src={logo} alt="...loading" />
                 <span
-                  style={{
-                    fontSize: "14px",
-                    opacity: "0.8",
-                    fontStyle: "normal",
-                    fontWeight: "500",
-                    lineHeight: "21px",
-                    marginTop: "10px",
-                  }}
-                >
-                  We love to extend the family of Pet Me Maa!
-                </span>
+  style={{
+    fontFamily: "'Inter', sans-serif", /* Added font family here */
+    fontSize: "14px",
+    opacity: "0.8",
+    fontStyle: "normal",
+    fontWeight: "500",
+    lineHeight: "21px",
+    marginTop: "10px",
+  }}
+>
+  We love to extend the family of Pet Me Maa!
+</span>
               </FooterLinkItems>
             </FooterLinksWrapper>
             <FooterLinksWrapper>

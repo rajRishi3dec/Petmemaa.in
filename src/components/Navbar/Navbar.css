@@ -1,41 +1,99 @@
-.logo {
-  max-width: 130px;
-  max-height: 130px;
-  width: 100%;
-  height: auto;
-  margin-left: 0; /* Remove left margin */
-}
+@import "~@fontsource/m-plus-rounded-1c/index.css";
 
+/* Attractive glass-like gradient background */
 .customBackground {
-  background: rgb(0, 0, 0);
   background: linear-gradient(
-    335deg,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(255, 239, 239, 0.9234287464985994) 100%
-  );
+    135deg,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(253, 242, 242, 0.9) 100%
+  ) !important; /* !important overrides default MUI Appbar color */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(247, 178, 176, 0.3);
+  transition: all 0.3s ease-in-out;
+  z-index: 1000;
 }
 
+.logo {
+  max-width: 120px;
+  height: auto;
+  margin-left: 0;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.logo:hover {
+  transform: scale(1.08) rotate(-2deg);
+}
+
+/* Mobile dropdown menu item hover effect */
+.mobile-menu-item {
+  font-family: "M PLUS Rounded 1c", sans-serif;
+  transition: background-color 0.2s ease;
+  margin: 0 10px;
+  border-radius: 8px;
+}
+
+.mobile-menu-item:hover {
+  background-color: rgba(247, 178, 176, 0.15) !important;
+}
+
+/* Kept your original loginButton logic and enhanced it */
 .loginButton {
-  background: #f7b2b0;
+  background: #ec4899;
+  color: #fff;
   border-radius: 110px;
   border: none;
-  width: 15%;
-  margin-left: 4%;
+  padding: 10px 24px;
+  font-weight: bold;
+  font-family: "M PLUS Rounded 1c", sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(247, 178, 176, 0.4);
 }
 
 .loginButton:hover {
   background: #d2f2fa;
+  color: #333;
+  box-shadow: 0 6px 15px rgba(210, 242, 250, 0.6);
+  transform: translateY(-2px);
 }
 
 /* Media query for mobile devices */
 @media only screen and (max-width: 900px) {
   .logo {
-    max-width: 30%;
-    margin-left: 0;
+    max-width: 90px;
     margin-bottom: 0px;
   }
+}
 
-  .MuiButton-root {
-    margin-left: 0; /* Ensure no left margin on buttons */
-  }
+/* =========================================
+   Modern Navbar Link Styling
+========================================= */
+
+.nav-button {
+  color: #4a5568 !important; /* Elegant dark slate color */
+  font-weight: 600 !important;
+  font-size: 15px !important;
+  font-family: "M PLUS Rounded 1c", sans-serif !important;
+  text-transform: none !important;
+  letter-spacing: 0.3px;
+  border-radius: 30px !important; /* Perfectly rounded pill shape */
+  padding: 6px 16px !important;
+  margin: 0 4px !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Hover Effect for Inactive Links */
+.nav-button:hover:not(.active) {
+  color: #ffffff !important; /* White text to stand out against the bright pink */
+  background-color: #ec4899 !important; /* Solid bright pink background */
+  box-shadow: 0 4px 10px rgba(236, 72, 153, 0.3) !important; /* Adds a nice matching glow */
+  transform: translateY(-2px);
+}
+/* Active Page Style - Gradient Pill with Glow */
+.nav-button.active {
+  color: #ffffff !important; /* White text */
+  background: linear-gradient(135deg, #fca5a5 0%, #ec4899 100%) !important; /* Beautiful pink gradient */
+  box-shadow: 0 4px 12px rgba(236, 72, 153, 0.35) !important; /* Soft glowing shadow */
+  transform: translateY(-1px);
 }

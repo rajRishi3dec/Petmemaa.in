@@ -19,7 +19,6 @@ import fun4 from '../../Assets/Pageservices/fun4.png'
 import groom from '../../Assets/Pageservices/groom.png'
 import house from '../../Assets/Pageservices/house.png'
 import mand from '../../Assets/Pageservices/mand.png'
-
 import top from '../../Assets/Pageservices/top.png'
 import vet from '../../Assets/Pageservices/vet.png'
 import maskfun from '../../Assets/Pageservices/maskfun.png'

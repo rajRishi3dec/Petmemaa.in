@@ -1,113 +1,121 @@
 import React from "react";
-import { HashLink as Link } from "react-router-hash-link";
 import services1 from "../../../../Assets/Services/services1.webp";
 import services2 from "../../../../Assets/Services/services2.webp";
 import services3 from "../../../../Assets/Services/services3.webp";
 import services4 from "../../../../Assets/Services/services4.webp";
+import services5 from "../../../../Assets/Services/services5.webp";
+import services6 from "../../../../Assets/Services/services6.webp";
+import services7 from "../../../../Assets/Services/services7.webp";
+import services8 from "../../../../Assets/Services/services8.webp";
+import services9 from "../../../../Assets/Services/services9.webp";
+
 import {
+  ServicesContainer,
+  TitleContainer,
   Title,
   SubText,
-  ServicesContainer,
   ServicesWrapper,
-  ServicesRow,
-  Column1,
-  Column2,
-  Column3,
-  Column4,
-  Column5,
-  Column6,
-  Column7,
-  Column8,
+  ServicesCard,
+  ServicesIcon,
   TitleServices,
-  TitleContainer,
+  CardText
 } from "./ServiceElements";
 
 const Services = () => {
   return (
-    <>
+    <ServicesContainer id="services">
       <TitleContainer>
-        <Title><b>Our Services</b></Title>
+        <Title>Our Services</Title>
         <SubText>
-          At Pet Me Maa, we pamper pets like royalty because even fur babies
-          deserve a good hair day and a wagging tail time!
+          At Pet Me Maa, we go beyond ordinary dog care. We're a full-service heaven where your furry family members are treated with love, comfort, and top-tier care. Our offerings include:
         </SubText>
       </TitleContainer>
 
-      <ServicesContainer>
-        <ServicesWrapper>
-          <ServicesRow>
-            <Column1>
-              <img src={services1} style={{ width: "100%" }} alt="services1" />
-            </Column1>
-            <Column2>
-              <TitleServices><b>Pet Boarding</b></TitleServices>
-              <SubText>
-                Planning a trip or need a safe place for your pet to stay while
-                you're at work? Our boarding and daycare facilities provide a
-                comfortable and secure environment where your pet can socialize,
-                exercise, and relax under the supervision of our caring staff.
-              </SubText>
-              <Link to="/services#petboard" style={{ color: '#f7b2b0', fontWeight: 'bold', textDecoration: 'none' }}>
-                View Services ›
-              </Link>
-            </Column2>
+      <ServicesWrapper>
+        {/* Card 1 */}
+        <ServicesCard>
+          <ServicesIcon src={services1} alt="Boarding/Daycare" />
+          <TitleServices>Boarding/Daycare</TitleServices>
+          <CardText>
+            Comfortable, clean, and fully supervised accommodations that make your pet feel safe and loved while you're away.
+          </CardText>
+        </ServicesCard>
 
-            <Column3>
-              <TitleServices><b>Veterinary Consultation</b></TitleServices>
-              <SubText>
-                We provide top-tier veterinary consultations with a focus on
-                your pet's well-being. Our team of dedicated and experienced
-                veterinarians is committed to offering personalized care and
-                expert advice to keep your furry family members happy and
-                healthy.
-              </SubText>
-              <Link to="/services#vet" style={{ color: '#f7b2b0', fontWeight: 'bold', textDecoration: 'none' }}>
-                View Services ›
-              </Link>
-            </Column3>
-            <Column4>
-              <img src={services2} style={{ width: "100%" }} alt="services2" />
-            </Column4>
+        {/* Card 2 */}
+        <ServicesCard>
+          <ServicesIcon src={services2} alt="Grooming" />
+          <TitleServices>Grooming</TitleServices>
+          <CardText>
+            Pamper your pup with our professional grooming services — from basic baths to stylish makeovers.
+          </CardText>
+        </ServicesCard>
 
-            <Column5>
-              <img src={services3} style={{ width: "100%" }} alt="services1" />
-            </Column5>
-            <Column6>
-              <TitleServices><b>Pet Grooming</b></TitleServices>
-              <SubText>
-                Treat your pet to a day of pampering with our professional
-                grooming services. From baths and brush-outs to breed-specific
-                haircuts and nail trims, we'll help your pet look and feel their
-                best. Indulge your pet with our luxurious spa treatments,
-                including soothing massages, moisturizing paw treatments, and
-                aromatherapy baths. Our spa services are designed to promote
-                relaxation, rejuvenation, and overall well-being.
-              </SubText>
-              <Link to="/services#petgroom" style={{ color: '#f7b2b0', fontWeight: 'bold', textDecoration: 'none' }}>
-                View Services ›
-              </Link>
-            </Column6>
+        {/* Card 3 */}
+        <ServicesCard>
+          <ServicesIcon src={services3} alt="Veterinary Care" />
+          <TitleServices>Veterinary Care</TitleServices>
+          <CardText>
+            All types of veterinary support for routine checkups, preventive care, and emergencies — your pet's health is in expert hands.
+          </CardText>
+        </ServicesCard>
 
-            <Column7>
-              <TitleServices><b>Pet Schooling</b></TitleServices>
-              <SubText>
-                Training and playtime are not only fun for your pet but also
-                essential for their overall health and well-being. Regular
-                mental and physical stimulation can help prevent boredom, reduce
-                stress and anxiety, and strengthen the bond between you and your
-                pet.
-              </SubText>
-              <Link to="/services#petschool" style={{ color: '#f7b2b0', fontWeight: 'bold', textDecoration: 'none' }}>
-                View Services ›
-              </Link>
-            </Column7>
-            <Column8>
-              <img src={services4} style={{ width: "100%" }} alt="services2" />
-            </Column8>
-          </ServicesRow>
-        </ServicesWrapper>
-      </ServicesContainer>
-    </>
+        {/* Card 4 */}
+        <ServicesCard>
+          <ServicesIcon src={services4} alt="Shopping Boutique" />
+          <TitleServices>Shopping Boutique</TitleServices>
+          <CardText>
+            Explore our curated collection of pet toys, accessories, treats, and essentials — all under one roof.
+          </CardText>
+        </ServicesCard>
+
+        {/* Card 5 */}
+        <ServicesCard>
+          <ServicesIcon src={services5} alt="Swimming Pool" />
+          <TitleServices>Swimming Pool</TitleServices>
+          <CardText>
+            Let your dog dive into joy! Our secure pet-friendly pool is perfect for exercise, therapy, or just splashing fun.
+          </CardText>
+        </ServicesCard>
+
+        {/* Card 6 */}
+        <ServicesCard>
+          <ServicesIcon src={services6} alt="Cafeteria" />
+          <TitleServices>Cafeteria</TitleServices>
+          <CardText>
+            At Cafe Pooch, every guest matters—two-legged or four!
+            Cafe Pooch, where we serve you delicious cuisines to be enjoyed with family and friends along with your furry companion.
+          </CardText>
+        </ServicesCard>
+
+        {/* Card 7 */}
+        <ServicesCard>
+          <ServicesIcon src={services7} alt="Training/School" />
+          <TitleServices>Training/School</TitleServices>
+          <CardText>
+            Opportunities for basic obedience training and supervised socialization sessions for your pups.
+          </CardText>
+        </ServicesCard>
+
+        {/* Card 8 */}
+        <ServicesCard>
+          <ServicesIcon src={services8} alt="Pick and drop" />
+          <TitleServices>Pick and drop</TitleServices>
+          <CardText>
+            Busy day? We offer reliable and safe pick-up and drop-off services for your furry friend.
+          </CardText>
+        </ServicesCard>
+
+        {/* Card 9 */}
+        <ServicesCard>
+          <ServicesIcon src={services9} alt="Playground" />
+          <TitleServices>Playground</TitleServices>
+          <CardText>
+            A safe and supervised indoor/outdoor play zone for your dogs to socialize and burn off energy.
+          </CardText>
+        </ServicesCard>
+        
+      </ServicesWrapper>
+    </ServicesContainer>
   );
 };
 
