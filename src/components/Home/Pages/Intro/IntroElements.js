@@ -24,7 +24,7 @@ export const InfoWrapper = styled.div`
   justify-content: center;
 
   @media screen and (max-width: 900px) {
-    padding: 0 0px;
+    padding: 0 15px; /* Added slight padding so text doesn't touch screen edges */
   }
 `;
 
@@ -32,35 +32,40 @@ export const InfoRow = styled.div`
   display: grid;
   grid-auto-columns: minmax(auto, 1fr);
   align-items: center;
-
-  /* Grid template area, used to define orientation of the columns */
   grid-template-areas: "col1 col2";
 
   @media screen and (max-width: 900px) {
     grid-template-areas: "col1 col1" "col2 col2";
+    gap: 20px; /* Added gap to separate stacked columns on mobile */
   }
 `;
 
-// Declare what col1 is
 export const Column1 = styled.div`
   padding: 0 8px;
   grid-area: col1;
+  @media screen and (max-width: 900px) {
+    padding: 0;
+    text-align: center; /* Center text on mobile for better flow */
+  }
 `;
 
-// Declare what col2 is
 export const Column2 = styled.div`
   padding: 0 0 0 120px;
   grid-area: col2;
   @media screen and (max-width: 900px) {
-    padding: 0 0 0 50px;
+    padding: 0;
+    display: flex;
+    justify-content: center; /* Centers the image perfectly on mobile */
   }
 `;
 
 export const ImgWrap = styled.img`
   max-width: 500px;
+  width: 100%; /* Ensures it shrinks on very small screens */
+  height: auto;
   @media screen and (max-width: 900px) {
     max-width: 290px;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
   }
 `;
 
@@ -68,6 +73,9 @@ export const TextWrapper = styled.div`
   max-width: 600px;
   padding-top: 0;
   padding-bottom: 60px;
+  @media screen and (max-width: 900px) {
+    padding-bottom: 20px; /* Reduced padding for mobile */
+  }
 `;
 
 export const TopLine = styled.span`
@@ -76,6 +84,10 @@ export const TopLine = styled.span`
   letter-spacing: 1.4px;
   font-size: 52px;
   line-height: 78px;
+  @media screen and (max-width: 900px) {
+    font-size: 38px;
+    line-height: 48px;
+  }
   @media screen and (max-width: 480px) {
     font-size: 32px;
     line-height: 40px;
@@ -87,6 +99,10 @@ export const TopLineBold = styled.span`
   letter-spacing: 1.4px;
   font-size: 52px;
   line-height: 78px;
+  @media screen and (max-width: 900px) {
+    font-size: 38px;
+    line-height: 48px;
+  }
   @media screen and (max-width: 480px) {
     font-size: 32px;
     line-height: 40px;
@@ -95,13 +111,11 @@ export const TopLineBold = styled.span`
 
 export const Heading = styled.p`
   font-family: 'Inter', sans-serif;
-  font-style: normal;
   font-weight: 500;
   font-size: 16px;
   line-height: 26px;
   letter-spacing: 0.3px;
   color: #444;
-
   @media screen and (max-width: 480px) {
     font-size: 15px;
   }
@@ -111,6 +125,10 @@ export const Subtitle = styled.p`
   max-width: 440px;
   font-size: 18px;
   line-height: 24px;
+  @media screen and (max-width: 900px) {
+    margin-left: auto;
+    margin-right: auto; /* Centers the subtitle on mobile */
+  }
 `;
 
 export const GifWrap = styled.img`
@@ -129,14 +147,21 @@ export const ContactBtn = styled.button`
   border-radius: 110px;
   border: none;
   width: 100%;
+  max-width: 300px; /* Prevents button from being massively wide on desktop */
   height: 50px;
-  padding-right: 10px;
-  padding-left: 10px;
-
-  margin-right: 10%;
+  padding: 0 20px;
   margin-top: 5%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
   &:hover {
-    background: #d2f2fa; /* Set your desired hover color here */
+    background: #d2f2fa;
+    color: #333;
+  }
+
+  @media screen and (max-width: 900px) {
+    margin: 20px auto 0 auto; /* Centers the button on mobile */
+    display: block;
   }
 `;
 
@@ -144,14 +169,17 @@ export const OurLovingTeam = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 5%;
-  font-weight: 500px;
+  font-weight: 500; /* FIXED TYPO: removed 'px' */
   font-size: 16px;
   line-height: 26px;
   letter-spacing: 0.3px;
+
+  @media screen and (max-width: 900px) {
+    align-items: center; /* Center team title on mobile */
+  }
 `;
 
 export const OurLovingTeamHeading = styled.span`
-  font-style: normal;
   font-weight: 600;
   font-size: 22px;
   line-height: 27px;
@@ -163,11 +191,17 @@ export const OurLovingTeamImages = styled.div`
   display: flex;
   align-items: center;
   gap: 40px; 
-  /* Added padding so the massive scale(5.0) image and text have room to expand downwards */
   padding-bottom: 120px; 
+
+  /* FIXED FOR MOBILE: Makes the images wrap to a new line instead of overflowing */
+  @media screen and (max-width: 900px) {
+    flex-wrap: wrap; 
+    justify-content: center; 
+    padding-bottom: 60px; /* Reduced bottom padding for mobile */
+    gap: 20px;
+  }
 `;
 
-/* The new wrapper that controls both the image and the name tag */
 export const TeamMemberWrapper = styled.div`
   position: relative;
   display: flex;
@@ -176,7 +210,6 @@ export const TeamMemberWrapper = styled.div`
   justify-content: center;
   cursor: pointer;
 
-  /* Normal State for the Name (Hidden) */
   span {
     position: absolute;
     bottom: -10px; 
@@ -196,7 +229,6 @@ export const TeamMemberWrapper = styled.div`
     transform: scale(0.5); 
   }
 
-  /* What happens when you hover over the team member */
   &:hover {
     img {
       transform: scale(5.0); 
@@ -207,8 +239,20 @@ export const TeamMemberWrapper = styled.div`
     
     span {
       opacity: 1; 
-      bottom: -140px; /* Drops down under the 5.0 image */
+      bottom: -140px; 
       transform: scale(1); 
+    }
+  }
+
+  /* Adjust hover scale on mobile so it doesn't break the screen layout */
+  @media screen and (max-width: 900px) {
+    &:hover {
+      img {
+        transform: scale(3.5); /* Slightly smaller scale for mobile */
+      }
+      span {
+        bottom: -90px;
+      }
     }
   }
 `;
@@ -216,7 +260,6 @@ export const TeamMemberWrapper = styled.div`
 export const TeamImage = styled.img`
   width: 64px;
   height: 64px;
-  margin-right: 2%;
   transform: scale(1.5); 
   border-radius: 45%; 
   object-fit: cover; 
@@ -239,9 +282,8 @@ export const MainHeading = styled.h1`
   font-size: 42px;
   color: #1a202c; 
   font-weight: bold;
-  margin-top: 10px;
-  margin-bottom: 6px; 
   margin-top: 0;
+  margin-bottom: 6px; 
 
   @media screen and (max-width: 768px) {
     font-size: 32px;
@@ -268,16 +310,14 @@ export const FounderName = styled.h2`
   font-size: 28px;
   color: #ec4899; 
   font-weight: 400;
-  margin-bottom: 8px;
   margin-top: 0;
+  margin-bottom: 8px;
 `;
 
 export const FounderTitle = styled.p`
-  margin-bottom: 30px;
   margin-top: 0;
-  font-weight: 400;
+  margin-bottom: 30px;
   font-family: 'Inter', sans-serif;
-  font-style: normal;
   font-weight: 500;
   font-size: 16px;
   line-height: 26px;
@@ -289,11 +329,15 @@ export const QuoteContainer = styled.div`
   border-left: 4px solid #fca5a5; 
   padding-left: 20px;
   margin-left: 4px;
+
+  @media screen and (max-width: 900px) {
+    margin-left: 0; /* Align perfectly on mobile */
+  }
 `;
 
 export const QuoteText = styled.p`
   font-family: 'Inter', sans-serif;
-  font-style: Italic;
+  font-style: italic;
   font-weight: 500;
   font-size: 16px;
   line-height: 26px;
@@ -301,21 +345,21 @@ export const QuoteText = styled.p`
   color: #444;
   margin: 0;
   text-align: justify; 
-
-  @media screen and (max-width: 768px) {
-    font-size: 16px;
-  }
 `;
 
 export const SecondaryContainer = styled.div`
   scroll-margin-top: 100px; 
-  /* ZERO bottom padding to remove the gap above the next image */
   padding: 100px; 
   background: #EAF7FC;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-bottom: 0;
+
+  /* FIXED FOR MOBILE: 100px padding is way too large for phones */
+  @media screen and (max-width: 900px) {
+    padding: 50px 20px; 
+  }
 `;
 
 export const SecondaryWrapper = styled.div`
@@ -331,11 +375,11 @@ export const SecondaryWrapper = styled.div`
     flex-direction: column; 
     align-items: center; 
     text-align: center;
+    gap: 30px; /* Reduced gap between stacked items on mobile */
   }
 `;
 
 export const ImgWrapLook = styled.img`
-  /* INCREASED size based on previous request */
   max-width: 550px;
   width: 100%; 
   height: auto; 
@@ -343,8 +387,7 @@ export const ImgWrapLook = styled.img`
   object-fit: contain; 
 
   @media screen and (max-width: 900px) {
-    max-width: 400px;
-    height: auto; 
+    max-width: 100%; /* Allows image to fill the safe mobile area */
   }
 `;
 
@@ -357,6 +400,8 @@ export const ContentContainer = styled.div`
 
   @media screen and (max-width: 900px) {
     align-items: center;
+    width: 100%;
+    
     .quote-container {
        text-align: left;
     }

@@ -352,15 +352,10 @@ body {
 }
 
 .map_part {
-  margin-top: 30px;
-  display: flex;
-  max-width: 1000px; /* Added this so it doesn't stretch too far on big screens */
-  align-items: center;
-  justify-content: center;
-  border-radius: 30px;
-  padding: 10px;
-  width: 90%;        /* CHANGED THIS from 700vh */
-  height: 300px;
+    margin-top: 20px;
+    width: 100%;        /* ADD THIS */
+    max-width: 300px;   /* CHANGE FROM width to max-width */
+    height: 200px;
 }
 
 .timecss {

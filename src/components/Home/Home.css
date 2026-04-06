@@ -1,6 +1,17 @@
+* {
+    box-sizing: border-box; /* This prevents padding from pushing elements off the screen */
+}
+
+body {
+    overflow-x: hidden;
+    max-width: 100vw;
+    margin: 0;
+    padding: 0;
+}
+
 .mainhead {
-    overflow-x: hidden; /* ADD THIS: It forces the browser to hide any horizontal overflow */
-  max-width: 100%;
+    overflow-x: hidden; 
+    max-width: 100%;
     display: flex;
     flex-direction: column;
     position: relative;
@@ -11,24 +22,25 @@
 
 .head2 {
     width: 100%;
-    
 }
 
-body {
-  overflow-x: hidden;
-  max-width: 100%;
+img {
+    max-width: 100%; /* Ensures all images shrink to fit */
+    height: auto;
 }
 
 @media (max-width: 768px) {
     .mainhead {
-        margin-top: 0%;
-        display: none;
-        flex-direction: column;
         margin-top: -10px;
-
+        display: flex; /* Changed from 'none' so your header doesn't disappear */
+        flex-direction: column;
+        width: 100%;
+        padding: 15px;
     }
-    .head2{
+    
+    .head2 {
         width: 100%;
         display: flex;
+        flex-direction: column; /* Ensures inner items stack */
     }
 }
