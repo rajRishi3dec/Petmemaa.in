@@ -1,571 +1,526 @@
-
 @import "~@fontsource/m-plus-rounded-1c/index.css";
 
 body {
     font-family: "M PLUS Rounded 1c", sans-serif;
 }
-/* In your CSS file or component styles */
-
 
 .topmost {
-  overflow-x: hidden; /* ADD THIS: It forces the browser to hide any horizontal overflow */
-  max-width: 100%;
-  display: flex;
-  max-width: 100%;
-  flex-direction: column;
-  position: relative;
-  justify-items: center;
-  align-items: center;
-  padding-top: 3%;
-  background: rgb(0, 0, 0);
-  background: linear-gradient(300deg,
-      rgba(0, 0, 0, 0) 0%,
-      rgba(255, 239, 239, 0.6125043767507004) 100%);
+    overflow-x: hidden;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    justify-items: center;
+    align-items: center;
+    padding-top: 3%;
+    background: rgb(0, 0, 0);
+    background: linear-gradient(300deg,
+        rgba(0, 0, 0, 0) 0%,
+        rgba(255, 239, 239, 0.6125043767507004) 100%);
 }
 
 .first {
-  margin-top: 20px;
-  flex-direction: row;
-  align-items: center;
-  display: flex;
-  justify-content: center;
+    margin-top: 20px;
+    flex-direction: row;
+    align-items: center;
+    display: flex;
+    justify-content: center;
 }
 
 .innerfirst {
-
-  display: flex;
-  flex-direction: column;
-  max-width: 100%;
-  align-items: left;
-  margin-left: 10%;
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    align-items: left;
+    margin-left: 10%;
 }
 
 .get {
-  color: 'black';
-  font-Size: 52px;
-  font-style: normal;
-  font-Weight: 300;
-  font-family: 'Roboto', sans-serif;
+    color: black;
+    font-size: 52px;
+    font-style: normal;
+    font-weight: 300;
+    font-family: 'Roboto', sans-serif;
 }
 
 .getxt {
-  font-family: 'Inter', sans-serif;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 26px;
-  letter-spacing: 0.3px;
-  color: #444;
-  margin-top: -22px;
-  /* font-family: 'Roboto', sans-serif; */
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 26px;
+    letter-spacing: 0.3px;
+    color: #444;
+    margin-top: -22px;
 }
 
 .firstbtn {
-  /* font-family: 'Roboto', sans-serif; */
-  width: fit-content;
-  height: fit-content;
-  padding-left: 15px;
-  padding-right: 15px;
-  padding-top: 11px;
-  padding-bottom: 11px;
-  background: #8AB9DA;
-  border-radius: 15px;
-  justify-content: center;
-  align-items: center;
-  font-size: 13.33px;
-  font-weight: 500;
-  color: #FFFFFF;
-  text-align: center;
-  cursor: pointer;
-  border: none;
-  outline: none;
+    width: fit-content;
+    height: fit-content;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 11px;
+    padding-bottom: 11px;
+    background: #8AB9DA;
+    border-radius: 15px;
+    justify-content: center;
+    align-items: center;
+    font-size: 13.33px;
+    font-weight: 500;
+    color: #FFFFFF;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    max-width: 35%;
 }
 
 .innerimgfirst {
-
-  display: flex;
-  flex-direction: row;
-  max-width: 100%;
-  align-items: center;
-  margin-right: 20%;
-
-
+    display: flex;
+    flex-direction: row;
+    max-width: 100%;
+    align-items: center;
+    margin-right: 20%;
 }
 
 .imagedog {
-  max-width: 100%;
-  align-items: center;
-  margin-left: 30%;
-  height: auto;
-  width: auto;
-  padding-right: 300px;
-
-
-}
-
-.firstbtn {
-  justify-content: left;
-  max-width: 35%;
-
-  /* font-family: 'Roboto', sans-serif; */
+    max-width: 100%;
+    align-items: center;
+    margin-left: 30%;
+    height: auto;
+    width: auto;
+    padding-right: 300px;
 }
 
 .head2 {
-  /* margin-top: 20px;
-  flex-direction: row;
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  color: 'black';
-  font-Size: 40px;
-  font-style: normal;
-  font-Weight: '300'; */
-  padding-top: 80px;
-  /* font-family: 'Roboto', sans-serif; */
-  padding-bottom: 30px;
-  color: black;
-  font-size: 30px;
-  font-weight: 700;
-  word-wrap: break-word;
-  text-align: center;
-  line-height: 1.2;
-  margin-top: 20px;
-  margin-bottom: 20px;
+    padding-top: 80px;
+    padding-bottom: 30px;
+    color: black;
+    font-size: 30px;
+    font-weight: 700;
+    word-wrap: break-word;
+    text-align: center;
+    line-height: 1.2;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .contactbox {
-  display: flex;
-  flex-direction: row;
-  max-width: 100%;
-  align-items: center;
-  justify-content: center;
-  background-color: #FDF2F2;
-  margin-left: 20%;
-  margin-right: 20%;
-  border-radius: 30px;
-  padding: 20px;
+    display: flex;
+    flex-direction: row;
+    max-width: 100%;
+    align-items: center;
+    justify-content: center;
+    background-color: #FDF2F2;
+    margin-left: 20%;
+    margin-right: 20%;
+    border-radius: 30px;
+    padding: 20px;
 }
 
 .specialtxt {
-  color: #EDB5B2;
-  font-size: 52px;
-  /* font-family: 'Roboto', sans-serif; */
-  margin-top: -20px;
-  font-weight: 300;
-
-
+    color: #EDB5B2;
+    font-size: 52px;
+    margin-top: -20px;
+    font-weight: 300;
 }
 
 .spltxt {
-  font-family: 'Inter', sans-serif;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 26px;
-  letter-spacing: 0.3px;
-  color: #444;
-  margin-top: -20px;
-
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 26px;
+    letter-spacing: 0.3px;
+    color: #444;
+    margin-top: -20px;
 }
 
 .contactside {
-  display: flex;
-  flex-direction: column;
-  max-width: 70%;
-  align-items: left;
-  justify-content: center;
-  padding-left: 20px;
-
+    display: flex;
+    flex-direction: column;
+    max-width: 70%;
+    align-items: left;
+    justify-content: center;
+    padding-left: 20px;
 }
 
 .contactFormContainer {
-  display: flex;
-  flex-direction: column;
-  max-width: 100%;
-  align-items: center;
-  justify-content: center;
-  padding-right: 40px;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  padding-left: 50px;
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    align-items: center;
+    justify-content: center;
+    padding-right: 40px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 50px;
 }
 
 .contactForm {
-  display: flex;
-  flex-direction: column;
-  max-width: 100%;
-  align-items: left;
-  justify-content: center;
-  gap: 12px;
-  border-radius: 30px;
-  background: #FDF2F2;
-
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    align-items: left;
+    justify-content: center;
+    gap: 12px;
+    border-radius: 30px;
+    background: #FDF2F2;
 }
 
 .fname {
-  border-radius: 8px;
-  border: solid 1px #daa6a3;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  padding-left: 10px;
-  padding-right: 20px;
-  width: 300px;
-
+    border-radius: 8px;
+    border: solid 1px #daa6a3;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 10px;
+    padding-right: 20px;
+    width: 300px;
 }
 
 .fbtn {
-  margin-top: 10px;
-  width: fit-content;
-  background-color: #EDB5B2;
-  color: white;
-  border: none;
-  border-radius: 25px;         /* Made it slightly rounder for a softer look */
-  padding: 10px 24px;          /* Cleaned up padding into one shorthand line */
-  font-size: 14px;             /* Increased slightly for better readability */
-  font-weight: 600;            /* Made the text bolder so it pops */
-  letter-spacing: 0.5px;       /* Adds a tiny bit of breathing room between letters */
-  cursor: pointer;             /* Changes the mouse to a hand when hovering */
-  
-  /* The Magic Touch: Shadows and Animation */
-  box-shadow: 0 4px 10px rgba(237, 181, 178, 0.4); /* A soft pink glowing shadow */
-  transition: all 0.3s ease;   /* Makes all hover changes buttery smooth */
+    margin-top: 10px;
+    width: fit-content;
+    background-color: #EDB5B2;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 24px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(237, 181, 178, 0.4);
+    transition: all 0.3s ease;
 }
 
-/* What happens when the mouse touches it */
 .fbtn:hover {
-  background-color: #e59a97;   /* Slightly darker pink so the user knows they are hovering */
-  transform: translateY(-3px); /* Makes the button "lift" off the page */
-  box-shadow: 0 8px 15px rgba(237, 181, 178, 0.6); /* The shadow gets bigger as it lifts */
+    background-color: #e59a97;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(237, 181, 178, 0.6);
 }
 
-/* What happens when you actually click it */
 .fbtn:active {
-  transform: translateY(1px);  /* Pushes the button "down" into the page */
-  box-shadow: 0 2px 5px rgba(237, 181, 178, 0.3); /* The shadow gets smaller */
+    transform: translateY(1px);
+    box-shadow: 0 2px 5px rgba(237, 181, 178, 0.3);
 }
 
 .callcon {
-  margin-top: 50px;
-  display: flex;
-  justify-content: center;
-  margin-bottom: 50px;
-  /* font-family: 'Roboto', sans-serif; */
-
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
 }
 
 .callsec {
-  font-size: 30px;
-  font-style: normal;
-  font-weight: 700;
-  /* font-family: 'Roboto', sans-serif; */
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 700;
 }
 
 .grid {
-  display: flex;
-  flex-direction: row;
-  max-width: 100%;
+    display: flex;
+    flex-direction: row;
+    max-width: 100%;
 }
 
 .innergrid {
-  display: flex;
-  flex-direction: column;
-  max-width: 100%;
-  align-items: left;
-  justify-content: center;
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    align-items: left;
+    justify-content: center;
 }
 
 .socialimg {
-  max-width: 70px;
-  display: inline-block;
-  padding-right: 50px;
-  vertical-align: top;
-
-  /* Align the image to the top */
-
+    max-width: 70px;
+    display: inline-block;
+    padding-right: 50px;
+    vertical-align: top;
 }
 
 .vector {
-  max-width: 50%;
-  justify-content: left;
+    max-width: 50%;
+    justify-content: left;
 }
 
 .vector2 {
-  max-width: 50%;
-  justify-content: right;
-  padding-left: 50%;
+    max-width: 50%;
+    justify-content: right;
+    padding-left: 50%;
 }
 
 .innerin {
-  display: flex;
-  flex-direction: row;
-  gap: 40px;
-  
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
 }
 
 .add {
-  font-family: 'Inter', sans-serif;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 26px;
-  letter-spacing: 0.3px;
-  color: black;
-  margin-left: -150px;
-  /* font-family: 'Roboto', sans-serif; */
-
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 26px;
+    color: black;
+    margin-left: -150px;
 }
 
 .mail {
-  font-family: 'Inter', sans-serif;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 26px;
-  letter-spacing: 0.3px;
-  color: #444;
-  margin-left: 0px;
-  /* font-family: 'Roboto', sans-serif; */
-
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 26px;
+    color: #444;
+    margin-left: 0px;
 }
 
 .social {
-  font-family: 'Inter', sans-serif;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 26px;
-  letter-spacing: 0.3px;
-  color: black;
-  align-items: center;
-  margin-top: 40px;
-  margin-left: -60px;
-  margin-right: 40px;
-  /* font-family: 'Roboto', sans-serif; */
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 26px;
+    color: black;
+    align-items: center;
+    margin-top: 40px;
+    margin-left: -60px;
+    margin-right: 40px;
 }
 
 .innersocail {
-  display: flex;
-  max-width: 100%;
-  align-items: center;
-  justify-content: center;
-
+    display: flex;
+    max-width: 100%;
+    align-items: center;
+    justify-content: center;
 }
 
 .map_part {
     margin-top: 20px;
-    width: 100%;        /* ADD THIS */
-    max-width: 300px;   /* CHANGE FROM width to max-width */
-    height: 200px;
+    width: 100%;
+    max-width: 1000px;
+    height: 300px;
 }
 
 .timecss {
-  display: flex;
-  flex-direction: column;
-  max-width: 100%;
-  align-items: center;
-  /* Center horizontally */
-  justify-content: center;
-  margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
 }
 
 .thead {
-  color: black;
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 500;
-  /* font-family: 'Roboto', sans-serif; */
+    color: black;
+    font-size: 24px;
+    font-weight: 500;
 }
 
 .time {
-  margin-top: -10px;
-  font-family: 'Inter', sans-serif;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 26px;
-  letter-spacing: 0.3px;
-  color: #444;
-  /* font-family: 'Roboto', sans-serif; */
-  margin-bottom: 60px;
+    margin-top: -10px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 26px;
+    color: #444;
+    margin-bottom: 60px;
 }
 
+.successMessage {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 26px;
+    color: #444;
+}
+
+/* =========================================
+   MOBILE RESPONSIVENESS
+========================================= */
 @media (max-width: 768px) {
-  .topmost {
-      padding-top: 1%;
-      margin-bottom: -70px;
-  }
+    .topmost {
+        padding-top: 1%;
+        margin-bottom: -70px;
+    }
 
-  .first {
-      flex-direction: column;
-      align-items: center;
-  }
+    .first {
+        flex-direction: column;
+        align-items: center;
+    }
 
-  .innerfirst {
-      max-width: 80%;
-      margin-left: 0;
-      text-align: center;
-  }
+    .innerfirst {
+        max-width: 80%;
+        margin-left: 0;
+        text-align: center;
+    }
 
-  .get {
-      font-size: 27px;
-  }
+    .get {
+        font-size: 27px;
+    }
 
-  .getxt {
-      font-size: 14px;
-      margin-top: -10px;
-  }
+    .getxt {
+        font-size: 14px;
+        margin-top: -10px;
+    }
 
-  .firstbtn {
-      max-width: 100%;
-      margin-top: 10px;
-      margin-left: 0;
-      margin-bottom: 15px;
-  }
+    .firstbtn {
+        max-width: 100%;
+        margin-top: 10px;
+        margin-left: auto;
+        margin-right: auto; /* Centers the button properly */
+        margin-bottom: 15px;
+    }
 
-  .innerimgfirst {
-      max-width: 80%;
-      margin-right: 0;
-      margin-left: 0;
-  }
+    .innerimgfirst {
+        max-width: 80%;
+        margin-right: 0;
+        margin-left: 0;
+        justify-content: center; /* Centers the image wrapper */
+    }
 
- .imagedog {
-  max-width: 100%;
-  height: auto;
-  width: auto;
-  /* Removed the 300px padding and 30% margin that were causing overflow! */
-}
-  .head2 {
-      padding-top: 40px;
-      font-size: 27px;
-      padding-left: 20px;
-      padding-right: 20px;
-  }
+    .imagedog {
+        max-width: 100%;
+        height: auto;
+        width: auto;
+        /* --- THIS IS THE FIX! We are explicitly removing the huge desktop padding --- */
+        padding-right: 0; 
+        margin-left: 0;
+        /* -------------------------------------------------------------------------- */
+    }
 
-  .contactbox {
-      flex-direction: column;
-      margin-left: 5%;
-      margin-right: 5%;
-  }
+    .head2 {
+        padding-top: 40px;
+        font-size: 27px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
 
-  .contactside {
-      max-width: 100%;
-      padding-left: 0;
-      text-align: center;
-      align-items: center;
-  }
+    .contactbox {
+        flex-direction: column;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
 
-  .specialtxt {
-      font-size: 30px;
-      margin-top: 0px;
-  }
+    .contactside {
+        max-width: 100%;
+        padding-left: 0;
+        text-align: center;
+        align-items: center;
+    }
 
-  .spltxt {
-      font-size: 14px;
-      margin-top: 0px;
-  }
+    .specialtxt {
+        font-size: 30px;
+        margin-top: 0px;
+    }
 
-  .contactFormContainer {
-      padding-left: 0px;
-      padding-right: 0px;
-  }
-  .contactForm{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+    .spltxt {
+        font-size: 14px;
+        margin-top: 0px;
+    }
 
-  .fname {
-      width: 300px;
-  }
+    .contactFormContainer {
+        padding-left: 0px;
+        padding-right: 0px;
+        width: 100%; /* Ensures form takes full width of container */
+    }
 
-  .fbtn {
-      max-width: 100%;
-  }
+    .contactForm {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
 
-  .callcon {
-      margin-top: 30px;
-      margin-bottom: 30px;
-  }
+    .fname {
+        width: 100%; /* Adapts to phone screen size instead of fixed 300px */
+        max-width: 300px;
+    }
 
-  .callsec {
-      font-size: 24px;
-  }
+    .fbtn {
+        max-width: 100%;
+    }
 
-  .grid {
-      flex-direction: column;
-      margin-left: 10%;
-      margin-right: 10%;
-      align-items: center;
-  }
+    .callcon {
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
 
-  .innergrid {
-      max-width: 100%;
-      align-items: center;
-  }
+    .callsec {
+        font-size: 24px;
+        text-align: center;
+    }
 
-  .vector, .vector2 {
-      display: none;
-  }
+    .grid {
+        flex-direction: column;
+        margin-left: 5%;
+        margin-right: 5%;
+        align-items: center;
+    }
 
-  .innerin {
-      flex-direction: column;
-      gap: 20px;
-  }
+    .innergrid {
+        max-width: 100%;
+        align-items: center;
+    }
 
-  .add, .mail {
-      font-size: 14px;
-      margin-left: 0;
-      text-align: center;
-      background-color: #FDF2F2;
-      border-radius: 20px;
-      padding: 15px;
-  }
+    .vector, .vector2 {
+        display: none;
+    }
 
-  .social {
-      font-size: 14px;
-      margin-top: 20px;
-      margin-left: 0px;
-      margin-right: 0px;
-      text-align: center;
-      background-color: #FDF2F2;
-      border-radius: 20px;
-      padding: 20px;
-  }
+    .innerin {
+        flex-direction: column;
+        gap: 20px;
+        align-items: center; /* Centers address and mail boxes */
+    }
 
-  .socialimg {
-      max-width: 70px;
-      margin: 0px;
-      padding-right: 0px;
-  }
+    .add, .mail {
+        font-size: 14px;
+        margin-left: 0;
+        text-align: center;
+        background-color: #FDF2F2;
+        border-radius: 20px;
+        padding: 15px;
+        width: 100%;
+        max-width: 350px;
+    }
 
-  .map_part {
-      margin-top: 20px;
-      width: 300px;
-      height:200px
-  }
+    .social {
+        font-size: 14px;
+        margin-top: 20px;
+        margin-left: 0px;
+        margin-right: 0px;
+        text-align: center;
+        background-color: #FDF2F2;
+        border-radius: 20px;
+        padding: 20px;
+        width: 100%;
+        max-width: 350px;
+    }
 
-  .timecss {
-      margin-top: 20px;
-      margin-bottom: 20px;
-  }
+    .socialimg {
+        max-width: 70px;
+        margin: 10px auto 0 auto;
+        padding-right: 0px;
+        display: block; /* Centers the image under text */
+    }
 
-  .thead {
-      font-size: 18px;
-  }
+    .map_part {
+        margin-top: 20px;
+        width: 90%; 
+        max-width: 350px;
+        height: 250px;
+    }
 
-  .time {
-      font-size: 14px;
-      margin-top: -5px;
-      margin-bottom: 40px;
-  }
-}
+    .timecss {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
 
-.successMessage{
-  font-family: 'Inter', sans-serif;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 26px;
-  letter-spacing: 0.3px;
-  color: #444;
+    .thead {
+        font-size: 18px;
+    }
+
+    .time {
+        font-size: 14px;
+        margin-top: -5px;
+        margin-bottom: 40px;
+    }
 }
