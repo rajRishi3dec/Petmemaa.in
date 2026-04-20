@@ -181,9 +181,14 @@
 }
 
 @media (max-width: 768px) {
+  /* Center the H2 heading on mobile */
+  .cat-content h2 {
+    text-align: center;
+  }
+
   /* Ensure the price doesn't burst out of its container */
   .cat-price strong {
-    font-size: 2rem; /* Reduced from 2.8rem */
+    font-size: 2rem; 
   }
   
   .cat-image { 
@@ -193,19 +198,25 @@
   
   .cat-price {
     padding: 15px 20px;
-    margin-top: 0; /* Tighter padding for mobile */
+    margin-top: 0; 
   }
 
   /* Prevent text from touching the edges of the screen */
   .cat-content p {
     text-align: left; 
-    hyphens: auto; /* Helps with long words on narrow screens */
+    hyphens: auto; 
   }
 
   /* Ensure the table labels don't overlap values on tiny screens */
   .table-row span::before {
-    width: 110px; /* Reduced from 140px */
+    width: 110px; 
     font-size: 0.9rem;
+  }
+
+  /* IMPORTANT: Make sure the banner stacks vertically on mobile */
+  .cat-banner {
+    flex-direction: column;
+    text-align: center; /* This helps center other inline items if needed */
   }
 }
 /* =========================================

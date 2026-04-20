@@ -230,12 +230,12 @@ const BoardingDetails = () => {
                     </div>
                     {pkg.pricing.map((price, i) => (
   <div className="table-row" key={i}>
-    <strong>{price.hours}</strong>
-    {/* Applying a style or class here to match the 'strong' color */}
-    <span className="price-value">₹{price.base}</span>
-<span className="price-value">₹{price.silver}</span>
-<span className="price-value">₹{price.gold}</span>
+    <strong className="mobile-time">{price.hours}</strong>
     
+    {/* Add data-label attributes here 👇 */}
+    <span className="price-value" data-label="Base">₹{price.base}</span>
+    <span className="price-value" data-label="Silver">₹{price.silver}</span>
+    <span className="price-value" data-label="Gold">₹{price.gold}</span>
   </div>
 ))}
                   </div>

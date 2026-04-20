@@ -281,6 +281,7 @@
   margin-top: 5px;
   letter-spacing: -0.2px;
 }
+
 /* =========================================
    WALLET SECTION
    ========================================= */
@@ -479,7 +480,6 @@
   border: 1px solid #e2e8f0;
   overflow: hidden;
   box-shadow: 0 4px 6px rgba(0,0,0,0.02);
-  
 }
 
 .table-header, .table-row {
@@ -496,7 +496,6 @@
   color: #ffffff !important;
   font-weight: 800;
   border-bottom: 2px solid #e2e8f0;
-  
 }
 
 .table-row {
@@ -537,13 +536,14 @@
 .flat-price-tag span {
   font-weight: 800;
   font-size: 1.6rem;
-  color: #ec4899;
+  color: #1e293b !important; /* MATCHES HRS TEXT */
 }
 
 .price-value {
   color: #1e293b;   /* SAME as hrs */
   font-weight: 700;
 }
+
 /* =========================================
    GAP FIX FOR PACKAGES SECTIONS
    ========================================= */
@@ -576,8 +576,6 @@
 /* =========================================
    CALL TO ACTION BUTTONS & MOBILE FIXES
    ========================================= */
-
-
 
 /* Floating Sticky Button */
 .floating-call-btn {
@@ -627,12 +625,43 @@
     height: 20px;
   }
 
-  /* Shrink pricing table slightly more to prevent layout breaks */
-  .table-header, .table-row {
-    font-size: 0.8rem;
-    padding: 12px 2px;
-    grid-template-columns: 1.2fr 1fr 1fr 1fr;
-    gap: 4px;
+  /* --- PRICING TABLE MOBILE FIXES --- */
+  
+  /* 1. Hide the horizontal header because it's too squished */
+  .table-header {
+    display: none !important;
+  }
+
+  /* 2. Stack the pricing data vertically for a clean mobile list */
+  .table-row {
+    grid-template-columns: 1fr;
+    text-align: left;
+    padding: 15px;
+    gap: 12px;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    margin-bottom: 10px;
+  }
+
+  /* 3. Make the "6 hrs" act as a bold title for each block */
+  .table-row .mobile-time, 
+  .table-row strong {
+    display: block;
+    font-size: 1.1rem;
+    color: #be185d; 
+    border-bottom: 2px dashed #e2e8f0;
+    padding-bottom: 8px;
+    margin-bottom: 4px;
+    text-align: center;
+  }
+
+  /* 4. Magically insert the Base/Silver/Gold labels before the prices */
+  .table-row span.price-value::before {
+    content: attr(data-label);
+    font-weight: 700;
+    display: inline-block;
+    width: 80px; /* Aligns the prices in a neat column */
+    color: #64748b;
   }
   
   .flat-price-tag span {
@@ -651,8 +680,8 @@
     border-radius: 50%; /* Make it a perfect circle */
   }
   
-  /* Give the pricing tables a horizontal scroll if the phone is incredibly narrow */
+  /* Disable horizontal scroll since we stacked the items vertically */
   .pricing-table {
-    overflow-x: auto;
+    overflow-x: hidden; 
   }
 }
