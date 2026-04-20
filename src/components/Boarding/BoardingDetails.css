@@ -1,0 +1,658 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+
+/* =========================================
+   FULL SCREEN BACKGROUND WRAPPER
+   ========================================= */
+.boarding-wrapper {
+  width: 100%;
+  min-height: 100vh;
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.boarding-page {
+  font-family: 'Inter', sans-serif;
+  color: #333;
+  width: 100%;
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+/* =========================================
+   ALTERNATING FULL-WIDTH SECTIONS
+   ========================================= */
+/* Stretches backgrounds to edges but keeps content centered at 1200px max */
+.boarding-page > * {
+  padding-left: max(20px, calc((100% - 1200px) / 2));
+  padding-right: max(20px, calc((100% - 1200px) / 2));
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+
+/* ODD SECTIONS (1st: Hero, 3rd: Wallet, 5th: Cat Packages) */
+.boarding-page > *:nth-child(odd) {
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    335deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(255, 239, 239, 0.61) 100%
+  );
+}
+
+/* EVEN SECTIONS (2nd: Amenities, 4th: Dog Packages, 6th: Bird Packages) */
+.boarding-page > *:nth-child(even) {
+  background: #EAF7FC;
+}
+
+/* =========================================
+   HERO SECTION (Text Top, Images Below)
+========================================= */
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 40px;
+}
+
+/* TEXT */
+.hero-text h1 {
+  font-family: "M PLUS Rounded 1c", sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 42px !important;
+  color: #1e293b; /* Pink color */
+  margin: 0;
+  max-width: 800px;
+}
+
+@media screen and (max-width: 900px) {
+  .hero-text h1 {
+    font-size: 38px;
+  }
+}
+
+/* IMAGE GALLERY */
+.hero-image-gallery {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  flex-wrap: wrap; 
+}
+
+.hero-image-gallery img {
+  width: calc(25% - 15px); 
+  height: 350px;
+  object-fit: cover;
+  border-radius: 25px;
+  border: 4px solid white;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-image-gallery img:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+/* MOBILE HERO RESPONSIVENESS */
+@media (max-width: 900px) {
+  .hero-image-gallery img {
+    width: calc(50% - 10px); 
+    height: 280px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-section {
+    gap: 30px;
+  }
+  .hero-text h1 {
+    font-size: 32px;
+  }
+  .hero-image-gallery img {
+    width: 100%; 
+    height: 250px;
+  }
+}
+
+/* =========================================
+   AMENITIES SECTION (Icons & Transparent)
+   ========================================= */
+
+.amenities-section h2 {
+  text-align: center;
+  margin-bottom: 50px;
+  font-family: "M PLUS Rounded 1c", sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 42px !important;
+  color: #1e293b !important; 
+  letter-spacing: -0.5px;
+}
+
+.amenities-grid {
+  display: flex;
+  flex-wrap: wrap; /* Allows items to move to the next line */
+  justify-content: center; /* Centers the items in the bottom row */
+  gap: 30px; 
+  margin: 0 auto;
+  max-width: 1200px; /* Ensure there is enough space for 4 items */
+}
+
+.amenity-card {
+  /* calc(25% - gap) ensures exactly 4 items fit per row */
+  width: calc(25% - 30px); 
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 15px;
+  transition: transform 0.3s ease;
+}
+
+/* Responsive: Switch to 2 items per row on tablets */
+@media (max-width: 1024px) {
+  .amenity-card {
+    width: calc(50% - 30px);
+  }
+}
+
+/* Responsive: Switch to 1 item per row on mobile */
+@media (max-width: 600px) {
+  .amenity-card {
+    width: 100%;
+  }
+}
+
+.amenity-card:hover {
+  transform: translateY(-5px);
+}
+
+/* --- NEW ICON WRAPPER STYLES --- */
+.amenity-icon {
+  width: 80px;
+  height: 80px;
+  background-color: #fff1f2; /* Very light pink background */
+  color: #be185d;            /* Icon color */
+  border-radius: 50%;        /* Makes it a circle */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;           /* Size for emoji or icon */
+  margin-bottom: 20px;       /* Space between icon and title */
+  transition: background-color 0.3s ease;
+}
+
+.amenity-card:hover .amenity-icon {
+  background-color: #fce7f3; /* Slightly darker pink on hover */
+}
+
+.amenity-card strong {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.3rem; 
+  font-weight: 700;
+  color: #be185d !important; /* Darker blue-grey for the title to balance the pink icon */
+  margin-bottom: 12px;
+  display: block; 
+}
+
+/* If you have descriptions under the strong tag */
+.amenity-card p {
+  color: #475569;
+  line-height: 1.6;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+/* --- RESPONSIVENESS --- */
+@media (max-width: 900px) {
+  .amenity-card {
+    width: calc(50% - 20px); 
+  }
+}
+
+@media (max-width: 600px) {
+  .amenity-card {
+    width: 100%; 
+    padding: 20px 10px;
+  }
+  
+  .amenities-section h2 {
+    font-size: 32px !important;
+  }
+}
+
+/* =========================================
+   FANCY ICON STYLING
+   ========================================= */
+
+.amenity-icon {
+  width: 80px;
+  height: 80px;
+  /* Soft pink gradient background */
+  background: linear-gradient(135deg, #fff1f2 0%, #ffe4e6 100%);
+  color: #be185d;
+  border-radius: 24px; /* Squircle shape instead of a perfect circle */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  /* Thin border for a premium feel */
+  border: 1px solid rgba(190, 24, 93, 0.1);
+}
+
+/* Fancy Hover Effect */
+.amenity-card:hover .amenity-icon {
+  transform: rotate(10deg) scale(1.1);
+  background: #be185d;
+  color: #ffffff;
+  box-shadow: 0 15px 30px rgba(190, 24, 93, 0.25);
+}
+
+/* Adding a decorative element behind the icon on hover */
+.amenity-icon::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 24px;
+  border: 2px solid #be185d;
+  opacity: 0;
+  transition: all 0.3s ease;
+  transform: scale(1.2);
+}
+
+.amenity-card:hover .amenity-icon::after {
+  opacity: 0.2;
+  transform: scale(1);
+}
+
+.amenity-card strong {
+  font-family: "M PLUS Rounded 1c", sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-top: 5px;
+  letter-spacing: -0.2px;
+}
+/* =========================================
+   WALLET SECTION
+   ========================================= */
+.wallet-banner {
+  text-align: center;
+}
+
+.wallet-banner h2 {
+  color: #0f172a;
+  margin-bottom: 40px; 
+  font-family: "M PLUS Rounded 1c", sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 42px !important;
+}
+
+.wallet-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+
+.wallet-card {
+  padding: 35px 25px;
+  border-radius: 20px;
+  flex: 1;
+  min-width: 280px;
+  max-width: 400px;
+  transition: transform 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.wallet-card:hover {
+  transform: translateY(-8px);
+}
+
+.wallet-card.silver { 
+  background: linear-gradient(135deg, #f8f9fa 0%, #e2e8f0 100%);
+  border: 1px solid #cbd5e1;
+  box-shadow: 0 10px 30px rgba(148, 163, 184, 0.2);
+}
+
+.wallet-card.silver h3 { color: #475569; font-size: 1.8rem; }
+
+.wallet-card.gold { 
+  background: linear-gradient(135deg, #fffbeb 0%, #fde047 100%);
+  border: 1px solid #facc15;
+  box-shadow: 0 10px 30px rgba(250, 204, 21, 0.25);
+}
+
+.wallet-card.gold h3 { color: #854d0e; font-size: 1.8rem; }
+
+.wallet-card p {
+  font-size: 1.2rem;
+  margin: 15px 0;
+  color: #334155;
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.discount-tag {
+  display: inline-block;
+  background: #ec4899;
+  color: white;
+  padding: 8px 20px;
+  border-radius: 30px;
+  font-weight: 800;
+  font-size: 1.1rem;
+  margin: 15px 0;
+  box-shadow: 0 4px 10px rgba(236, 72, 153, 0.3);
+  letter-spacing: 0.5px;
+}
+
+.wallet-card small {
+  display: block; 
+  margin-top: 10px;
+}
+
+.wallet-list {
+  list-style-type: disc; 
+  list-style-position: inside; 
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px; 
+  color: #64748b; 
+  font-size: 0.9rem;
+}
+
+.wallet-list li {
+  text-align: center;
+}
+
+.silver .wallet-list { color: #475569; }
+.gold .wallet-list { color: #713f12; }
+
+/* =========================================
+   PACKAGES SECTION (Floating Cards)
+   ========================================= */
+.packages-section h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 1.4rem;
+  color: #1e293b;
+  font-family: "M PLUS Rounded 1c", sans-serif !important;
+  font-weight: 600 !important;
+  font-size: 42px !important;
+}
+
+.packages-grid {
+  display: grid;
+  /* Updated width from 320px to 280px to prevent horizontal scrolling on mobile */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+}
+
+.package-card {
+  background: white;
+  border-radius: 20px;
+  padding: 35px 25px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+  border: 1px solid #f1f5f9;
+}
+
+.package-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+}
+
+.package-icon {
+  font-size: 3rem;
+  display: inline-block;
+  margin-bottom: 15px;
+  background: #f8fafc;
+  width: 70px;
+  height: 70px;
+  line-height: 70px;
+  text-align: center;
+  border-radius: 50%;
+}
+
+.package-header h3 {
+  margin: 0;
+  font-size: 1.8rem;
+  color: #0f172a;
+  font-weight: 800;
+}
+
+.package-header h4 {
+  margin: 8px 0 20px 0;
+  color: #ec4899;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.package-desc {
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  color: #64748b;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.package-perks {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 35px;
+  font-size: 0.95rem;
+  color: #475569;
+  font-weight: 600;
+}
+
+.package-perks li {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* =========================================
+   PRICING TABLES & TAGS
+   ========================================= */
+.pricing-table {
+  margin-top: auto;
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+  
+}
+
+.table-header, .table-row {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr 1fr;
+  padding: 12px 10px;
+  text-align: center;
+  font-size: 0.95rem;
+  align-items: center;
+}
+
+.table-header {
+  background: #ec4899 !important; /* The pink you want */
+  color: #ffffff !important;
+  font-weight: 800;
+  border-bottom: 2px solid #e2e8f0;
+  
+}
+
+.table-row {
+  border-bottom: 1px solid #f1f5f9;
+  transition: background 0.2s;
+}
+
+.table-row:last-child {
+  border-bottom: none;
+}
+
+.table-row:hover {
+  background: #fdf2f8;
+}
+
+.silver-text { color: #241b1b; font-weight: 800; }
+.gold-text { color: #ff8800; font-weight: 800; }
+
+.flat-price-tag {
+  margin-top: auto;
+  background: #f8fafc;
+  border: 2px dashed #cbd5e1;
+  border-radius: 12px;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #1e293b !important;
+}
+
+.flat-price-tag strong {
+  color: #1e293b !important;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.flat-price-tag span {
+  font-weight: 800;
+  font-size: 1.6rem;
+  color: #ec4899;
+}
+
+.price-value {
+  color: #1e293b;   /* SAME as hrs */
+  font-weight: 700;
+}
+/* =========================================
+   GAP FIX FOR PACKAGES SECTIONS
+   ========================================= */
+
+/* 1. Kill the default browser margin on the headings */
+.packages-section h2 {
+  margin-top: 0 !important; 
+}
+
+/* 2. Force the sections to pull closer together */
+.boarding-page > .dog-section {
+  padding-bottom: 30px !important;
+  margin-bottom: 0 !important;
+}
+
+.boarding-page > .cat-section {
+  padding-top: 30px !important;
+  padding-bottom: 30px !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.boarding-page > .bird-section {
+  padding-top: 30px !important;
+  margin-top: 0 !important;
+  padding-bottom: 40px !important;
+  margin-bottom: 0 !important;
+}
+
+/* =========================================
+   CALL TO ACTION BUTTONS & MOBILE FIXES
+   ========================================= */
+
+
+
+/* Floating Sticky Button */
+.floating-call-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #ec4899; /* Vibrant Pink */
+  color: white;
+  padding: 15px 25px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  text-decoration: none;
+  box-shadow: 0 10px 30px rgba(236, 72, 153, 0.4);
+  z-index: 9999; /* Ensures it stays on top of everything */
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.floating-call-btn:hover {
+  transform: scale(1.05) translateY(-5px);
+  background-color: #db2777;
+  box-shadow: 0 15px 35px rgba(236, 72, 153, 0.5);
+}
+
+/* =========================================
+   GLOBAL MOBILE RESPONSIVENESS
+   ========================================= */
+@media (max-width: 768px) {
+  .wallet-banner h2 { font-size: 1.8rem; }
+  .packages-grid { gap: 25px; }
+  
+  /* Make the floating button smaller on mobile so it doesn't block content */
+  .floating-call-btn {
+    bottom: 20px;
+    right: 20px;
+    padding: 12px 20px;
+    font-size: 14px;
+    box-shadow: 0 8px 20px rgba(236, 72, 153, 0.3);
+  }
+  
+  .floating-call-btn svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  /* Shrink pricing table slightly more to prevent layout breaks */
+  .table-header, .table-row {
+    font-size: 0.8rem;
+    padding: 12px 2px;
+    grid-template-columns: 1.2fr 1fr 1fr 1fr;
+    gap: 4px;
+  }
+  
+  .flat-price-tag span {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Hide the text in the floating button on very small screens, keep just the icon */
+  .floating-call-btn span {
+    display: none;
+  }
+  
+  .floating-call-btn {
+    padding: 16px;
+    border-radius: 50%; /* Make it a perfect circle */
+  }
+  
+  /* Give the pricing tables a horizontal scroll if the phone is incredibly narrow */
+  .pricing-table {
+    overflow-x: auto;
+  }
+}

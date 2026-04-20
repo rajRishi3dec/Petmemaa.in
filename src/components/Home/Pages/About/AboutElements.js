@@ -58,58 +58,112 @@ export const AboutContent = styled.div`
 `;
 
 export const AboutHeading = styled.h1`
-  font-size: 42px;
-  color: #1a202c; /* Dark slate blue/black */
-  font-weight: 800;
-  margin-bottom: 15px;
-  font-family: 'Inter', sans-serif;
+  font-size: 38px;
+  color: #1a202c; 
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 6px; 
 
   @media screen and (max-width: 768px) {
-    font-size: 34px;
+    font-size: 32px;
+    margin-bottom: 8px; 
   }
 `;
 
 export const AboutSubheading = styled.h2`
-  font-size: 22px;
-  color: #4a5568;
-  font-weight: 600;
-  margin-bottom: 20px;
   font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  color: #ec4899;
+  margin-bottom: 12px;
 
-  @media screen and (max-width: 768px) {
-    font-size: 18px;
+  @media screen and (max-width: 480px) {
+    font-size: 20px;
   }
 `;
 
-export const AboutText = styled.p`
+export const AboutPoints = styled.ul`
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
   font-size: 16px;
-  color: #718096;
-  line-height: 1.6;
+  line-height: 26px;
+  letter-spacing: 0.3px;
+  color: #444;
+
   margin-bottom: 35px;
   max-width: 550px;
-  font-family: 'Inter', sans-serif;
+  padding-left: 18px;
+
+  li {
+    margin-bottom: 14px;
+    text-align: justify; /* LEFT + RIGHT ALIGN */
+    list-style: none;
+    position: relative;
+  }
+
+  /* Custom bullet */
+  li::before {
+    content: "🐾";
+    position: absolute;
+    left: -22px;
+    top: 2px;
+  }
 
   @media screen and (max-width: 900px) {
     text-align: center;
+
+    li {
+      text-align: center;
+    }
+
+    li::before {
+      position: static;
+      margin-right: 6px;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    font-size: 15px;
   }
 `;
 
 export const EnquireButton = styled.a`
-  /* Gradient background matching the screenshot (light blue to light pink) */
-  background: linear-gradient(90deg, #ccecf8 0%, #f7b2b0 100%);
-  color: #1a202c;
-  padding: 12px 30px;
-  border-radius: 8px;
-  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 55px;
+  padding: 0 25px;
+  border-radius: 30px;
+  color: white;
   font-size: 16px;
-  text-decoration: none;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  font-weight: 600;
   font-family: 'Inter', sans-serif;
+  text-decoration: none;
+  background-color: #ec4899; /* PetMeMaa Pink */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
 
   &:hover {
     transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 20px rgba(236, 72, 153, 0.4); /* Glowing pink shadow on hover */
+  }
+
+  @media screen and (max-width: 900px) {
+    width: 100%;
+    max-width: 280px; /* Keeps it from stretching too wide on phones */
+    height: 50px;
+    padding: 0 20px;
+    font-size: 15px;
+  }
+`;
+
+export const HighlightName = styled.span`
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+
+  @media screen and (max-width: 480px) {
+    font-size: 15px;
   }
 `;

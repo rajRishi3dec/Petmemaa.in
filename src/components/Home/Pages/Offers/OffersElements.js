@@ -13,6 +13,19 @@ export const OffersContainer = styled.div`
   padding-top: 50px;
 `;
 
+export const Title = styled.h1`
+  font-size: 42px;
+  color: #1a202c; 
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 6px; 
+
+  @media screen and (max-width: 768px) {
+    font-size: 32px;
+    margin-bottom: 8px; 
+  }
+`;
+
 export const SliderWrapper = styled.div`
   width: 100%;
   margin-top: 40px;

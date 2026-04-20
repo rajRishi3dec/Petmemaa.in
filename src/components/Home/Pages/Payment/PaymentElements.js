@@ -17,13 +17,15 @@ export const TitleContainer = styled.div`
 `;
 
 export const Title = styled.h1`
+  font-size: 42px;
+  color: #1a202c; 
   font-weight: bold;
-  font-size: 48px;
-  color: #1a202c;
-  margin-bottom: 15px;
+  margin-top: 0;
+  margin-bottom: 6px; 
 
   @media screen and (max-width: 768px) {
-    font-size: 36px;
+    font-size: 32px;
+    margin-bottom: 8px; 
   }
 `;
 

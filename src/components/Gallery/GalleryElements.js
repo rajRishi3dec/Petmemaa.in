@@ -17,15 +17,20 @@ export const TextWrapper = styled.div`
 
 export const Heading = styled.h1`
   font-size: 42px;
-  color: #1a202c;
-  font-weight: 800;
-  margin-bottom: 20px;
-  font-family: 'Inter', sans-serif;
+  color: #1a202c; 
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 6px; 
+
+  @media screen and (max-width: 768px) {
+    font-size: 32px;
+    margin-bottom: 8px; 
+  }
 `;
 
 export const SubHeading = styled.h2`
   font-size: 22px;
-  color: #4a5568; /* Slate blue/gray */
+  color: #ec4899; /* Slate blue/gray */
   font-weight: 600;
   margin-bottom: 15px;
   font-family: 'Inter', sans-serif;

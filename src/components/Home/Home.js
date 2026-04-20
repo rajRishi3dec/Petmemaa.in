@@ -2,11 +2,10 @@ import React from "react";
 // import Products from "./Pages/Products";
 import Intro from "./Pages/Intro";
 import Secondary from "./Pages/Intro/Secondary";
-
-
+//import Chatbot from '../Chatbot/Chatbot';
 import Services from "./Pages/Services";
 //import Cafe from "./Pages/Cafe";
-import Offers from "./Pages/Offers";
+//import Offers from "./Pages/Offers";
 import Dining from "./Pages/Dining";
 //import Customers from "./Pages/Customers";
 import Feedback from "./Pages/Feedback";
@@ -17,6 +16,7 @@ import Testimonials from './Pages/Testimonial';
 import About from "./Pages/About"; //why us image is in Intro folder
 
 const Home = () => {
+  
   return (
     <div className="container">
       <Intro />
@@ -26,9 +26,7 @@ const Home = () => {
       </div>
       <About />
       <Services />
-      <Offers />
       <Dining />
-      
       <Testimonials />
       <Payment />
       <Feedback />

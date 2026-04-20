@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { HashLink } from "react-router-hash-link";
-
 export const ServicesContainer = styled.div`
+
   background: #EAF7FC; /* Light blue background from the image */
   display: flex;
   flex-direction: column;
@@ -19,7 +19,7 @@ export const TitleContainer = styled.div`
 export const Title = styled.h1`
   font-weight: bold;
   font-size: 48px;
-  color: #FFB6C1; /* Pink color */
+  color: #1a202c; 
   margin-bottom: 20px;
 
   @media screen and (max-width: 900px) {
@@ -45,9 +45,9 @@ export const ServicesWrapper = styled.div`
   max-width: 1200px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 Columns */
+  grid-template-columns: repeat(3, 1fr);
   align-items: stretch;
-  grid-gap: 30px;
+  grid-gap: 40px; /* Increased gap for breathing room */
   padding: 0 20px;
 
   @media screen and (max-width: 1000px) {
@@ -56,25 +56,29 @@ export const ServicesWrapper = styled.div`
 
   @media screen and (max-width: 768px) {
     grid-template-columns: 1fr;
-    padding: 0;
+    grid-gap: 25px; /* Tighter gap on mobile */
+    padding: 0 15px;
   }
 `;
 
 export const ServicesCard = styled(HashLink)`
-  background: #fff;
+  background: #ffffff;
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-radius: 20px;
+  border-radius: 24px; /* Softer, rounder corners */
   padding-bottom: 30px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04); /* Softer default shadow */
   text-decoration: none;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy transition */
   overflow: hidden;
+  cursor: pointer;
+  border: 1px solid rgba(247, 178, 176, 0.1); /* Subtle pink border */
 
   &:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    transform: translateY(-12px) scale(1.02); /* Lifts up and slightly grows */
+    box-shadow: 0 20px 40px rgba(236, 72, 153, 0.12); /* Pink glowing shadow */
+    border: 1px solid rgba(247, 178, 176, 0.4);
   }
 `;
 
@@ -105,4 +109,30 @@ export const CardText = styled.p`
   color: #444;
   padding: 0 25px;
   line-height: 1.5;
+`;
+
+/* =========================================
+   NEW: CLICKABLE CUE TEXT
+   ========================================= */
+export const ExploreLink = styled.div`
+  margin-top: 15px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #ec4899; /* PetMeMaa Pink */
+  display: inline-flex;
+  align-items: center;
+  font-family: 'Inter', sans-serif;
+  
+  /* Adds the arrow */
+  &::after {
+    content: '→';
+    margin-left: 6px;
+    font-size: 16px;
+    transition: transform 0.3s ease; /* Smooth animation setup */
+  }
+
+  /* Animates the arrow to the right when hovered */
+  &:hover::after {
+    transform: translateX(5px);
+  }
 `;

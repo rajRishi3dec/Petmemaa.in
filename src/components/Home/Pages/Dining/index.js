@@ -1,11 +1,11 @@
 import React from "react";
 // import union from "../../../../Assets/Dining/Union.webp";
 // import dining from "../../../../Assets/Dining/dining.webp"
-import car1 from "../../../../Assets/Dining/car1.webp";
-import car2 from "../../../../Assets/Dining/car2.webp";
-import car3 from "../../../../Assets/Dining/car3.webp";
-import car4 from "../../../../Assets/Dining/car4.webp";
-import car5 from "../../../../Assets/Dining/car5.webp";
+import dog1 from "../../../../Assets/Dining/dog1.jpeg";
+import dog2 from "../../../../Assets/Dining/dog2.jpeg";
+import dog3 from "../../../../Assets/Dining/dog3.jpeg";
+import dog4 from "../../../../Assets/Dining/dog4.jpeg";
+import dog5 from "../../../../Assets/Dining/dog5.jpeg";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -76,34 +76,31 @@ const Dining = () => {
         </DiningWrapper> */}
 
         <DiningWrapper2>
-          <Title> <b>Get Started Now</b></Title>
+          <Title> <b>Meet our furry babies</b></Title>
           
           <br />
           <br />
           <Slider {...settings}>
             <div>
-              <ImgWrapCar src={car1} alt="car1"></ImgWrapCar>
+              <ImgWrapCar src={dog1} alt="car1"></ImgWrapCar>
             </div>
             <div>
-              <ImgWrapCar src={car2} alt="car1"></ImgWrapCar>
+              <ImgWrapCar src={dog2} alt="car1"></ImgWrapCar>
             </div>
             <div>
-              <ImgWrapCar src={car3} alt="car1"></ImgWrapCar>
+              <ImgWrapCar src={dog3} alt="car1"></ImgWrapCar>
             </div>
             <div>
-              <ImgWrapCar src={car4} alt="car1"></ImgWrapCar>
+              <ImgWrapCar src={dog4} alt="car1"></ImgWrapCar>
             </div>
             <div>
-              <ImgWrapCar src={car5} alt="car1"></ImgWrapCar>
+              <ImgWrapCar src={dog5} alt="car1"></ImgWrapCar>
             </div>
           </Slider>
           <br />
           <br />
           <SubText>
-            Welcome to Pet Me Maa your one-stop destination for all things pet
-            care! Our mission is to provide you with the most comprehensive and
-            reliable information, tips, and resources to ensure your furry,
-            feathery, or scaly companions lead happy, healthy lives.
+            Welcome to Pet Me Maa, where we treat your pets like our own family! We are more than just a pet care center; we are your trusted partners in your pet's happiness. With our premium grooming, safe boarding, behavioral training, and fun-filled play zones, we provide a haven of love and expert care for your best friend.
           </SubText>
           
         </DiningWrapper2>

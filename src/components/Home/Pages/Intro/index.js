@@ -1,6 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import styled from "styled-components";
+//import { FaWhatsapp, FaPhoneAlt } from 'react-icons/fa';
+//import styled from "styled-components";
+import { FaWhatsapp, FaPhoneAlt} from 'react-icons/fa'; // Update your icons import
+//import { MdOutlineMedicalServices } from 'react-icons/md';
 import team1 from "../../../../Assets/Intro/team1.webp";
 import team2 from "../../../../Assets/Intro/team2.webp";
 import team3 from "../../../../Assets/Intro/team3.webp";
@@ -20,26 +22,31 @@ import {
   Subtitle,
   Column2,
   ImgWrap,
-  ContactBtn,
-  GifWrap,
   OurLovingTeam,
   OurLovingTeamHeading,
   OurLovingTeamImages,
   TeamImage,
-  TopLineBold,
-  TeamMemberWrapper, // ADDED THIS: Importing the new wrapper
-  // IntroButton,
+  TeamMemberWrapper,
+  ButtonContainer, 
 } from "./IntroElements";
 
 import imgIntro from "../../../../Assets/Intro/Intro.webp";
-import puppies from "../../../../Assets/Intro/puppies.gif";
+//import puppies from "../../../../Assets/Intro/puppies.gif";
+const StaticActionButtons = () => {
+  return (
+    <ButtonContainer>
+      <a href="tel:+91-9217326357" className="action-btn phone-btn">
+        <FaPhoneAlt className="action-icon" />
+        <span>Call to enquire</span>
+      </a>
 
-// Create a wrapper styled component for the Link
-const LinkWrapper = styled(Link)`
-  text-decoration: none; /* Reset text-decoration to none */
-  color: inherit; /* Inherit the color from the parent */
-`;
-
+      <a href="https://wa.me/9217326357" className="action-btn whatsapp-btn" target="_blank" rel="noopener noreferrer">
+        <FaWhatsapp className="action-icon" />
+        <span>Message to book</span>
+      </a>
+    </ButtonContainer>
+  );
+};
 const InfoSection = () => {
   return (
     <>
@@ -49,29 +56,20 @@ const InfoSection = () => {
             <Column1>
               <TextWrapper>
                 <TopLine>
-                  World of <TopLineBold><b>Wonders,</b></TopLineBold>
-                  <br />
-                  <GifWrap src={puppies} alt="loading..." />{" "}
-                  <TopLineBold><b>Whiskers</b></TopLineBold> and{" "}
-                  <TopLineBold><b>Wagging Tails</b></TopLineBold>
-                </TopLine>
-                <Heading>
-                  Pet Me Maa is born out of a deep-seated love for animals and a
-                  desire to create a safe , comfortable, and nurturning
-                  enviornment for pets and their owners alike.
-                </Heading>
-                <Subtitle>
-                  <LinkWrapper to="/contactus">
-                    <ContactBtn>
-                      <h3>Contact Us ›</h3>
-                    </ContactBtn>
-                  </LinkWrapper>
-                  {/* <u>Free Consulation</u> */}
-                </Subtitle>
+  Complete Pet Care Services in Delhi NCR
+</TopLine>
+
+<Heading>
+  Boarding, Grooming & More 🐾
+</Heading>
+
+<Subtitle>
+  Safe, hygienic and fun environment with expert care for your pets
+</Subtitle>
+
                 <OurLovingTeam>
                   <OurLovingTeamHeading>Our Loving Team</OurLovingTeamHeading>
                   
-                  {/* UPDATED THIS SECTION: Wrapped images and added names */}
                   <OurLovingTeamImages>
                     <TeamMemberWrapper>
                       <TeamImage src={team1} alt="Team Member 1" />
@@ -110,11 +108,11 @@ const InfoSection = () => {
                   </OurLovingTeamImages>
                   
                 </OurLovingTeam>
+                <StaticActionButtons />
               </TextWrapper>
             </Column1>
             <Column2>
               <ImgWrap src={imgIntro} alt="Pet fun" />
-              {/* <IntroButton src={introButton} alt="loading..." /> */}
             </Column2>
           </InfoRow>
         </InfoWrapper>

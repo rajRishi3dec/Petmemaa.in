@@ -69,65 +69,119 @@ export const ImgWrap = styled.img`
   }
 `;
 
+/* =========================================
+   NEW: FEATURE RIBBON & BADGES
+   ========================================= */
 export const TextWrapper = styled.div`
   max-width: 600px;
   padding-top: 0;
   padding-bottom: 60px;
+
+  /* Styles for the new ribbon container */
+  .feature-ribbon {
+    display: flex;
+    gap: 20px;
+    margin: 25px 0;
+    flex-wrap: wrap;
+  }
+
+  .feature-badge {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 18px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  }
+
+  /* Vet Badge Styling */
+  .vet-badge {
+    background: #e0f2fe; /* Light Blue */
+    color: #0369a1;
+    border: 1px solid #bae6fd;
+  }
+
+  /* Star Badge Styling */
+  .star-badge {
+    background: #fffbeb; /* Light Gold */
+    color: #b45309;
+    border: 1px solid #fef3c7;
+    flex-direction: column; /* Stack stars over text */
+    padding: 6px 20px;
+    align-items: center;
+    gap: 2px;
+  }
+
+  .stars {
+    color: #f59e0b; /* Bright Gold stars */
+    font-size: 12px;
+    display: flex;
+    gap: 2px;
+  }
+
+  .badge-icon {
+    font-size: 18px;
+  }
+
   @media screen and (max-width: 900px) {
-    padding-bottom: 20px; /* Reduced padding for mobile */
+    .feature-ribbon {
+      justify-content: center;
+      margin: 20px 0;
+    }
+    
+    .feature-badge {
+      font-size: 13px;
+      padding: 6px 14px;
+    }
   }
 `;
 
-export const TopLine = styled.span`
-  font-weight: 300;
-  opacity: 0.8;
-  letter-spacing: 1.4px;
-  font-size: 52px;
-  line-height: 78px;
+export const TopLine = styled.h1`
+  font-weight: 800;
+  font-size: 42px;
+  line-height: 52px;
+  color: #1e293b;
+  margin-bottom: 10px;
+
   @media screen and (max-width: 900px) {
-    font-size: 38px;
-    line-height: 48px;
-  }
-  @media screen and (max-width: 480px) {
     font-size: 32px;
-    line-height: 40px;
+    line-height: 42px;
   }
-`;
 
-export const TopLineBold = styled.span`
-  font-weight: 550;
-  letter-spacing: 1.4px;
-  font-size: 52px;
-  line-height: 78px;
-  @media screen and (max-width: 900px) {
-    font-size: 38px;
-    line-height: 48px;
-  }
   @media screen and (max-width: 480px) {
-    font-size: 32px;
-    line-height: 40px;
+    font-size: 26px;
+    line-height: 36px;
   }
 `;
 
-export const Heading = styled.p`
+
+
+export const Heading = styled.h2`
   font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  color: #ec4899;
+  margin-bottom: 12px;
+
+  @media screen and (max-width: 480px) {
+    font-size: 20px;
+  }
+`;
+
+export const Subtitle = styled.p`
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
   font-weight: 500;
   font-size: 16px;
   line-height: 26px;
   letter-spacing: 0.3px;
   color: #444;
-  @media screen and (max-width: 480px) {
-    font-size: 15px;
-  }
-`;
 
-export const Subtitle = styled.p`
-  max-width: 440px;
-  font-size: 18px;
-  line-height: 24px;
   @media screen and (max-width: 900px) {
-    margin-left: auto;
-    margin-right: auto; /* Centers the subtitle on mobile */
+    font-size: 15px;
   }
 `;
 
@@ -141,29 +195,7 @@ export const GifWrap = styled.img`
   }
 `;
 
-export const ContactBtn = styled.button`
-  background: #f7b2b0;
-  color: #FFF;
-  border-radius: 110px;
-  border: none;
-  width: 100%;
-  max-width: 300px; /* Prevents button from being massively wide on desktop */
-  height: 50px;
-  padding: 0 20px;
-  margin-top: 5%;
-  cursor: pointer;
-  transition: all 0.3s ease;
 
-  &:hover {
-    background: #d2f2fa;
-    color: #333;
-  }
-
-  @media screen and (max-width: 900px) {
-    margin: 20px auto 0 auto; /* Centers the button on mobile */
-    display: block;
-  }
-`;
 
 export const OurLovingTeam = styled.div`
   display: flex;
@@ -183,7 +215,8 @@ export const OurLovingTeamHeading = styled.span`
   font-weight: 600;
   font-size: 22px;
   line-height: 27px;
-  display: block; 
+  display: block;
+  color: #ec4899 
 `;
 
 export const OurLovingTeamImages = styled.div`
@@ -276,6 +309,78 @@ export const TeamImageText = styled.span`
   opacity: 0.5;
 `;
 
+/* =========================================
+   NEW: STATIC ACTION BUTTONS STYLES
+   ========================================= */
+export const ButtonContainer = styled.div`
+  display: flex;
+  flex-direction: row; /* Places them side-by-side on desktop */
+  align-items: center;
+  justify-content: flex-start; 
+  gap: 50px; /* This naturally pushes the WhatsApp button to the right */
+  margin-top: 10px;
+
+  .action-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Space between the icon and the text */
+    height: 55px;
+    padding: 0 25px;
+    border-radius: 30px;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .action-btn:hover {
+    transform: translateY(-3px);
+  }
+
+  .action-icon {
+    font-size: 20px;
+  }
+
+  /* Specific Button Colors */
+  .phone-btn {
+    background-color: #ec4899; /* PetMeMaa Pink */
+  }
+  .phone-btn:hover {
+    box-shadow: 0 8px 20px rgba(236, 72, 153, 0.4);
+  }
+
+  .whatsapp-btn {
+    background-color: #25D366; /* WhatsApp Green */
+  }
+  .whatsapp-btn:hover {
+    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+  }
+
+  /* Mobile Responsiveness */
+  @media screen and (max-width: 900px) {
+    flex-direction: column; /* Stacks the buttons vertically on phones */
+    justify-content: center; 
+    align-items: center;
+    gap: 15px; /* Tighter spacing on mobile */
+    margin-top: 10px;
+
+    /* CRITICAL: Force the buttons to center and fill the mobile screen safely */
+    .action-btn {
+      margin-left: 0; /* Resets any rogue desktop margins */
+      width: 100%;
+      max-width: 280px; /* Keeps them from looking ridiculously wide */
+      height: 50px;
+      padding: 0 20px;
+      font-size: 15px;
+    }
+  }
+`;
+
+
 // components for secondary.js
 // ------------------------------------------------------------------
 export const MainHeading = styled.h1`
@@ -307,11 +412,15 @@ export const Highlight = styled.span`
 `;
 
 export const FounderName = styled.h2`
-  font-size: 28px;
-  color: #ec4899; 
-  font-weight: 400;
-  margin-top: 0;
-  margin-bottom: 8px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  color: #ec4899;
+  margin-bottom: 12px;
+
+  @media screen and (max-width: 480px) {
+    font-size: 20px;
+  }
 `;
 
 export const FounderTitle = styled.p`
@@ -337,7 +446,6 @@ export const QuoteContainer = styled.div`
 
 export const QuoteText = styled.p`
   font-family: 'Inter', sans-serif;
-  font-style: italic;
   font-weight: 500;
   font-size: 16px;
   line-height: 26px;
@@ -345,6 +453,11 @@ export const QuoteText = styled.p`
   color: #444;
   margin: 0;
   text-align: justify; 
+
+  /* Add this 👇 */
+  @media screen and (max-width: 900px) {
+    text-align: left; 
+  }
 `;
 
 export const SecondaryContainer = styled.div`
@@ -407,3 +520,31 @@ export const ContentContainer = styled.div`
     }
   }
 `;
+
+export const FounderPoints = styled.ul`
+  margin-top: 15px;
+  padding-left: 18px;
+  color: #475569;
+
+  li {
+    margin-bottom: 12px;
+    line-height: 1.6;
+    font-size: 15px;
+    position: relative;
+    font-family: 'Inter', sans-serif;
+    text-align: justify;
+  }
+
+  li::marker {
+    color: #ec4899;
+    font-size: 16px;
+  }
+
+  /* Add this 👇 */
+  @media screen and (max-width: 900px) {
+    li {
+      text-align: left;
+    }
+  }
+`;
+

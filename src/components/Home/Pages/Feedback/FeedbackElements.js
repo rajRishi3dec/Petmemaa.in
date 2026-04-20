@@ -45,12 +45,14 @@ export const Heading = styled.span`
 `;
 
 export const SubText = styled.p`
-  font-weight: 600;
-  font-size: 25px;
-  line-height: 19.5%;
-  color: rgba(0, 0, 0, 0.5);
-  @media screen and (max-width: 820px) {
-    font-size: 13px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  color: #ec4899;
+  margin-bottom: 12px;
+
+  @media screen and (max-width: 480px) {
+    font-size: 20px;
   }
 `;
 
@@ -135,36 +137,32 @@ export const FeedbackBox = styled.textarea`
 
 /* BEAUTIFIED BUTTON: Added hover states, font styling, and soft shadows */
 export const FeedbackBtn = styled.button`
-  background: #EDB5B2; /* Soft pink */
+  background: linear-gradient(135deg, #f7b2b0 0%, #ec4899 100%); /* Vibrant gradient */
   color: #FFFFFF;
-  border-radius: 25px;
+  border-radius: 30px; /* Fully rounded pill shape */
   border: none;
   width: 35%;
-  height: 50px;
+  height: 54px;
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.5px;
   cursor: pointer;
-  
-  /* Smooth animations */
-  box-shadow: 0 4px 10px rgba(237, 181, 178, 0.4); 
+  box-shadow: 0 4px 15px rgba(236, 72, 153, 0.3); 
   transition: all 0.3s ease; 
 
   @media screen and (max-width: 820px) {
-    width: 60%;
+    width: 80%; /* Wider on mobile for easier tapping */
   }
 
-  /* What happens when the mouse touches it */
   &:hover {
-    background: #e59a97; 
-    transform: translateY(-3px); /* Lifts up slightly */
-    box-shadow: 0 8px 15px rgba(237, 181, 178, 0.6); 
+    background: linear-gradient(135deg, #f8c3c2 0%, #f064a9 100%); 
+    transform: translateY(-3px); 
+    box-shadow: 0 8px 25px rgba(236, 72, 153, 0.5); 
   }
 
-  /* What happens when clicked */
   &:active {
-    transform: translateY(1px); /* Pushes down */
-    box-shadow: 0 2px 5px rgba(237, 181, 178, 0.3); 
+    transform: translateY(2px); /* Physically presses down */
+    box-shadow: 0 2px 10px rgba(236, 72, 153, 0.2); 
   }
 `;
 

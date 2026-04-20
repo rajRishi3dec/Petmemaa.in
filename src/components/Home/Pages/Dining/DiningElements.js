@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const DiningContainer = styled.div`
-  margin-top: 10%;
+  margin-top: 5%;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -13,7 +13,7 @@ export const DiningContainer = styled.div`
 export const DiningWrapper = styled.div`
   position: relative;
   width: 100%;
-  height: 490px;
+  min-height: 490px;
   max-width: 1500px;
   margin-right: auto;
   margin-left: auto;
@@ -48,6 +48,13 @@ export const ImgWrap = styled.img`
   width: 75%;
   position: relative;
   top: -7vh;
+
+  /* FIXED: Reset overlap and adjust width for mobile */
+  @media screen and (max-width: 900px) {
+    top: 0; 
+    width: 90%; 
+    margin-top: 40px; /* Gives a little breathing room when stacked */
+  }
 `;
 
 // Col2 Stuff
@@ -57,6 +64,13 @@ export const Column2 = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
+
+  @media screen and (max-width: 900px) {
+    margin-right: 0; /* Reset for mobile */
+    align-items: center; 
+    text-align: center;
+    padding: 0 20px; /* Adds safe spacing on the edges for mobile */
+  }
 `;
 
 export const Col2Title = styled.span`
@@ -65,6 +79,12 @@ export const Col2Title = styled.span`
   font-size: 40px;
   line-height: 50px;
   color: #ffffff;
+
+  /* FIXED: Scales down font size for smaller screens */
+  @media screen and (max-width: 900px) {
+    font-size: 32px;
+    line-height: 40px;
+  }
 `;
 
 export const Col2Subtext = styled.span`
@@ -73,6 +93,12 @@ export const Col2Subtext = styled.span`
   font-size: 22px;
   line-height: 33px;
   color: #ffffff;
+
+  /* FIXED: Scales down font size for smaller screens */
+  @media screen and (max-width: 900px) {
+    font-size: 16px;
+    line-height: 24px;
+  }
 `;
 
 export const DiningBtn = styled.button`
@@ -85,7 +111,14 @@ export const DiningBtn = styled.button`
   font-weight: 600;
   font-size: 16px;
   line-height: 24px;
-  color: #fff;
+  color: #6db3d7; /* FIXED: Changed from white so text is visible on the white button */
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    transform: scale(1.05);
+    background: #f8f9fa;
+  }
 `;
 
 export const DiningImage = styled.img`
@@ -104,14 +137,16 @@ export const DiningWrapper2 = styled.div`
   text-align: center;
 `;
 
-export const Title = styled.span`
-  font-weight: 500;
-  font-size: 48px;
-  line-height: 62px;
-  opacity: 0.8;
-  @media screen and (max-width: 900px) {
-    font-size: 28px;
-    line-height: 42px;
+export const Title = styled.h1`
+  font-size: 42px;
+  color: #1a202c; 
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 6px; 
+
+  @media screen and (max-width: 768px) {
+    font-size: 32px;
+    margin-bottom: 8px; 
   }
 `;
 
@@ -120,6 +155,7 @@ export const SubText2 = styled.span`
   font-weight: 300;
   font-size: 30px;
   line-height: 72px;
+
   @media screen and (max-width: 900px) {
     font-size: 18px;
     line-height: 42px;
@@ -146,14 +182,19 @@ export const DiningBtn2 = styled.button`
   border-radius: 110px;
   border: none;
   color: #fff;  
-  width: 130%;
+  width: 100%; /* FIXED: Changed from 130% to prevent horizontal scrolling */
+  max-width: 250px; /* Constrains the button from getting too wide on desktop */
   height: 50px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  
   &:hover {
-    background: #d2f2fa; /* Set your desired hover color here */
+    background: #d2f2fa; 
+    color: #1a202c; /* Optional: Makes text darker on the light blue hover state for better contrast */
   }
+  
   @media screen and (max-width: 900px) {
-    width: 120px;
+    max-width: 150px; /* Keeps your button neat and compact on mobile */
   }
 `;
-
-

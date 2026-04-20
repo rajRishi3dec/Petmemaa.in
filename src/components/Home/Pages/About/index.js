@@ -7,37 +7,73 @@ import {
   AboutContent,
   AboutHeading,
   AboutSubheading,
-  AboutText,
-  EnquireButton
+  AboutPoints,
+  EnquireButton,
+  HighlightName
 } from "./AboutElements";
 
-// Replace this import with the actual path to your image (the dog with the pink blob)
-import aboutImg from "../../../../Assets/Intro/about_img.webp"; 
+import aboutImg from "../../../../Assets/Intro/about_img.webp";
 
 const About = () => {
   return (
-    /* id="about" is crucial for the Navbar HashLink to scroll here */
     <AboutContainer id="about">
       <AboutWrapper>
         
         {/* LEFT SIDE: Image */}
         <AboutImageWrap>
-          <AboutImage src={aboutImg} alt="Pet Me Maa Dog" />
+          <AboutImage src={aboutImg} alt="Happy pets at Pet Me Maa" />
         </AboutImageWrap>
 
-        {/* RIGHT SIDE: Text Content */}
+        {/* RIGHT SIDE: Content */}
         <AboutContent>
-          <AboutHeading>Pet Me Maa</AboutHeading>
-          <AboutSubheading>Premium Daycare & Wellness Hub</AboutSubheading>
-          
-          <AboutText>
-            At Pet Me Maa, we aren't just a daycare—we’re your pet’s true second home. Built by founder Priyanka Yadav in loving memory of her dog, Shavan, our facility is a premium, all-in-one wellness hub. From supervised boarding, grooming, and expert vet care to a secure swimming pool and our very own Cafe Pooch, we provide everything your furry family member needs under one roof. Enjoy complete peace of mind knowing your pet is experiencing endless love, expert care, and boundless fun while you work or travel.
-          </AboutText>
 
-          {/* Connect this to your WhatsApp or contact link */}
-          <EnquireButton href="https://wa.me/message/UWTA3D7SB6OZA1" target="_blank" rel="noopener noreferrer">
-            Enquire Now
+          <AboutHeading>
+            A Second Home for Your Furry Babies 🐾
+          </AboutHeading>
+
+          <AboutSubheading>
+            Premium Boarding • Daycare • Grooming & more
+          </AboutSubheading>
+
+          <AboutPoints>
+
+            <li>
+              🏡 More than a daycare—we provide a{" "}
+              <strong style={{ color: "#ec4899" }}>true second home</strong>{" "}
+              where your companions feel safe and loved.
+            </li>
+
+            <li>
+  ❤️ Founded by <HighlightName>Priyanka Yadav</HighlightName> in loving memory of{" "}
+  <strong>Shvan</strong>, built on trust and emotional care.
+</li>
+
+            <li>
+              🏥 Complete care under one roof:{" "}
+              <strong>boarding, grooming, and expert vet support with pick and drop facility</strong>.
+            </li>
+
+            <li>
+              🌊 Unique experiences like a <strong>hygienic swimming pool, lush green playground</strong>{" "}
+              and our exclusive <strong>Cafe Pooch</strong>.
+            </li>
+
+            <li>
+              ✨ Enjoy complete peace of mind while your pet experiences{" "}
+              <strong>love, comfort, and endless fun</strong>.
+            </li>
+
+          </AboutPoints>
+
+          {/* CTA */}
+          <EnquireButton
+            href="https://wa.me/message/UWTA3D7SB6OZA1"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Book a Stay Now 🐾
           </EnquireButton>
+
         </AboutContent>
 
       </AboutWrapper>

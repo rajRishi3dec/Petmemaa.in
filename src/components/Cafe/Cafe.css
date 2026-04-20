@@ -1,313 +1,280 @@
-
 @import "~@fontsource/m-plus-rounded-1c/index.css";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
-.body {
-    font-family: "M PLUS Rounded 1c", sans-serif;
-}
-.body {
-    display: flex;
-    flex-direction: column;
-    background: rgb(0, 0, 0);
-    background: linear-gradient(285deg, rgba(0, 0, 0, 0) 0%, rgba(255, 239, 239, 0.6125043767507004) 100%);
-    padding-left: 150px;
-    padding-right: 150px;
-}
-
-.mainhead {
-    display: flex;
-    flex-direction: column-reverse;
-    justify-content: space-between;
-    align-items: center;
-    
+/* =========================================
+   CORE WRAPPER & GAP KILLER
+   ========================================= */
+.cafe-wrapper {
+  width: 100%;
+  min-height: 100vh;
+  padding: 0 !important;
+  margin: 0 !important;
+  overflow-x: hidden;
 }
 
-.head {
-    width: 100%;
-    padding: 0px;
+.cafe-page {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
-.line {
-    width: 80%;
-    margin: 60px auto 0;
-    height: 3px;
+/* =========================================
+   SECTION LOGIC (Full Width Backgrounds)
+   ========================================= */
+.cafe-section {
+  width: 100%;
+  padding-left: max(20px, calc((100% - 1200px) / 2));
+  padding-right: max(20px, calc((100% - 1200px) / 2));
+  /* Reduced from 80px to 60px for a tighter look */
+  padding-top: 60px;
+  padding-bottom: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
 }
 
-.btn,
-.btn2 {
-    margin-top: 10px;
-    
-    width: fit-content;
-    background-color: #EDB5B2;
-    border: none;
-    border-radius: 20px;
-    padding: 10px 19px;
-    font-size: 14px;
-    color: white;
-    transition: background-color 0.3s ease;
+/* Alternating Colors */
+.cafe-page > .cafe-section:nth-child(odd) {
+  background: #FFFDF5; /* Warm Cream */
 }
 
-.btn2 {
-    margin-top: -15px;
+.cafe-page > .cafe-section:nth-child(even) {
+  background: #FDF2F2; /* Soft Pink */
 }
 
-.btn:hover,
-.btn2:hover {
-    cursor: pointer;
-    background-color: #D49895;
+/* Override for Cat Section */
+.cat-care {
+  background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%) !important;
+  flex-direction: column !important; /* Stack content in this specific section */
 }
 
-.frame1 {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 50px 100px;
-    align-items: left;
+/* =========================================
+   CONTENT BOXES (Replaces old margin system)
+   ========================================= */
+.content-box {
+  flex: 1.2;
+  text-align: left;
 }
 
-.img1 {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.img-box {
+  flex: 1;
+  display: flex;
+  justify-content: center;
 }
 
+.img-box img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 20px;
+}
+
+/* =========================================
+   TYPOGRAPHY (Cleaned up Hierachy)
+   ========================================= */
 .heading {
-    color: black;
-    font-size: 52px;
-    font-weight: 250;
-    
-}
-
-.textbhead {
-    color: black;
-    font-size: 16px;
-    font-weight: 300;
-    
-    
-}
-
-.alignhead {
-    display: flex;
-    flex-direction: column;
-    justify-content: left;
-    align-items: flex-start;
-    margin: 50px 0 0 100px;
-    width: 65%;
-}
-
-.frame2 {
-    display: flex;
-    flex-direction: row;
-    justify-content: left;
-    margin: 50px 100px;
-    padding: 10px;
-    border-radius: 40px;
-    background-color: #FDF2F2;
-}
-
-.inf2 {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: left;
-    margin-right: 50px;
-    margin-left: 50px;
-    padding: 14px;
-    border-radius: 40px;
-    background-color: #FDF2F2;
-    
-    
+  font-family: "M PLUS Rounded 1c", sans-serif;
+  color: #111;
+  font-size: 48px;
+  line-height: 1.1;
+  display: block;
+  margin-bottom: 25px;
 }
 
 .f2head {
-    color: #F58F9D;
-    font-size: 52px;
-    font-weight: 500;
-    margin-bottom: 0;
-    
+  color: #1e293b;
+  font-size: 48px;
+  font-weight: 700;
+  margin: 0 0 20px 0;
 }
 
-.txinf2 {
-    
-    font-size: 16px;
-    font-weight: 300;
-    margin-top: -10px;
-    
+.description {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #444;
+  margin: 0;
 }
 
-.widthf3 {
-    width: 47%;
-    margin-left: 50px;
+.description.centered {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
-.textbhead2 {
-    color: black;
-    font-size: 16px;
-    font-weight: 300;
-    
-    
+/* =========================================
+   SPECIFIC GRIDS
+   ========================================= */
+.hero-top { 
+  flex-direction: column; 
+  /* Reduced top padding from 120px to 40px to bring it closer to Navbar */
+  padding-top: 40px; 
+  padding-bottom: 40px;
 }
 
-.grpdog {
-    border-radius: 300px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.hero-top .head { 
+  /* Restricted max-width so the banner image doesn't scale too large */
+  max-width: 750px; 
+  width: 100%; 
+  height: auto;
+  display: block;
 }
-.mobilew{
+
+/* Added default hide for mobile image on desktop */
+.mobilew {
+  display: none;
+}
+
+.hero-top .line { 
+  width: 60%; /* Made shorter */
+  margin-top: 30px; 
+  height: 1px; /* Thinner line */
+  background: #eee; 
+}
+
+.healthy-meals, .menu-gallery { flex-direction: column; text-align: center; }
+
+.custom-options-title {
+  margin-top: 30px;
+  font-family: 'Inter', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #be185d;
+}
+
+.ingredients-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.ingredient-badge {
+  background: white;
+  padding: 12px 24px;
+  border-radius: 50px;
+  font-weight: 700;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  border: 1px solid #eee;
+}
+
+/* Changed minmax from 300px to 280px to prevent horizontal scrolling on small phones */
+.cat-perks-grid, .menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  width: 100%;
+  margin-top: 40px;
+}
+
+.cat-perk {
+  background: white;
+  padding: 30px;
+  border-radius: 25px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.04);
+}
+
+.menu-grid img {
+  width: 100%;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* =========================================
+   MOBILE RESPONSIVENESS
+   ========================================= */
+@media (max-width: 992px) {
+  .cafe-section {
+    flex-direction: column !important;
+    text-align: center;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    gap: 40px;
+  }
+
+  .content-box { text-align: center; }
+
+  /* Ensure image comes first on mobile for frames that had text first on desktop */
+  .delivery-frame, .social-frame {
+    flex-direction: column-reverse !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-top {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  
+  .heading, .f2head { font-size: 32px; }
+  
+  .head { display: none; }
+  .mobilew { display: block; width: 85%; max-width: 400px; margin: 0 auto; }
+
+  .cafe-section { padding-left: 20px; padding-right: 20px; }
+}
+
+/* =========================================
+   FLOATING CALL BUTTON
+   ========================================= */
+.floating-call-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #ec4899 !important; 
+  color: #ffffff !important; 
+  opacity: 1 !important;
+  padding: 15px 25px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  text-decoration: none;
+  box-shadow: 0 10px 30px rgba(236, 72, 153, 0.4);
+  z-index: 9999; 
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.floating-call-btn svg {
+  width: 24px;
+  height: 24px;
+}
+
+.floating-call-btn:hover {
+  transform: scale(1.05) translateY(-5px);
+  background-color: #db2777 !important;
+  color: #ffffff !important;
+  box-shadow: 0 15px 35px rgba(236, 72, 153, 0.5);
+}
+
+@media (max-width: 768px) {
+  .floating-call-btn {
+    bottom: 20px;
+    right: 20px;
+    padding: 12px 20px;
+    font-size: 14px;
+    box-shadow: 0 8px 20px rgba(236, 72, 153, 0.3);
+  }
+  
+  .floating-call-btn svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .floating-call-btn {
+    padding: 16px;
+    border-radius: 50%;
+  }
+  
+  .floating-call-btn span {
     display: none;
+  }
 }
-
-@media (max-width: 760px) {
-    .body {
-        padding-top:0px;
-        padding-left: 0px;
-        padding-right: 0px;
-        margin-top: 0px;
-        
-    }
-
-    .mainhead {
-        padding: 0px;
-        padding-top: 0px;
-        width: 100%;
-        align-items: top;
-        flex-direction: column-reverse;
-    
-    }
-    .mobilew{
-        display: flex;
-        padding: 10px;
-        padding-top: 0px;
-        width: 80%;
-        align-self: top;
-
-    }
-    .head{
-        display: none;
-    }
-    
-
-    .line {
-        width: 90%;
-        margin: 20px 10px 0;
-    }
-
-    .frame1,
-    .frame2 {
-        flex-direction: column;
-        padding: 10px;
-        margin: 20px 15px;
-        align-items: center;
-    }
-
-    .img1,
-    .grpdog {
-        width: 70%;
-        padding: 10px 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        /* margin-bottom: -20px; */
-    }
-
-    .alignhead,
-    .inf2 {
-        margin: 10px;
-        padding: 10px;
-        text-align: center;
-        align-items: center;
-        width: 100%;
-        justify-content: center;
-    }
-
-    .heading {
-        font-size: 20px;
-    }
-
-    .textbhead,
-    .txinf2,
-    .textbhead2 {
-        font-size: 15px;
-        margin-top: 0;
-    }
-
-    .btn,
-    .btn2 {
-        font-size: 14px;
-    }
-
-    .img1 img,
-    .grpdog img,
-    .head img,
-    .frame2 img {
-        width: 100%;
-        height: auto;
-        max-width: 100%;
-    }
-
-    .inf2 {
-        align-items: center;
-        max-width: fit-content;
-    }
-
-    .widthf3 {
-        margin-left: 0;
-        width: auto;
-        align-items: center;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-
-    .newgrp {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .imgimp {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        height: auto;
-        max-width: 100%;
-        justify-content: center;
-    }
-    .img1 {
-        width: 100%;
-        padding: 10px 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .img1 img {
-        max-width: 100%;
-        height: auto;
-    }
-
-    .newframe {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .ldoggo {
-        /* margin-bottom: 100px; */
-    }
-
-    .grpdog {
-        display: none;
-    }
-
-    .heading {
-        font-size: 27px;
-    }
-
-    .f2head {
-        font-size: 27px;
-    }
-}
-

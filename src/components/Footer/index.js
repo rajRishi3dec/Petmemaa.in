@@ -83,7 +83,7 @@ const Footer = () => {
                     <SocialLogoImage src={face} alt="...loading" />
                   </SocialIconLink>
                   <SocialIconLink
-                    href="https://wa.me/918826791521"
+                    href="https://wa.me/message/UWTA3D7SB6OZA1"
                     target="_blank"
                     aria-label="Whatsapp"
                   >

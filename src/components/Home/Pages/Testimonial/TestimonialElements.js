@@ -26,27 +26,27 @@ export const TitleContainer = styled.div`
 `;
 
 export const Title = styled.h1`
-  font-size: 46px;
-  color: #1a202c;
-  font-weight: 800;
-  margin-bottom: 15px;
-  font-family: 'Inter', sans-serif;
-  letter-spacing: -0.5px;
+  font-size: 42px;
+  color: #1a202c; 
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 6px; 
 
-  /* MOBILE FIX: Scaled down heading */
   @media screen and (max-width: 768px) {
     font-size: 32px;
+    margin-bottom: 8px; 
   }
 `;
 
 export const SubText = styled.p`
-  font-size: 18px;
-  color: #718096;
   font-family: 'Inter', sans-serif;
   font-weight: 700;
+  font-size: 24px;
+  color: #ec4899;
+  margin-bottom: 12px;
 
-  @media screen and (max-width: 768px) {
-    font-size: 15px;
+  @media screen and (max-width: 480px) {
+    font-size: 20px;
   }
 `;
 
