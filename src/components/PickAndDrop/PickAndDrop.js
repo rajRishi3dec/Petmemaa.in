@@ -44,17 +44,17 @@ const PickAndDrop = () => {
             <PriceCard>
               <PriceRow>
                 <PriceLabel>📍 1–5 km</PriceLabel>
-                <PriceValue>Rs 300</PriceValue>
+                <PriceValue>Rs 200</PriceValue>
               </PriceRow>
 
               <PriceRow>
                 <PriceLabel>🛣️ 6–10 km</PriceLabel>
-                <PriceValue>Rs 400</PriceValue>
+                <PriceValue>Rs 300</PriceValue>
               </PriceRow>
 
               <PriceRow>
                 <PriceLabel>🗺️ 11–15 km</PriceLabel>
-                <PriceValue>Rs 500</PriceValue>
+                <PriceValue>Rs 400</PriceValue>
               </PriceRow>
 
               <HighlightText>
