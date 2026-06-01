@@ -30,6 +30,7 @@ const Home = () => {
       <Testimonials />
       <Payment />
       <Feedback />
+      
     </div>
   );
 };
