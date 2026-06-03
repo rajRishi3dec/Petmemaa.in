@@ -5,7 +5,7 @@ import shvanImg from '../../Assets/shvan.png';
 import ReactMarkdown from 'react-markdown';
 
 // ── Constants ──────────────────────────────────────────
-const BACKEND = "http://localhost:8000";
+const BACKEND = "https://petmemaashvan.onrender.com";
 //const INSTAGRAM_URL = "https://www.instagram.com/petmemaa";
 const MAPS_URL      = "https://maps.app.goo.gl/hqdw6uYGftR9khKU8"; 
 const MAPS_URL_162  = "https://maps.app.goo.gl/vQLwbLSSZK9XT6zi7"; 
