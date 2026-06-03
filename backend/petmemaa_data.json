@@ -1,0 +1,199 @@
+{
+  "business_info": {
+    "name": "Pet Me Maa",
+    "description": "A premium pet care facility and NCR's First Pet School & Daycare.",
+    "founder": "Priyanka Yadav",
+    "staffing": "11 trained full-time staff members",
+    "medical_support": "Daily visits from a government-empaneled doctor (Dr. Pratyush Gautam) and a 24x7 on-campus paravet.",
+    "infrastructure": "Centrally air-conditioned rooms powered by a 10 KW solar energy plant.",
+    "core_philosophy": "A true second home offering complete all-in-one care, driven by love, legacy, and exclusive experiences."
+  },
+  "contact": {
+    "phone": "+91-8826791521 (Sector 115 Branch) | +91-9217326357 (Sector 162 Branch)",
+    "timings": "Open all 7 days from 08:00 AM to 08:00 PM.",
+    "websites": [
+      "www.petmemaa.in"
+    ],
+    "location_status": "We now have TWO pawsome branches fully open! Branch 1 is located in Sector 115, Noida, and Branch 2 is located in Sector 162, Noida. Both locations offer the exact same premium services, love, and care. 🐾 We will also be bringing more Pet Me Maa branches to Delhi NCR very soon."
+  },
+  "breeds_policy": {
+    "rule": "All services are available to EVERY breed, size, age, mixed breed, and rescue. No discrimination.",
+    "common_dogs": [
+      "Labrador Retriever", "Golden Retriever", "German Shepherd", "Beagle", "Shih Tzu", "Pug", "Siberian Husky", "Rottweiler", "Pomeranian", "French Bulldog", "Cocker Spaniel", "Pitbull", "Doberman", "Chihuahua", "Chow Chow", "Indies"
+    ],
+    "common_cats": [
+      "Persian", "Maine Coon", "Siamese", "Bengal", "Himalayan", "British Shorthair", "Ragdoll", "Bombay", "Indian/Domestic Shorthairs"
+    ],
+    "small_pets_and_birds": [
+      "Rabbits", "Guinea Pigs", "Hamsters", "Macaws", "Cockatiels", "Budgies"
+    ]
+  },
+  "amenities": {
+    "meals": "Freshly prepared by an in-house lady chef. Options: chicken, fruits, veggies, paneer, curd, eggs.",
+    "play_area": {
+      "features": "Solar-powered lighting, soft turf, colorful balls, toys, swings.",
+      "price_inr": 499,
+      "duration_mins": 45,
+      "notes": "Requires prior appointment."
+    },
+    "pet_pool": {
+      "features": "Clean filtered water and non-slip flooring. Supervised sessions.",
+      "price_inr": 600,
+      "duration_mins": 45,
+      "included": [
+        "post-swim blow dry"
+      ]
+    },
+    "cafe_pooch": "A welcoming cafe for pet parents and pets with freshly brewed beverages, quick bites, and a special pet-friendly menu.",
+    "pet_store": "Offers new toys, stylish outfits, and seasonal treats.",
+    "events": "Hosts pet birthday celebrations with cakes, decor, and activities."
+  },
+  "boarding_services": {
+    "dog_boarding_includes": [
+      "customized meals", "monitored playtime", "daily room cleaning", "pet sanitization", "24x7 caretaker supervision"
+    ],
+    "daily_routine": [
+      { "period": "Morning", "activity": "Wake up, morning walk, and time to freshen up." },
+      { "period": "Breakfast", "activity": "Customized, freshly prepared meals served in their individual spaces." },
+      { "period": "Mid-Day", "activity": "Supervised playtime and socialization." },
+      { "period": "Afternoon", "activity": "Rest and nap time in centrally air-conditioned rooms." },
+      { "period": "Evening", "activity": "Dinner service followed by an evening walk and playtime." },
+      { "period": "Night", "activity": "Bedtime with 24x7 caretaker monitoring ensuring a safe sleep environment." }
+    ],
+    "dogs": [
+      {
+        "category": "Budget",
+        "name": "Tail Town House",
+        "features": "Common fun room, individual bowl, bedding",
+        "pricing_inr": { "6hr": 400, "9hr": 600, "12hr": 800, "24hr": 1200 }
+      },
+      {
+        "category": "Private",
+        "name": "Cozy Den",
+        "features": "Partitioned room for privacy",
+        "pricing_inr": { "6hr": 600, "9hr": 800, "12hr": 1000, "24hr": 1500 }
+      },
+      {
+        "category": "Luxury",
+        "name": "Gentle Giant Suite",
+        "features": "Luxury individual room, cozy bed, toys, constant attention",
+        "pricing_inr": { "6hr": 800, "9hr": 1000, "12hr": 1200, "24hr": 1800 }
+      }
+    ],
+    "cats": [
+      {
+        "category": "Standard",
+        "name": "Kitty Corner",
+        "features": "Cubical room. Owner provides litter/tray. Fresh food on request.",
+        "pricing_inr": { "24hr": 600 }
+      },
+      {
+        "category": "Luxury",
+        "name": "Gentle Giant Room",
+        "features": "Spacious luxury room",
+        "pricing_inr": { "24hr": 1800 }
+      }
+    ],
+    "small_pets": [
+      {
+        "category": "Small Pets",
+        "name": "Guinea Pigs & Rabbits",
+        "features": "Standard care",
+        "pricing_inr": { "24hr": 400 }
+      },
+      {
+        "category": "Birds",
+        "name": "Avian Boarding",
+        "features": "Cage cleaning, fresh water, nutritious feed",
+        "pricing_inr": { "24hr": 400 }
+      }
+    ]
+  },
+  "grooming_services": {
+    "categories": {
+      "grooming": [ "Shampoo", "Conditioner", "Blow dry", "Perfume" ],
+      "hygiene": [ "Nails trim", "Ear Clean", "Paw Clean", "Brushing" ],
+      "styling": [ "Haircut", "Intimate cut", "Combing", "Face trim" ]
+    },
+    "upgrades_inr": {
+      "premium_shampoo": 200,
+      "medicated_shampoo": 300
+    },
+    "dog_packages_inr": {
+      "grooming_hygiene": { "small": 650, "medium": 750, "large": 850 },
+      "grooming_styling": { "small": 850, "medium": 1050, "large": 1150 },
+      "grooming_hygiene_styling": { "small": 1250, "medium": 1350, "large": 1450 }
+    },
+    "dog_individual_services_inr": {
+      "ear_cleaning": { "small": 100, "medium": 100, "large": 150 },
+      "paw_trimming": { "small": 100, "medium": 100, "large": 150 },
+      "nail_cut": { "small": 100, "medium": 150, "large": 150 },
+      "teeth_brushing": { "small": 100, "medium": 150, "large": 150 },
+      "gland_cleaning": { "small": 100, "medium": 150, "large": 150 },
+      "intimate_cut": { "small": 150, "medium": 150, "large": 150 },
+      "oil_massage": { "small": 400, "medium": 500, "large": 600 },
+      "haircut": { "small": 700, "medium": 800, "large": 900 },
+      "zero_cut": { "small": 500, "medium": 600, "large": 700 }
+    },
+    "cat_grooming": {
+      "price_inr": 600,
+      "features": "Flat rate. Includes stress-free bath, fur perfume, and smooth blow dry."
+    }
+  },
+  "veterinary_and_vaccinations": {
+    "mandatory_rules": {
+      "dogs": "Rabies and 9-in-1 are mandatory. We administer all vaccines to dogs at our facility.",
+      "cats": "Tricat and Rabies are mandatory. We administer all vaccines to cats at our facility.",
+      "small_pets_and_birds": "No vaccines are required for small pets (rabbits, guinea pigs) or birds. However, we administer necessary medicines to them whenever required or necessary."
+    },
+    "vaccines_inr": [
+      { "pet": "Dog", "name": "9-in-1", "price": 900, "onsite_available": true },
+      { "pet": "Dog", "name": "Rabies", "price": 500, "onsite_available": true },
+      { "pet": "Dog", "name": "Corona", "price": 600, "onsite_available": true },
+      { "pet": "Dog", "name": "Kennel Cough", "price": 1000, "onsite_available": true },
+      { "pet": "Cat", "name": "Tri-cat", "price": 1100, "onsite_available": true },
+      { "pet": "Cat", "name": "Rabies", "price": 500, "onsite_available": true }
+    ]
+  },
+  "training_and_daycare": {
+    "daycare_schedule": "Monday to Friday (Closed Weekends).",
+    "daycare_routine": [
+      { "time": "Morning (~9:00 AM)", "activity": "Pickup or drop-off, warm welcome, and a quick health check." },
+      { "time": "Mid-Morning", "activity": "Daycare fun, active play, and socialization in the play area." },
+      { "time": "Lunchtime", "activity": "Healthy meals served, followed by relaxing room time to digest and rest." },
+      { "time": "Afternoon", "activity": "Engaging activities, games, and customized attention from caretakers." },
+      { "time": "Evening", "activity": "Wind down and evening drop-off or pickup by parents." }
+    ],
+    "pet_training": {
+      "duration": "Minimum 4 to 5 months",
+      "price_starts_inr": 20000,
+      "notes": "+ GST per month. Includes boarding, all meals, and professional training."
+    }
+  },
+  "safety_and_policies": {
+    "conflict_and_behavior_management": "To ensure kids do not fight or feel overwhelmed, all pets undergo a brief temperament assessment before mixing. Playgroups are carefully segregated based on size, breed, and energy levels. Most importantly, our trained staff provides 24x7 active, hands-on supervision during all communal activities.",
+    "female_pet_safety": "The safety of female kids is strictly monitored. We maintain separate enclosures and specific playtimes if necessary. Pet parents must disclose if a female is in heat, which activates our protocol for isolated care and staggered routines to prevent any unwanted attention from male pets.",
+    "cctv_and_monitoring": "We maintain 24x7 CCTV monitoring across the entire facility for internal security and staff supervision. While live CCTV access is not provided directly to parents, we guarantee peace of mind by proactively sharing regular, high-quality photo and video updates of your kid's daily activities."
+  },
+  "transport_pricing": {
+    "service_area": "Delhi NCR",
+    "brackets_inr": [
+      { "range_km": "1 to 5", "price": 200, "note": "Base Fare" },
+      { "range_km": "6 to 10", "price": 300 },
+      { "range_km": "11 to 15", "price": 400 }
+    ],
+    "additional_distance": "+100 INR for every extra 5 km"
+  },
+  "wallet_offers": {
+    "silver": {
+      "recharge_inr": 5000,
+      "discount_percent": 20,
+      "details": "Unlimited validity, safe balance. Discount is applicable ONLY on boarding services."
+    },
+    "gold": {
+      "recharge_inr": 10000,
+      "discount_percent": 30,
+      "details": "Unlimited validity. Discount is applicable ONLY on boarding services."
+    }
+  }
+}

@@ -1,0 +1,68 @@
+FACT: PetMeMaa is a premium pet care facility located in Noida.
+FACT: PetMeMaa was founded by Priyanka.
+FACT: PetMeMaa offers the following services: Pet Boarding, Grooming, Vet Consultation, a Pet Store, a Pet Pool (also known as the pet swimming pool), Cafe Pooch (our pet-friendly cafe and cafeteria), a Play Area (the facility playground), and Pick & Drop services, Pet training/schooling.
+FACT: The PetMeMaa campus has 11 trained full-time staff members.
+FACT: PetMeMaa has a daily visiting government-empaneled doctor and a 24x7 on-campus paravet for emergencies.
+FACT: PetMeMaa facilities feature centrally air-conditioned rooms powered by a 10 KW solar energy plant.
+FACT: Pets at PetMeMaa receive freshly prepared meals cooked by an in-house lady chef. Meal options include chicken, fruits, veggies, paneer, curd, and eggs.
+
+FACT: PetMeMaa provides dog boarding services.
+FACT: All PetMeMaa dog boarding packages include customized meals, monitored playtime in a lush green garden with swings, 24x7 caretaker supervision.
+FACT: The kennels, rooms, and facilities at PetMemaa undergo daily cleaning and sanitization. The caretakers also ensure the dogs are kept clean every day during their stay.
+FACT: The "Tail Town House" dog boarding package at PetMeMaa offers common fun rooms for budget or short stays. Price: 400 INR for 6 hours, 600 INR for 9 hours, 800 INR for 12 hours, and 1200 INR for 24 hours (includes individual bowl and bedding).
+FACT: The "Cozy Den" dog boarding package at PetMeMaa offers rooms with a partition for privacy. Price: 600 INR for 6 hours, 800 INR for 9 hours, 1000 INR for 12 hours, and 1500 INR for 24 hours.
+FACT: The "Gentle Giant Suite" dog boarding package at PetMeMaa offers luxury individual rooms for royal treatment or anxious dogs. Price: 800 INR for 6 hours, 1000 INR for 9 hours, 1200 INR for 12 hours, and 1800 INR for 24 hours (includes cozy bed, toys, and constant attention).
+
+FACT: PetMeMaa provides cat boarding services.
+FACT: The "Kitty Corner" cat boarding package at PetMeMaa is a cubical room priced at 600 INR for 24 hours. Parents must provide litter and a sand tray. Fresh food is available on request.
+FACT: The "Gentle Giant Room" cat boarding package at PetMeMaa offers spacious luxury priced at 1800 INR for 24 hours.
+
+FACT: PetMeMaa provides boarding services for avian (birds) and small pets.
+FACT: The boarding price for Guinea Pigs and Rabbits at PetMeMaa is 400 INR per day.
+FACT: The boarding price for Birds at PetMeMaa is 400 INR per day, which includes daily cage cleaning, fresh water, and nutritious feed.
+
+FACT: PetMeMaa offers Pawsh Grooming Services for pets.
+FACT: The "Grooming" category at PetMeMaa includes Shampoo, Conditioner, Blow dry, and Perfume.
+FACT: The "Hygiene" category at PetMeMaa includes Nails trim, Ear Clean, Paw Clean, and Brushing.
+FACT: The "Styling" category at PetMeMaa includes Haircut, Intimate cut, Combing, and Face trim.
+FACT: At PetMeMaa, using a premium shampoo costs an extra 200 INR. Using an anti-tick or medicated shampoo costs an extra 300 INR.
+
+FACT: The price for the "Grooming + Hygiene" package for Dogs at PetMeMaa is 650 INR (Small Breed), 750 INR (Medium Breed), and 850 INR (Large Breed).
+FACT: The price for the "Grooming + Styling" package for Dogs at PetMeMaa is 850 INR (Small Breed), 1050 INR (Medium Breed), and 1150 INR (Large Breed).
+FACT: The price for the "Grooming + Hygiene + Styling" package for Dogs at PetMeMaa is 1250 INR (Small Breed), 1350 INR (Medium Breed), and 1450 INR (Large Breed).
+
+FACT: The price for Dog Ear cleaning at PetMeMaa is 100 INR (Small), 100 INR (Medium), and 150 INR (Large).
+FACT: The price for Dog Paw trimming at PetMeMaa is 100 INR (Small), 100 INR (Medium), and 150 INR (Large).
+FACT: The price for Dog Nail cut at PetMeMaa is 100 INR (Small), 150 INR (Medium), and 150 INR (Large).
+FACT: The price for Dog Teeth brushing at PetMeMaa is 100 INR (Small), 150 INR (Medium), and 150 INR (Large).
+FACT: The price for Dog Gland cleaning at PetMeMaa is 100 INR (Small), 150 INR (Medium), and 150 INR (Large).
+FACT: The price for Dog Intimate cut at PetMeMaa is 150 INR (Small), 150 INR (Medium), and 150 INR (Large).
+FACT: The price for Dog Oil massage at PetMeMaa is 400 INR (Small), 500 INR (Medium), and 600 INR (Large).
+FACT: The price for Dog Haircut at PetMeMaa is 700 INR (Small), 800 INR (Medium), and 900 INR (Large).
+FACT: The price for Dog Zero Cut at PetMeMaa is 500 INR (Small), 600 INR (Medium), and 700 INR (Large).
+
+FACT: PetMeMaa provides grooming services for cats.
+FACT: The price for Cat Grooming at PetMeMaa is a flat rate of 600 INR. This includes a stress-free bath, fur perfume, and a smooth blow dry.
+
+FACT: PetMeMaa runs Noida's First Pet School & Daycare.
+FACT: The PetMeMaa Pet School & Daycare runs from Monday to Friday, and is closed on Saturday and Sunday. It includes morning pickup around 9 AM, daycare fun, a relaxing room, healthy meals, play/activities, and evening drop-off at home.
+
+FACT: PetMeMaa provides Veterinary Care including pet vaccinations, basic medications, on-site paravet support, and 24x7 vet consultation.
+FACT: The PetMeMaa Play Area features solar-powered lighting, soft turf, colorful balls, toys, and swings.
+FACT: The PetMeMaa Pet Pool features clean filtered water and non-slip flooring. Sessions are supervised and include post-swim drying and grooming.
+FACT: Cafe Pooch is PetMeMaa's welcoming cafe for pet parents and pets, offering freshly brewed beverages, quick bites, and a special pet-friendly menu.
+FACT: The PetMeMaa Pet Store offers new toys, stylish outfits, and seasonal treats.
+FACT: PetMeMaa hosts pet birthday celebrations complete with cakes, decor, and fun activities.
+FACT: PetMeMaa offers Pick and drop services handled via the Doggie Schoolbus. 
+
+FACT: PetMeMaa offers a Silver Package Wallet Offer: Recharge with 5000 INR to get a 20% discount. It has unlimited validity and the balance is safe until used.
+FACT: PetMeMaa offers a Gold Package Wallet Offer: Recharge with 10000 INR to get a 30% discount. The wallet balance can be used for any service.
+
+FACT: The contact phone numbers for PetMeMaa are +91 8826791521, +91 8826741521, and +91 9876543210.
+FACT: PetMeMaa has two locations. Location 1: FNG Highway, beside Indian National Public School, Sorkha, Noida, UP 201316. Location 2: Khasra Number 822, Near Gulawali Adda, Village Gulawali, Sector 162, Noida.
+FACT: The official websites for PetMeMaa are www.petmemaa.in and www.NoidaPetSchool.com.
+
+FACT: For dog boarding at PetMeMaa, it is mandatory that the dog has already received the Rabies and 9-in-1 vaccines prior to arrival.
+FACT: PetMeMaa offers on-site vaccinations for dogs, specifically the Corona and KC (Kennel Cough) vaccines.
+FACT: For cat boarding at PetMeMaa, it is mandatory that the cat has already received the Tricat and Rabies vaccines prior to arrival.
+FACT: PetMeMaa DOES NOT provide or administer any vaccination services for cats at the facility. All cat vaccinations must be completed by the pet parent beforehand.

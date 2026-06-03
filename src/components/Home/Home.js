@@ -2,7 +2,7 @@ import React from "react";
 // import Products from "./Pages/Products";
 import Intro from "./Pages/Intro";
 import Secondary from "./Pages/Intro/Secondary";
-//import Chatbot from '../Chatbot/Chatbot';
+import Chatbot from '../Chatbot/Chatbot';
 import Services from "./Pages/Services";
 //import Cafe from "./Pages/Cafe";
 //import Offers from "./Pages/Offers";
@@ -30,7 +30,7 @@ const Home = () => {
       <Testimonials />
       <Payment />
       <Feedback />
-      
+      <Chatbot/>
     </div>
   );
 };
