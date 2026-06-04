@@ -1065,9 +1065,15 @@ async def chat(request: ChatRequest):
             audio = await generate_audio(reply)
             return {"reply": reply, "audio": audio}
         
-        # ── NEW: Daycare Pricing Interceptor ──
-        # ── DAYCARE ──
-        # ── DAYCARE ──
+        if any(word in lower for word in ["pick", "drop", "pickup", "transport", "cab"]):
+            reply = (
+                "Woof! Yes, we do offer a convenient pick and drop facility for your pets! 🚗🐾\n\n"
+                "Please note that transportation is **not included** in the standard boarding or daycare rates. It is charged separately based on the actual distance from your location to our campus.\n\n"
+                "To check availability and calculate the exact transport charges for your area, please call our branch directly!"
+            )
+            audio = await generate_audio(reply)
+            return {"reply": reply, "audio": audio}
+        
         # ── DAYCARE ──
         daycare_triggers = ["daycare", "day care", "day-care", "creche"]
         if any(t in lower for t in daycare_triggers):
