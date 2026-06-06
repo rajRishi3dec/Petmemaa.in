@@ -918,14 +918,14 @@ async def chat(request: ChatRequest):
 
         # ── DISCOUNT TRIGGERS (Moved below document triggers) ──
         # ── DISCOUNT TRIGGERS ──
-        discount_triggers = ["discount", "offer", "coupon", "deal", "wallet", "package", "membership"]
-        if any(t in lower for t in discount_triggers) and not is_price_query(lower):
+        discount_triggers = ["package", "packages", "membership", "memberships", "plan", "plans", "discount", "discounts", "offer", "offers"]
+        if any(p in lower for p in discount_triggers):
             reply = (
-                "Woof! Here are our **Wallet Offers** 🐾\n\n"
+                "Woof! Here are our **Wallet Offers & Packages** 🐾\n\n"
                 "🥈 **Silver Wallet:** Recharge ₹5,000 → 20% off boarding\n"
                 "🥇 **Gold Wallet:** Recharge ₹10,000 → 30% off boarding\n\n"
-                "📌 **Please Note:**\n\n"
-                "- Wallet offers and discounts are applicable ONLY on Boarding and Daycare services.\n"
+                "📌 **Please Note:**\n"
+                "- Wallet packages and discounts are applicable ONLY on Boarding and Daycare services.\n"
                 "- Your wallet balance is completely safe and valid until used."
             )
             audio = await generate_audio(reply)
