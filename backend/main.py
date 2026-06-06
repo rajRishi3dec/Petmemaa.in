@@ -800,7 +800,27 @@ async def chat(request: ChatRequest):
     try:
         msg = request.message.strip()
         lower = msg.lower()
+        
+        if "menu" in lower and any(c in lower for c in ["cafe", "pooch", "human", "eat", "drink"]):
+            reply = (
+                "Woof! Welcome to Cafe Pooch! 🐾☕\n\n"
+                "Our cozy cafe is designed for human pet parents to unwind while watching their babies play! Our menu features freshly brewed coffees, refreshing coolers, artisanal teas, pizzas, pastas, sandwiches, and delicious finger foods.\n\n"
+                "🧁 Don't worry, we haven't forgotten the fur babies—we also feature a dedicated 'Doggy Treat Menu' packed with pet-safe cupcakes, ice creams, and healthy baked snacks!"
+            )
+            audio = await generate_audio(reply)
+            return {"reply": reply, "audio": audio}
 
+        # How to book a service
+        book_triggers = ["how do i book", "how to book", "booking a service", "make a reservation", "reserve", "appointment"]
+        if any(t in lower for t in book_triggers):
+            reply = (
+                "Woof! Booking a pawsome experience with us is incredibly simple! 📅🐾\n\n"
+                "📞 **The Quickest Way:** Please call or WhatsApp our team directly at **+91-9217326357**.\n"
+                "✨ Simply let us know your preferred date, timings, branch choice, and service requirements (Boarding, Daycare, Grooming, or Pool), and our team will book your spot instantly!"
+            )
+            audio = await generate_audio(reply)
+            return {"reply": reply, "audio": audio}
+        
         current_pet = detect_pet(msg)
         current_service = detect_service(msg)
         old_pet, old_service = extract_from_history(request.history)
