@@ -801,37 +801,6 @@ async def chat(request: ChatRequest):
         msg = request.message.strip()
         lower = msg.lower()
         
-        if "menu" in lower:
-            reply = (
-                "Woof! Welcome to Cafe Pooch! 🐾☕\n\n"
-                "Our cozy cafe is designed for human pet parents to unwind while watching their babies play! Our menu features freshly brewed coffees, refreshing coolers, artisanal teas, pizzas, pastas, sandwiches, and delicious finger foods.\n\n"
-                "🧁 Don't worry, we haven't forgotten the fur babies—we also feature a dedicated 'Doggy Treat Menu' packed with pet-safe cupcakes, ice creams, and healthy baked snacks!"
-            )
-            audio = await generate_audio(reply)
-            return {"reply": reply, "audio": audio}
-
-        # ── 2. FIXED BOOKING GUIDANCE INTERCEPTOR ──
-        if "book" in lower or "reservation" in lower or "appointment" in lower:
-            reply = (
-                "Woof! Booking a pawsome experience with us is incredibly simple! 📅🐾\n\n"
-                "📞 **The Quickest Way:** Please call or WhatsApp our team directly at **+91-9217326357**.\n"
-                "✨ Simply let us know your preferred date, timings, branch choice, and service requirements (Boarding, Daycare, Grooming, or Pool), and our team will book your spot instantly!"
-            )
-            audio = await generate_audio(reply)
-            return {"reply": reply, "audio": audio}
-
-        # ── 3. FIXED PACKAGES & MEMBERSHIPS INTERCEPTOR ──
-        if any(p in lower for p in ["package", "membership", "plan"]):
-            reply = (
-                "Woof! Here are our **Wallet Offers & Packages** 🐾\n\n"
-                "🥈 **Silver Wallet:** Recharge ₹5,000 → 20% off boarding\n"
-                "🥇 **Gold Wallet:** Recharge ₹10,000 → 30% off boarding\n\n"
-                "📌 **Please Note:**\n"
-                "- Wallet packages and discounts are applicable ONLY on Boarding and Daycare services.\n"
-                "- Your wallet balance is completely safe and valid until used."
-            )
-            audio = await generate_audio(reply)
-            return {"reply": reply, "audio": audio}
         
         current_pet = detect_pet(msg)
         current_service = detect_service(msg)
@@ -1222,7 +1191,7 @@ async def chat(request: ChatRequest):
             audio = await generate_audio(reply)
             return {"reply": reply, "audio": audio}
         
-        if any(word in lower for word in ["pickup", "transport", "cab", "pick and drop", "pick & drop"]):
+        if any(word in lower for word in ["pick", "drop", "pickup", "dropoff", "cab", "taxi", "van", "transport", "pick and drop", "pick & drop", "pickdrop"]):
             reply = (
                 "Woof! Yes, we do offer a convenient pick and drop facility for your pets! 🚗🐾\n\n"
                 "Please note that transportation is **not included** in the standard boarding or daycare rates. It is charged separately based on the actual distance from your location to our campus.\n\n"
