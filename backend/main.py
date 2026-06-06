@@ -962,6 +962,39 @@ async def chat(request: ChatRequest):
             audio = await generate_audio(reply)
             return {"reply": reply, "audio": audio}
         
+        # ── INTERCEPTOR: VET AVAILABILITY, TIMINGS & COST ──
+        vet_triggers = ["vet", "veterinary", "doctor", "consultation", "paravet", "timing", "cost"]
+        if any(t in lower for t in vet_triggers) and not ("vaccin" in lower or "vaccine" in lower):
+            
+            # 1. Timing Query
+            if any(t in lower for t in ["timing", "time", "hour", "when"]):
+                reply = (
+                    "Woof! Our veterinary consultation and paravet services are available during our regular facility hours! 🩺🐾\n\n"
+                    "🕗 **Timings:** 8:00 AM – 8:00 PM (Open all 7 days, both branches)\n\n"
+                    "📌 For routine checkups or doctor consultations, we highly recommend calling ahead to confirm the doctor's exact rotation schedule for the day!"
+                )
+                audio = await generate_audio(reply)
+                return {"reply": reply, "audio": audio}
+            
+            # 2. Cost / Price Query
+            elif any(t in lower for t in ["cost", "price", "fee", "charge", "much"]):
+                reply = (
+                    "Woof! Our standard veterinary consultation fee is **₹500** across our centers. 🩺💰\n\n"
+                    "✨ This covers a thorough checkup by our medical team. Any additional treatments, tests, or localized applications administered on-campus will be charged separately based on requirement."
+                )
+                audio = await generate_audio(reply)
+                return {"reply": reply, "audio": audio}
+            
+            # 3. General Availability (e.g., "Is there a vet available?")
+            else:
+                reply = (
+                    "Woof! Yes, absolutely! We have a dedicated, professional medical support team ready to assist your fur babies! 🩺🐾\n\n"
+                    "👨‍⚕️ We feature a **24x7 on-campus paravet** for immediate medical attention and overnight monitoring, backed by professional on-call veterinary doctors.\n\n"
+                    "Whether it is a routine wellness check, minor treatment, or keeping a medical eye on your kid during boarding, they are in highly qualified hands!"
+                )
+                audio = await generate_audio(reply)
+                return {"reply": reply, "audio": audio}
+            
         # ── NEW: Direct Vaccination Prices Interceptor ──
         vaccine_triggers = ["vaccine price", "vaccine prices", "vaccination price", "vaccination prices", "vaccination details", "vaccine cost"]
         if any(t in lower for t in vaccine_triggers):
@@ -978,6 +1011,27 @@ async def chat(request: ChatRequest):
             audio = await generate_audio(reply)
             return {"reply": reply, "audio": audio}
 
+        # ── INTERCEPTOR: GROOMING DURATION / TIME ──
+        duration_triggers = ["how long", "duration", "time taken", "grooming session take", "time does it take"]
+        if any(t in lower for t in duration_triggers) and "groom" in lower:
+            reply = (
+                "Woof! A standard grooming session usually takes between **1 to 2.5 hours**, depending entirely on your pet's breed, coat condition, and behavior! ⏰🐾\n\n"
+                "🧼 Basic baths and hygiene cuts are faster, while full styling or de-matting sessions take a bit longer.\n\n"
+                "We always prioritize your kid's comfort and take our time to ensure a completely stress-free, happy experience!"
+            )
+            audio = await generate_audio(reply)
+            return {"reply": reply, "audio": audio}
+
+        # ── INTERCEPTOR: PUPPY / KITTEN GROOMING SAFETY ──
+        safety_groom_triggers = ["safe for puppy", "safe for puppies", "safe for kitten", "safe for kittens", "puppy safe", "kitten safe", "age for grooming"]
+        if any(t in lower for t in safety_groom_triggers) or ("safe" in lower and "groom" in lower):
+            reply = (
+                "Woof! Yes, professional grooming is completely safe and highly recommended for young puppies and kittens! 👶🐾\n\n"
+                "🍼 **When to Start:** Once they complete their basic vaccination rounds (usually around 3–4 months old), it is the perfect time to introduce them to grooming.\n\n"
+                "✨ Early sessions help your babies get used to the water, dryers, and handling, turning grooming into a fun, lifelong habit instead of a scary chore. Our team handles them with extra love, patience, and care!"
+            )
+            audio = await generate_audio(reply)
+            return {"reply": reply, "audio": audio}
         
         # ── NEW: Dog Grooming Size Pricing Interceptor ──
         # ── GROOMING PACKAGES (HARDCODED LOGIC) ──
@@ -1065,7 +1119,47 @@ async def chat(request: ChatRequest):
             audio = await generate_audio(reply)
             return {"reply": reply, "audio": audio}
         
-        if any(word in lower for word in ["pick", "drop", "pickup", "transport", "cab"]):
+        # ... (CCTV block ends above this)
+        
+        # ── INTERCEPTOR: VISITATION RULES ──
+        visit_triggers = ["visit my pet", "can i visit", "visitation", "come see my pet", "visiting hours"]
+        if any(t in lower for t in visit_triggers):
+            reply = (
+                "Woof! Yes, you are more than welcome to visit your furry kid during their stay! 🐾\n\n"
+                "🕒 **Visiting Hours:** 11:00 AM – 4:00 PM (Any day of the week)\n\n"
+                "📌 To ensure a smooth visit that doesn't disrupt our regular feeding and play schedules, we kindly ask that you drop us a message or call your branch at least 1 hour before arriving."
+            )
+            audio = await generate_audio(reply)
+            return {"reply": reply, "audio": audio}
+
+        # ── INTERCEPTOR: WHAT TO BRING (PACKING LIST) ──
+        # By using "bring" or "packing", we intercept luggage queries safely without triggering the transport cab rule
+        bring_triggers = ["what should i bring", "what to bring", "packing list", "bring along", "should i pack"]
+        if any(t in lower for t in bring_triggers) or ("bring" in lower and "boarding" in lower):
+            reply = (
+                "Woof! To make your kid's stay comfortable, here is what you should pack for drop-off: 🐾\n\n"
+                "🟢 **Mandatory:** Valid Government ID proof of the pet parent and an updated vaccination card.\n"
+                "🔵 **Optional but Recommended:** Your pet's favorite toy, a personal blanket or t-shirt with your scent to help them settle, and any specific treats or ongoing medicines.\n\n"
+                "🥣 *Note on food:* We happily provide freshly prepared veg and non-veg meals cooked by our chef, but you are welcome to bring their regular kibble if they are on a strict diet!"
+            )
+            audio = await generate_audio(reply)
+            return {"reply": reply, "audio": audio}
+
+        # ── INTERCEPTOR: BOARDING SAFETY ──
+        # This catches general worries about boarding safety and blocks the raw pricing menu
+        if "safe" in lower and "boarding" in lower:
+            reply = (
+                "Woof! Rest assured, your kid's safety is our absolute highest priority! 🐾\n\n"
+                "🧠 **Behavior Tests:** Every pet undergoes a temperament assessment before mixing with groups.\n"
+                "👥 **Expert Eyes:** Our handlers provide 24x7 hands-on supervision during play and rest.\n"
+                "🩺 **Medical Care:** We have a dedicated paravet on-campus 24x7 for immediate health support.\n"
+                "📹 **Constant Vigilance:** The entire facility is monitored by continuous CCTV coverage.\n\n"
+                "Your baby is in incredibly safe, loving paws with us!"
+            )
+            audio = await generate_audio(reply)
+            return {"reply": reply, "audio": audio}
+        
+        if any(word in lower for word in ["pickup", "transport", "cab", "pick and drop", "pick & drop"]):
             reply = (
                 "Woof! Yes, we do offer a convenient pick and drop facility for your pets! 🚗🐾\n\n"
                 "Please note that transportation is **not included** in the standard boarding or daycare rates. It is charged separately based on the actual distance from your location to our campus.\n\n"
