@@ -800,8 +800,7 @@ async def chat(request: ChatRequest):
     try:
         msg = request.message.strip()
         lower = msg.lower()
-        
-        
+
         current_pet = detect_pet(msg)
         current_service = detect_service(msg)
         old_pet, old_service = extract_from_history(request.history)
@@ -844,21 +843,18 @@ async def chat(request: ChatRequest):
             audio = await generate_audio(reply)
             return {"reply": reply, "audio": audio}
         
-        # ── FAQ Handlers ──
-        discount_triggers = ["package", "packages", "membership", "memberships", "plan", "plans", "discount", "discounts", "offer", "offers", "coupon", "deal", "wallet"]
-        if any(p in lower for p in discount_triggers):
-            reply = (
-                "Woof! Here are our **Wallet Offers & Packages** 🐾\n\n"
-                "🥈 **Silver Wallet:** Recharge ₹5,000 → 20% off boarding\n"
-                "🥇 **Gold Wallet:** Recharge ₹10,000 → 30% off boarding\n\n"
-                "📌 **Please Note:**\n\n"
-                "📍 Wallet packages and discounts are applicable ONLY on Boarding and Daycare services.\n\n"
-                "🔒 Your wallet balance is completely safe and valid until used."
-            )
+        if any(word in lower for word in ["pick", "drop", "pickup", "transport", "cab"]):
+            transport = PET_DATA.get("transport_pricing", {})
+            lines = ["Woof! We offer secure Pickup & Drop for ALL pets! 🚗🐾\n"]
+            lines.append(f"📍 **Service Area:** {transport.get('service_area', 'Delhi NCR')}")
+            for b in transport.get("brackets_inr", []):
+                note = f" ({b['note']})" if "note" in b else ""
+                lines.append(f"• {b['range_km']} km: ₹{b['price']}{note}")
+            if transport.get("additional_distance"):
+                lines.append(f"• {transport.get('additional_distance')}")
+            reply = "\n".join(lines)
             audio = await generate_audio(reply)
             return {"reply": reply, "audio": audio}
-        
-        # ── FAQ Handlers ──
         
         # ── MOVED HIGHER: Document requirements (What we need from you) ──
         doc_triggers = ["what we need from you", "documents required", "onboarding form", "require", "requirements"]
@@ -882,6 +878,73 @@ async def chat(request: ChatRequest):
                     "Once we have these, your kid is all set for a pawsome stay!"
                 )
                 
+            audio = await generate_audio(reply)
+            return {"reply": reply, "audio": audio}
+        
+        if re.search(r"\bpackage\b|\bpackages\b|\bcombo\b", lower) and (re.search(r"\bdog\b|\bdogs\b", lower) or pet == "dog" or service == "grooming"):
+            # Determine size (defaulting to Large if not small/medium)
+            size = "Small" if "small" in lower else "Medium" if "medium" in lower else "Large"
+            
+            # Assign exact prices based on Screenshot (261).jpg
+            if size == "Small":
+                p1, p2, p3 = 650, 850, 1250
+            elif size == "Medium":
+                p1, p2, p3 = 750, 1050, 1350
+            else: # Large
+                p1, p2, p3 = 850, 1150, 1450
+            
+            reply = (
+                f"Woof! Here are the Combo Packages for your **{size} Dog**! 🛁🐾\n\n"
+                f"📦 **Grooming + Hygiene:** ₹{p1}\n"
+                f"📦 **Grooming + Styling:** ₹{p2}\n"
+                f"📦 **Grooming + Hygiene + Styling:** ₹{p3}\n\n"
+                "✨ **Add-ons:**\n"
+                "🧴 **Premium Shampoo:** +₹200\n"
+                "🧴 **Anti-tick / Medicated Shampoo:** +₹300"
+            )
+            audio = await generate_audio(reply)
+            return {"reply": reply, "audio": audio}
+
+        # ── INDIVIDUAL GROOMING (HARDCODED LOGIC) ──
+        if re.search(r"\bindividual\b|\bregular service\b", lower) and (re.search(r"\bdog\b|\bdogs\b", lower) or pet == "dog" or service == "grooming"):
+            # Determine size
+            size = "Small" if "small" in lower else "Medium" if "medium" in lower else "Large"
+            
+            # Assign exact prices based on Screenshot (262).jpg
+            if size == "Small":
+                prices = {"ear": 100, "paw": 100, "nail": 100, "teeth": 100, "gland": 100, "intimate": 150, "oil": 400, "haircut": 700, "zero": 500}
+            elif size == "Medium":
+                prices = {"ear": 100, "paw": 100, "nail": 150, "teeth": 150, "gland": 150, "intimate": 150, "oil": 500, "haircut": 800, "zero": 600}
+            else: # Large
+                prices = {"ear": 150, "paw": 150, "nail": 150, "teeth": 150, "gland": 150, "intimate": 150, "oil": 600, "haircut": 900, "zero": 700}
+            
+            reply = (
+                f"Woof! Here are the Regular Services for your **{size} Dog**! ✂️🐾\n\n"
+                f"• Ear cleaning: ₹{prices['ear']}\n"
+                f"• Paw trimming: ₹{prices['paw']}\n"
+                f"• Nail cut: ₹{prices['nail']}\n"
+                f"• Teeth brushing: ₹{prices['teeth']}\n"
+                f"• Gland cleaning: ₹{prices['gland']}\n"
+                f"• Intimate cut: ₹{prices['intimate']}\n"
+                f"• Oil massage: ₹{prices['oil']}\n"
+                f"• Styling/Haircut: ₹{prices['haircut']}\n"
+                f"• Zero Cut: ₹{prices['zero']}\n\n"
+            )
+            audio = await generate_audio(reply)
+            return {"reply": reply, "audio": audio}
+        
+        # ── DISCOUNT TRIGGERS (Moved below document triggers) ──
+        # ── DISCOUNT TRIGGERS ──
+        discount_triggers = ["discount", "offer", "coupon", "deal", "wallet"]
+        if any(t in lower for t in discount_triggers) and not is_price_query(lower) and "package" not in lower and "grooming" not in lower and "training" not in lower:
+            reply = (
+                "Woof! Here are our **Wallet Offers** 🐾\n\n"
+                "🥈 **Silver Wallet:** Recharge ₹5,000 → 20% off boarding\n"
+                "🥇 **Gold Wallet:** Recharge ₹10,000 → 30% off boarding\n\n"
+                "📌 **Please Note:**\n\n"
+                "- Wallet offers and discounts are applicable ONLY on Boarding and Daycare services.\n"
+                "- Your wallet balance is completely safe and valid until used."
+            )
             audio = await generate_audio(reply)
             return {"reply": reply, "audio": audio}
         
@@ -948,85 +1011,6 @@ async def chat(request: ChatRequest):
             audio = await generate_audio(reply)
             return {"reply": reply, "audio": audio}
         
-        # ── INTERCEPTOR: POOL & PLAYGROUND EXTRA CHARGES ──
-        if "pool" in lower or "play" in lower or "ground" in lower or "park" in lower:
-            if any(t in lower for t in ["charge", "extra", "price", "cost", "fee", "include"]):
-                reply = (
-                    "Woof! Yes, our specialized Swimming Pool and Play Area / Playground are premium individual services and carry separate charges! 🏊‍♂️⚽🐾\n\n"
-                    "💦 **Pet Pool:** ₹600 for a 45-minute splash session (includes a post-swim blow dry!).\n"
-                    "🌿 **Play Area / Playground:** Standard entry is ₹400 per hour for a cage-free, supervised fun session.\n\n"
-                    "📌 *Note:* If your pet is staying with us for overnight boarding or daycare, structured group playtime is already included in their room package! However, exclusive solo pool sessions or private playground access are charged separately."
-                )
-                audio = await generate_audio(reply)
-                return {"reply": reply, "audio": audio}
-
-        # ── INTERCEPTOR: CAFE POOCH HUMAN MENU ──
-        if "menu" in lower and any(c in lower for c in ["cafe", "pooch", "human", "eat", "drink"]):
-            reply = (
-                "Woof! Welcome to Cafe Pooch! 🐾☕\n\n"
-                "Our cozy cafe is designed for human pet parents to unwind while watching their babies play! Our menu features freshly brewed coffees, refreshing coolers, artisanal teas, pizzas, pastas, sandwiches, and delicious finger foods.\n\n"
-                "🧁 Don't worry, we haven't forgotten the fur babies—we also feature a dedicated 'Doggy Treat Menu' packed with pet-safe cupcakes, ice creams, and healthy baked snacks!"
-            )
-            audio = await generate_audio(reply)
-            return {"reply": reply, "audio": audio}
-
-        # ── INTERCEPTOR: HOW TO BOOK A SERVICE ──
-        book_triggers = ["how do i book", "how to book", "booking a service", "make a reservation", "reserve", "appointment"]
-        if any(t in lower for t in book_triggers):
-            reply = (
-                "Woof! Booking a pawsome experience with us is incredibly simple! 📅🐾\n\n"
-                "📞 **The Quickest Way:** Please call or WhatsApp our team directly at **+91-9217326357**.\n"
-                "✨ Simply let us know your preferred date, timings, branch choice, and service requirements (Boarding, Daycare, Grooming, or Pool), and our team will book your spot instantly!"
-            )
-            audio = await generate_audio(reply)
-            return {"reply": reply, "audio": audio}
-
-        # ── INTERCEPTOR: STRICT VACCINATION POLICY ──
-        policy_triggers = ["vaccinated pets only", "only vaccinated", "vaccination mandatory", "vaccine requirement", "are vaccinated pets"]
-        if any(t in lower for t in policy_triggers) or ("vaccin" in lower and "allow" in lower):
-            reply = (
-                "Woof! Yes, absolutely. For the safety and health of all our campus kids, **we strictly maintain a 100% vaccinated-only policy**! 🛡️🐾\n\n"
-                "🚫 No unvaccinated pet is permitted to enter our boarding, daycare, or socialization playgroups.\n"
-                "🐶 **Dogs:** Must have active, up-to-date DHPPi/L (9-in-1) and Anti-Rabies (ARV) vaccinations.\n"
-                "🐱 **Cats:** Must have active Tricat and Anti-Rabies vaccinations.\n\n"
-                "📋 Please remember to bring a clear copy or photo of your pet's latest vaccination record card at the time of check-in!"
-            )
-            audio = await generate_audio(reply)
-            return {"reply": reply, "audio": audio}
-        
-        # ── INTERCEPTOR: VET AVAILABILITY, TIMINGS & COST ──
-        vet_triggers = ["vet", "veterinary", "doctor", "consultation", "paravet", "timing", "cost"]
-        if any(t in lower for t in vet_triggers) and not ("vaccin" in lower or "vaccine" in lower):
-            
-            # 1. Timing Query
-            if any(t in lower for t in ["timing", "time", "hour", "when"]):
-                reply = (
-                    "Woof! Our veterinary consultation and paravet services are available during our regular facility hours! 🩺🐾\n\n"
-                    "🕗 **Timings:** 8:00 AM – 8:00 PM (Open all 7 days, both branches)\n\n"
-                    "📌 For routine checkups or doctor consultations, we highly recommend calling ahead to confirm the doctor's exact rotation schedule for the day!"
-                )
-                audio = await generate_audio(reply)
-                return {"reply": reply, "audio": audio}
-            
-            # 2. Cost / Price Query
-            elif any(t in lower for t in ["cost", "price", "fee", "charge", "much"]):
-                reply = (
-                    "Woof! Our standard veterinary consultation fee is **₹500** across our centers. 🩺💰\n\n"
-                    "✨ This covers a thorough checkup by our medical team. Any additional treatments, tests, or localized applications administered on-campus will be charged separately based on requirement."
-                )
-                audio = await generate_audio(reply)
-                return {"reply": reply, "audio": audio}
-            
-            # 3. General Availability (e.g., "Is there a vet available?")
-            else:
-                reply = (
-                    "Woof! Yes, absolutely! We have a dedicated, professional medical support team ready to assist your fur babies! 🩺🐾\n\n"
-                    "👨‍⚕️ We feature a **24x7 on-campus paravet** for immediate medical attention and overnight monitoring, backed by professional on-call veterinary doctors.\n\n"
-                    "Whether it is a routine wellness check, minor treatment, or keeping a medical eye on your kid during boarding, they are in highly qualified hands!"
-                )
-                audio = await generate_audio(reply)
-                return {"reply": reply, "audio": audio}
-            
         # ── NEW: Direct Vaccination Prices Interceptor ──
         vaccine_triggers = ["vaccine price", "vaccine prices", "vaccination price", "vaccination prices", "vaccination details", "vaccine cost"]
         if any(t in lower for t in vaccine_triggers):
@@ -1043,81 +1027,10 @@ async def chat(request: ChatRequest):
             audio = await generate_audio(reply)
             return {"reply": reply, "audio": audio}
 
-        # ── INTERCEPTOR: GROOMING DURATION / TIME ──
-        duration_triggers = ["how long", "duration", "time taken", "grooming session take", "time does it take"]
-        if any(t in lower for t in duration_triggers) and "groom" in lower:
-            reply = (
-                "Woof! A standard grooming session usually takes between **1 to 2.5 hours**, depending entirely on your pet's breed, coat condition, and behavior! ⏰🐾\n\n"
-                "🧼 Basic baths and hygiene cuts are faster, while full styling or de-matting sessions take a bit longer.\n\n"
-                "We always prioritize your kid's comfort and take our time to ensure a completely stress-free, happy experience!"
-            )
-            audio = await generate_audio(reply)
-            return {"reply": reply, "audio": audio}
-
-        # ── INTERCEPTOR: PUPPY / KITTEN GROOMING SAFETY ──
-        safety_groom_triggers = ["safe for puppy", "safe for puppies", "safe for kitten", "safe for kittens", "puppy safe", "kitten safe", "age for grooming"]
-        if any(t in lower for t in safety_groom_triggers) or ("safe" in lower and "groom" in lower):
-            reply = (
-                "Woof! Yes, professional grooming is completely safe and highly recommended for young puppies and kittens! 👶🐾\n\n"
-                "🍼 **When to Start:** Once they complete their basic vaccination rounds (usually around 3–4 months old), it is the perfect time to introduce them to grooming.\n\n"
-                "✨ Early sessions help your babies get used to the water, dryers, and handling, turning grooming into a fun, lifelong habit instead of a scary chore. Our team handles them with extra love, patience, and care!"
-            )
-            audio = await generate_audio(reply)
-            return {"reply": reply, "audio": audio}
         
         # ── NEW: Dog Grooming Size Pricing Interceptor ──
         # ── GROOMING PACKAGES (HARDCODED LOGIC) ──
-        if "package" in lower and "dog" in lower:
-            # Determine size (defaulting to Large if not small/medium)
-            size = "Small" if "small" in lower else "Medium" if "medium" in lower else "Large"
-            
-            # Assign exact prices based on Screenshot (261).jpg
-            if size == "Small":
-                p1, p2, p3 = 650, 850, 1250
-            elif size == "Medium":
-                p1, p2, p3 = 750, 1050, 1350
-            else: # Large
-                p1, p2, p3 = 850, 1150, 1450
-            
-            reply = (
-                f"Woof! Here are the Combo Packages for your **{size} Dog**! 🛁🐾\n\n"
-                f"📦 **Grooming + Hygiene:** ₹{p1}\n"
-                f"📦 **Grooming + Styling:** ₹{p2}\n"
-                f"📦 **Grooming + Hygiene + Styling:** ₹{p3}\n\n"
-                "✨ **Add-ons:**\n"
-                "🧴 **Premium Shampoo:** +₹200\n"
-                "🧴 **Anti-tick / Medicated Shampoo:** +₹300"
-            )
-            audio = await generate_audio(reply)
-            return {"reply": reply, "audio": audio}
-
-        # ── INDIVIDUAL GROOMING (HARDCODED LOGIC) ──
-        if "individual" in lower and "dog" in lower:
-            # Determine size
-            size = "Small" if "small" in lower else "Medium" if "medium" in lower else "Large"
-            
-            # Assign exact prices based on Screenshot (262).jpg
-            if size == "Small":
-                prices = {"ear": 100, "paw": 100, "nail": 100, "teeth": 100, "gland": 100, "intimate": 150, "oil": 400, "haircut": 700, "zero": 500}
-            elif size == "Medium":
-                prices = {"ear": 100, "paw": 100, "nail": 150, "teeth": 150, "gland": 150, "intimate": 150, "oil": 500, "haircut": 800, "zero": 600}
-            else: # Large
-                prices = {"ear": 150, "paw": 150, "nail": 150, "teeth": 150, "gland": 150, "intimate": 150, "oil": 600, "haircut": 900, "zero": 700}
-            
-            reply = (
-                f"Woof! Here are the Regular Services for your **{size} Dog**! ✂️🐾\n\n"
-                f"• Ear cleaning: ₹{prices['ear']}\n"
-                f"• Paw trimming: ₹{prices['paw']}\n"
-                f"• Nail cut: ₹{prices['nail']}\n"
-                f"• Teeth brushing: ₹{prices['teeth']}\n"
-                f"• Gland cleaning: ₹{prices['gland']}\n"
-                f"• Intimate cut: ₹{prices['intimate']}\n"
-                f"• Oil massage: ₹{prices['oil']}\n"
-                f"• Styling/Haircut: ₹{prices['haircut']}\n"
-                f"• Zero Cut: ₹{prices['zero']}\n\n"
-            )
-            audio = await generate_audio(reply)
-            return {"reply": reply, "audio": audio}
+        
             
         fight_triggers = [
             "fight", "fighting", "conflict", "aggressive", "aggression",
@@ -1151,54 +1064,7 @@ async def chat(request: ChatRequest):
             audio = await generate_audio(reply)
             return {"reply": reply, "audio": audio}
         
-        # ... (CCTV block ends above this)
         
-        # ── INTERCEPTOR: VISITATION RULES ──
-        visit_triggers = ["visit my pet", "can i visit", "visitation", "come see my pet", "visiting hours"]
-        if any(t in lower for t in visit_triggers):
-            reply = (
-                "Woof! Yes, you are more than welcome to visit your furry kid during their stay! 🐾\n\n"
-                "🕒 **Visiting Hours:** 11:00 AM – 4:00 PM (Any day of the week)\n\n"
-                "📌 To ensure a smooth visit that doesn't disrupt our regular feeding and play schedules, we kindly ask that you drop us a message or call your branch at least 1 hour before arriving."
-            )
-            audio = await generate_audio(reply)
-            return {"reply": reply, "audio": audio}
-
-        # ── INTERCEPTOR: WHAT TO BRING (PACKING LIST) ──
-        # By using "bring" or "packing", we intercept luggage queries safely without triggering the transport cab rule
-        bring_triggers = ["what should i bring", "what to bring", "packing list", "bring along", "should i pack"]
-        if any(t in lower for t in bring_triggers) or ("bring" in lower and "boarding" in lower):
-            reply = (
-                "Woof! To make your kid's stay comfortable, here is what you should pack for drop-off: 🐾\n\n"
-                "🟢 **Mandatory:** Valid Government ID proof of the pet parent and an updated vaccination card.\n"
-                "🔵 **Optional but Recommended:** Your pet's favorite toy, a personal blanket or t-shirt with your scent to help them settle, and any specific treats or ongoing medicines.\n\n"
-                "🥣 *Note on food:* We happily provide freshly prepared veg and non-veg meals cooked by our chef, but you are welcome to bring their regular kibble if they are on a strict diet!"
-            )
-            audio = await generate_audio(reply)
-            return {"reply": reply, "audio": audio}
-
-        # ── INTERCEPTOR: BOARDING SAFETY ──
-        # This catches general worries about boarding safety and blocks the raw pricing menu
-        if "safe" in lower and "boarding" in lower:
-            reply = (
-                "Woof! Rest assured, your kid's safety is our absolute highest priority! 🐾\n\n"
-                "🧠 **Behavior Tests:** Every pet undergoes a temperament assessment before mixing with groups.\n"
-                "👥 **Expert Eyes:** Our handlers provide 24x7 hands-on supervision during play and rest.\n"
-                "🩺 **Medical Care:** We have a dedicated paravet on-campus 24x7 for immediate health support.\n"
-                "📹 **Constant Vigilance:** The entire facility is monitored by continuous CCTV coverage.\n\n"
-                "Your baby is in incredibly safe, loving paws with us!"
-            )
-            audio = await generate_audio(reply)
-            return {"reply": reply, "audio": audio}
-        
-        if any(word in lower for word in ["pick", "drop", "pickup", "dropoff", "cab", "taxi", "van", "transport", "pick and drop", "pick & drop", "pickdrop"]):
-            reply = (
-                "Woof! Yes, we do offer a convenient pick and drop facility for your pets! 🚗🐾\n\n"
-                "Please note that transportation is **not included** in the standard boarding or daycare rates. It is charged separately based on the actual distance from your location to our campus.\n\n"
-                "To check availability and calculate the exact transport charges for your area, please call our branch directly!"
-            )
-            audio = await generate_audio(reply)
-            return {"reply": reply, "audio": audio}
         
         # ── DAYCARE ──
         daycare_triggers = ["daycare", "day care", "day-care", "creche"]
@@ -1240,17 +1106,11 @@ async def chat(request: ChatRequest):
             return {"reply": reply, "audio": audio}
             
         # ── SHOPPING BOUTIQUE ──
-        # ── UPGRADED SHOPPING BOUTIQUE INTERCEPTOR ──
-        boutique_triggers = [
-            "boutique", "shopping", "shop", "store", "buy", "accessories", "toys",
-            "product", "products", "item", "items", "food", "leash", "collar", 
-            "supplies", "shampoo", "treats", "kibble", "sell"
-        ]
-        # Ensure we don't accidentally hijack a human food query meant for the cafe
-        if any(t in lower for t in boutique_triggers) and not any(c in lower for c in ["cafe", "coffee", "human food", "food for me"]):
+        boutique_triggers = ["boutique", "shopping", "shop", "store", "buy", "accessories", "toys"]
+        if any(t in lower for t in boutique_triggers):
             reply = (
-                "Woof! Treat your fur baby at our premium Shopping Boutique! 🛍️🐾\n\n"
-                "We stock a fantastic range of high-quality pet products, including premium pet food, grooming supplies, interactive toys, treats, and stylish accessories to keep your kid happy and healthy.\n\n"
+                "Woof! Treat your fur baby at our Shopping Boutique! 🛍️🐾\n\n"
+                "We stock premium pet food, grooming supplies, interactive toys, and stylish accessories to keep your kid happy and healthy.\n\n"
                 "🏪 **Great News:** Our Shopping Boutique is fully stocked and available for you to explore at **both of our centers** (Sector 115 & Sector 162)!"
             )
             audio = await generate_audio(reply)
@@ -1399,7 +1259,7 @@ async def chat(request: ChatRequest):
                 return {"reply": reply, "audio": audio}
 
         # ── Service menu ──
-        generic_keywords = ["service", "explore", "what do you offer", "what can you do", "offerings"]
+        generic_keywords = ["service", "explore", "what do you offer", "what can you do", "offerings", "menu"]
         specific_keywords = ["boarding", "grooming", "training", "swim", "pool", "play", "vet", "vaccin", "boutique", "shop", "individual"]
         
         is_generic = any(x in lower for x in generic_keywords)

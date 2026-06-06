@@ -194,19 +194,20 @@ const Chatbot = () => {
   const handleServiceSelect = async (serviceId, serviceLabel) => {
     addUserMsg(serviceLabel);
     
-    // ── FIXED: Removed daycare from here! Now only Boarding and Grooming ask for pet type. ──
+    // ── RESET all previous service state ──
+    setActiveService(serviceId);
+    setActivePet(null);
+    setActiveSize(null);
+    
     if (serviceId === "boarding" || serviceId === "grooming") {
-      setActiveService(serviceId);
       addBotMsg(`Woof! Which pet are we looking at ${serviceId} for? 🐾`);
       setStage("select_pet");
     } else {
       setIsLoading(true);
-      
-      // Since daycare is now here, it will instantly fetch the price and show the Booking buttons!
       setStage("other_service_actions"); 
       await sendToBackend(serviceLabel);
     }
-  };
+};
   
   const handleOtherServiceAction = async (action) => {
     addUserMsg(action);
@@ -264,24 +265,50 @@ const Chatbot = () => {
   };
 
   const handlePricingTypeSelect = async (actionLabel) => {
-    // 1. Show exactly what the user clicked in the chat window
     addUserMsg(actionLabel);
-    setIsLoading(true);
-    
-    // 2. Set the stage to show the "Book Appointment" button right after the response arrives
     setStage("other_service_actions");
-    
-    // 3. Create a strict, secret prompt for Shvan to read from the JSON properly
-    let aiQuery = "";
+
     if (actionLabel.includes("Package")) {
-      aiQuery = `I have a ${activeSize} dog. Look at the grooming packages in your data. Extract and list ONLY the specific price numbers for a ${activeSize} dog. You must completely omit the prices for any other sizes to avoid confusing me. Format it as a clean list.`;
+        const size = activeSize;
+        const prices = {
+            small:  [650, 850, 1250],
+            medium: [750, 1050, 1350],
+            large:  [850, 1150, 1450],
+        };
+        const [p1, p2, p3] = prices[size] || prices.large;
+        const sizeLabel = size.charAt(0).toUpperCase() + size.slice(1);
+        addBotMsg(
+            `Woof! Here are the Combo Packages for your **${sizeLabel} Dog**! 🛁🐾\n\n` +
+            `📦 **Grooming + Hygiene:** ₹${p1}\n` +
+            `📦 **Grooming + Styling:** ₹${p2}\n` +
+            `📦 **Grooming + Hygiene + Styling:** ₹${p3}\n\n` +
+            `✨ **Add-ons:**\n` +
+            `🧴 **Premium Shampoo:** +₹200\n` +
+            `🧴 **Anti-tick / Medicated Shampoo:** +₹300`
+        );
     } else {
-      aiQuery = `I have a ${activeSize} dog. Look at the individual grooming services in your data. Extract and list ONLY the specific price numbers for a ${activeSize} dog. You must completely omit the prices for any other sizes to avoid confusing me. Format it as a clean list.`;
+        const size = activeSize;
+        const prices = {
+            small:  {ear:100,paw:100,nail:100,teeth:100,gland:100,intimate:150,oil:400,haircut:700,zero:500},
+            medium: {ear:100,paw:100,nail:150,teeth:150,gland:150,intimate:150,oil:500,haircut:800,zero:600},
+            large:  {ear:150,paw:150,nail:150,teeth:150,gland:150,intimate:150,oil:600,haircut:900,zero:700},
+        };
+        const p = prices[size] || prices.large;
+        const sizeLabel = size.charAt(0).toUpperCase() + size.slice(1);
+        addBotMsg(
+            `Woof! Here are the Individual Services for your **${sizeLabel} Dog**! ✂️🐾\n\n` +
+            `• Ear cleaning: ₹${p.ear}\n` +
+            `• Paw trimming: ₹${p.paw}\n` +
+            `• Nail cut: ₹${p.nail}\n` +
+            `• Teeth brushing: ₹${p.teeth}\n` +
+            `• Gland cleaning: ₹${p.gland}\n` +
+            `• Intimate cut: ₹${p.intimate}\n` +
+            `• Oil massage: ₹${p.oil}\n` +
+            `• Styling/Haircut: ₹${p.haircut}\n` +
+            `• Zero Cut: ₹${p.zero}`
+        );
     }
-    
-    // 4. Send this highly specific command to your Python backend
-    await sendToBackend(aiQuery);
-  };
+};
 
   
 
