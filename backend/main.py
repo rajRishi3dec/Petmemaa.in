@@ -942,8 +942,8 @@ async def chat(request: ChatRequest):
                 "🥈 **Silver Wallet:** Recharge ₹5,000 → 20% off boarding\n"
                 "🥇 **Gold Wallet:** Recharge ₹10,000 → 30% off boarding\n\n"
                 "📌 **Please Note:**\n\n"
-                "- Wallet offers and discounts are applicable ONLY on Boarding and Daycare services.\n"
-                "- Your wallet balance is completely safe and valid until used."
+                "📍 Wallet offers and discounts are applicable ONLY on Boarding and Daycare services.\n\n"
+                "🔒 Your wallet balance is completely safe and valid until used."
             )
             audio = await generate_audio(reply)
             return {"reply": reply, "audio": audio}
