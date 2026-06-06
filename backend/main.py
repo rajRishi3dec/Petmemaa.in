@@ -801,7 +801,7 @@ async def chat(request: ChatRequest):
         msg = request.message.strip()
         lower = msg.lower()
         
-        if "menu" in lower and any(c in lower for c in ["cafe", "pooch", "human", "eat", "drink"]):
+        if "menu" in lower or any(c in lower for c in ["cafe pooch", "pooch cafe", "human food"]):
             reply = (
                 "Woof! Welcome to Cafe Pooch! 🐾☕\n\n"
                 "Our cozy cafe is designed for human pet parents to unwind while watching their babies play! Our menu features freshly brewed coffees, refreshing coolers, artisanal teas, pizzas, pastas, sandwiches, and delicious finger foods.\n\n"
@@ -810,13 +810,29 @@ async def chat(request: ChatRequest):
             audio = await generate_audio(reply)
             return {"reply": reply, "audio": audio}
 
-        # How to book a service
-        book_triggers = ["how do i book", "how to book", "booking a service", "make a reservation", "reserve", "appointment"]
-        if any(t in lower for t in book_triggers):
+        # ── 2. FIXED BOOKING GUIDANCE INTERCEPTOR ──
+        # Adding loose, standalone triggers like "book", "reserve", "appointment" catches everything instantly
+        book_triggers = ["how do i book", "how to book", "booking", "reservation", "reserve", "appointment", "book a service"]
+        if any(t in lower for t in book_triggers) or "book" in lower:
             reply = (
                 "Woof! Booking a pawsome experience with us is incredibly simple! 📅🐾\n\n"
                 "📞 **The Quickest Way:** Please call or WhatsApp our team directly at **+91-9217326357**.\n"
                 "✨ Simply let us know your preferred date, timings, branch choice, and service requirements (Boarding, Daycare, Grooming, or Pool), and our team will book your spot instantly!"
+            )
+            audio = await generate_audio(reply)
+            return {"reply": reply, "audio": audio}
+        
+        # ── 3. FIXED PACKAGES & MEMBERSHIPS INTERCEPTOR ──
+        # Intercepts plans/packages cleanly so they never trigger the automated price selectors below
+        package_triggers = ["package", "packages", "membership", "memberships", "membership plan", "membership plans"]
+        if any(p in lower for p in package_triggers):
+            reply = (
+                "Woof! Here are our **Wallet Offers & Packages** 🐾\n\n"
+                "🥈 **Silver Wallet:** Recharge ₹5,000 → 20% off boarding\n"
+                "🥇 **Gold Wallet:** Recharge ₹10,000 → 30% off boarding\n\n"
+                "📌 **Please Note:**\n"
+                "- Wallet packages and discounts are applicable ONLY on Boarding and Daycare services.\n"
+                "- Your wallet balance is completely safe and valid until used."
             )
             audio = await generate_audio(reply)
             return {"reply": reply, "audio": audio}
