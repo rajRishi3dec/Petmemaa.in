@@ -801,7 +801,7 @@ async def chat(request: ChatRequest):
         msg = request.message.strip()
         lower = msg.lower()
         
-        if "menu" in lower or any(c in lower for c in ["cafe pooch", "pooch cafe", "human food"]):
+        if "menu" in lower:
             reply = (
                 "Woof! Welcome to Cafe Pooch! 🐾☕\n\n"
                 "Our cozy cafe is designed for human pet parents to unwind while watching their babies play! Our menu features freshly brewed coffees, refreshing coolers, artisanal teas, pizzas, pastas, sandwiches, and delicious finger foods.\n\n"
@@ -811,9 +811,7 @@ async def chat(request: ChatRequest):
             return {"reply": reply, "audio": audio}
 
         # ── 2. FIXED BOOKING GUIDANCE INTERCEPTOR ──
-        # Adding loose, standalone triggers like "book", "reserve", "appointment" catches everything instantly
-        book_triggers = ["how do i book", "how to book", "booking", "reservation", "reserve", "appointment", "book a service"]
-        if any(t in lower for t in book_triggers) or "book" in lower:
+        if "book" in lower or "reservation" in lower or "appointment" in lower:
             reply = (
                 "Woof! Booking a pawsome experience with us is incredibly simple! 📅🐾\n\n"
                 "📞 **The Quickest Way:** Please call or WhatsApp our team directly at **+91-9217326357**.\n"
@@ -821,11 +819,9 @@ async def chat(request: ChatRequest):
             )
             audio = await generate_audio(reply)
             return {"reply": reply, "audio": audio}
-        
+
         # ── 3. FIXED PACKAGES & MEMBERSHIPS INTERCEPTOR ──
-        # Intercepts plans/packages cleanly so they never trigger the automated price selectors below
-        package_triggers = ["package", "packages", "membership", "memberships", "membership plan", "membership plans"]
-        if any(p in lower for p in package_triggers):
+        if any(p in lower for p in ["package", "membership", "plan"]):
             reply = (
                 "Woof! Here are our **Wallet Offers & Packages** 🐾\n\n"
                 "🥈 **Silver Wallet:** Recharge ₹5,000 → 20% off boarding\n"
