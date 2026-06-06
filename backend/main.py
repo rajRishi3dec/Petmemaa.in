@@ -886,7 +886,7 @@ async def chat(request: ChatRequest):
 
         # ── DISCOUNT TRIGGERS (Moved below document triggers) ──
         # ── DISCOUNT TRIGGERS ──
-        discount_triggers = ["discount", "offer", "coupon", "deal", "wallet"]
+        discount_triggers = ["discount", "offer", "coupon", "deal", "wallet", "package", "membership"]
         if any(t in lower for t in discount_triggers) and not is_price_query(lower):
             reply = (
                 "Woof! Here are our **Wallet Offers** 🐾\n\n"
@@ -958,6 +958,52 @@ async def chat(request: ChatRequest):
                 "🌡️ If your girl is in heat, just let us know — we activate an isolated care protocol immediately.\n"
                 "👀 Our staff monitors all female pets with extra attention throughout their stay.\n\n"
                 "Your girl is in safe paws here! 🐾"
+            )
+            audio = await generate_audio(reply)
+            return {"reply": reply, "audio": audio}
+        
+        # ── INTERCEPTOR: POOL & PLAYGROUND EXTRA CHARGES ──
+        if "pool" in lower or "play" in lower or "ground" in lower or "park" in lower:
+            if any(t in lower for t in ["charge", "extra", "price", "cost", "fee", "include"]):
+                reply = (
+                    "Woof! Yes, our specialized Swimming Pool and Play Area / Playground are premium individual services and carry separate charges! 🏊‍♂️⚽🐾\n\n"
+                    "💦 **Pet Pool:** ₹600 for a 45-minute splash session (includes a post-swim blow dry!).\n"
+                    "🌿 **Play Area / Playground:** Standard entry is ₹400 per hour for a cage-free, supervised fun session.\n\n"
+                    "📌 *Note:* If your pet is staying with us for overnight boarding or daycare, structured group playtime is already included in their room package! However, exclusive solo pool sessions or private playground access are charged separately."
+                )
+                audio = await generate_audio(reply)
+                return {"reply": reply, "audio": audio}
+
+        # ── INTERCEPTOR: CAFE POOCH HUMAN MENU ──
+        if "menu" in lower and any(c in lower for c in ["cafe", "pooch", "human", "eat", "drink"]):
+            reply = (
+                "Woof! Welcome to Cafe Pooch! 🐾☕\n\n"
+                "Our cozy cafe is designed for human pet parents to unwind while watching their babies play! Our menu features freshly brewed coffees, refreshing coolers, artisanal teas, pizzas, pastas, sandwiches, and delicious finger foods.\n\n"
+                "🧁 Don't worry, we haven't forgotten the fur babies—we also feature a dedicated 'Doggy Treat Menu' packed with pet-safe cupcakes, ice creams, and healthy baked snacks!"
+            )
+            audio = await generate_audio(reply)
+            return {"reply": reply, "audio": audio}
+
+        # ── INTERCEPTOR: HOW TO BOOK A SERVICE ──
+        book_triggers = ["how do i book", "how to book", "booking a service", "make a reservation", "reserve", "appointment"]
+        if any(t in lower for t in book_triggers):
+            reply = (
+                "Woof! Booking a pawsome experience with us is incredibly simple! 📅🐾\n\n"
+                "📞 **The Quickest Way:** Please call or WhatsApp our team directly at **+91-9217326357**.\n"
+                "✨ Simply let us know your preferred date, timings, branch choice, and service requirements (Boarding, Daycare, Grooming, or Pool), and our team will book your spot instantly!"
+            )
+            audio = await generate_audio(reply)
+            return {"reply": reply, "audio": audio}
+
+        # ── INTERCEPTOR: STRICT VACCINATION POLICY ──
+        policy_triggers = ["vaccinated pets only", "only vaccinated", "vaccination mandatory", "vaccine requirement", "are vaccinated pets"]
+        if any(t in lower for t in policy_triggers) or ("vaccin" in lower and "allow" in lower):
+            reply = (
+                "Woof! Yes, absolutely. For the safety and health of all our campus kids, **we strictly maintain a 100% vaccinated-only policy**! 🛡️🐾\n\n"
+                "🚫 No unvaccinated pet is permitted to enter our boarding, daycare, or socialization playgroups.\n"
+                "🐶 **Dogs:** Must have active, up-to-date DHPPi/L (9-in-1) and Anti-Rabies (ARV) vaccinations.\n"
+                "🐱 **Cats:** Must have active Tricat and Anti-Rabies vaccinations.\n\n"
+                "📋 Please remember to bring a clear copy or photo of your pet's latest vaccination record card at the time of check-in!"
             )
             audio = await generate_audio(reply)
             return {"reply": reply, "audio": audio}
@@ -1208,11 +1254,17 @@ async def chat(request: ChatRequest):
             return {"reply": reply, "audio": audio}
             
         # ── SHOPPING BOUTIQUE ──
-        boutique_triggers = ["boutique", "shopping", "shop", "store", "buy", "accessories", "toys"]
-        if any(t in lower for t in boutique_triggers):
+        # ── UPGRADED SHOPPING BOUTIQUE INTERCEPTOR ──
+        boutique_triggers = [
+            "boutique", "shopping", "shop", "store", "buy", "accessories", "toys",
+            "product", "products", "item", "items", "food", "leash", "collar", 
+            "supplies", "shampoo", "treats", "kibble", "sell"
+        ]
+        # Ensure we don't accidentally hijack a human food query meant for the cafe
+        if any(t in lower for t in boutique_triggers) and not any(c in lower for c in ["cafe", "coffee", "human food", "food for me"]):
             reply = (
-                "Woof! Treat your fur baby at our Shopping Boutique! 🛍️🐾\n\n"
-                "We stock premium pet food, grooming supplies, interactive toys, and stylish accessories to keep your kid happy and healthy.\n\n"
+                "Woof! Treat your fur baby at our premium Shopping Boutique! 🛍️🐾\n\n"
+                "We stock a fantastic range of high-quality pet products, including premium pet food, grooming supplies, interactive toys, treats, and stylish accessories to keep your kid happy and healthy.\n\n"
                 "🏪 **Great News:** Our Shopping Boutique is fully stocked and available for you to explore at **both of our centers** (Sector 115 & Sector 162)!"
             )
             audio = await generate_audio(reply)
