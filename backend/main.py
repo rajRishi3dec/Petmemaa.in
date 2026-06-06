@@ -1430,7 +1430,7 @@ async def chat(request: ChatRequest):
                 return {"reply": reply, "audio": audio}
 
         # ── Service menu ──
-        generic_keywords = ["service", "explore", "what do you offer", "what can you do", "offerings", "menu"]
+        generic_keywords = ["service", "explore", "what do you offer", "what can you do", "offerings"]
         specific_keywords = ["boarding", "grooming", "training", "swim", "pool", "play", "vet", "vaccin", "boutique", "shop", "individual"]
         
         is_generic = any(x in lower for x in generic_keywords)
