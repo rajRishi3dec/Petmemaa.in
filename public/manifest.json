@@ -8,13 +8,13 @@
       "type": "image/x-icon"
     },
     {
-      "src": "logo192.png",
-      "type": "image/png",
+      "src": "logo.jpg",
+      "type": "image/jpg",
       "sizes": "192x192"
     },
     {
-      "src": "logo512.png",
-      "type": "image/png",
+      "src": "logo.jpg",
+      "type": "image/jpg",
       "sizes": "512x512"
     }
   ],
@@ -22,5 +22,5 @@
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#ffffff",
-  "description": "Pamper your pet with love! 🐾 Find trusted pet sitters, walkers & care near you — because every pet deserves a mother's touch."
+  "description": "Pet Me Maa was born from one simple belief — every pet deserves a mother's love. We bring together India's most caring and trusted pet lovers to look after your fur babies when you can't be there."
 }
