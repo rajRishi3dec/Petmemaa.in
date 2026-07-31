@@ -26,7 +26,6 @@ const ALL_SERVICES = [
 ];
 
 
-
 const Chatbot = () => {
   const [isOpen, setIsOpen]         = useState(false);
   const [inputText, setInputText]   = useState("");
