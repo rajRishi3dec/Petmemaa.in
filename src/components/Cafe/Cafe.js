@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import Navbar from '../Navbar/Navbar';   
+//import Navbar from '../Navbar/Navbar';   
 import { PhoneCall } from 'lucide-react'; // Added icon import
 import "./Cafe.css";
 
@@ -21,7 +21,7 @@ const Cafe = () => {
 
   return (
     <>
-      <Navbar />
+      
       <div className="cafe-wrapper">
         <div className="cafe-page">
           

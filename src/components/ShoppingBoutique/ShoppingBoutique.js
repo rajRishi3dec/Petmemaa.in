@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import Navbar from "../Navbar/Navbar";
+//import Navbar from "../Navbar/Navbar";
 import shoppingImg from "../../Assets/Shopping/shopping.png";
 import { PhoneCall } from 'lucide-react'; 
 
@@ -24,7 +24,7 @@ const ShoppingBoutique = () => {
 
   return (
     <>
-      <Navbar />
+      
 
       <BoutiqueWrapper bg={shoppingImg}>
         <Overlay />

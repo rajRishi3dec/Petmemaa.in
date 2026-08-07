@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import Navbar from "../Navbar/Navbar";
+//import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer"; // Adjust this path if your Footer is somewhere else
 import {
   GalleryContainer,
@@ -58,7 +58,7 @@ const Gallery = () => {
 
   return (
     <>
-      <Navbar />
+      
       <GalleryContainer>
         <TextWrapper>
           <Heading>Gallery</Heading>

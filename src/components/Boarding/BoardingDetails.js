@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import Navbar from "../Navbar/Navbar"; 
+//import Navbar from "../Navbar/Navbar"; 
 //import Footer from "../Footer";        
 import "./BoardingDetails.css";
 // Added PhoneCall icon here 👇
@@ -123,7 +123,7 @@ const BoardingDetails = () => {
 
   return (
     <>
-      <Navbar />
+      
 
       <div className="boarding-wrapper">
         <div className="boarding-page">

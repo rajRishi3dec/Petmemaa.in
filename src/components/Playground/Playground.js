@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import Navbar from "../Navbar/Navbar";
+//import Navbar from "../Navbar/Navbar";
 import playImg from "../../Assets/Playground/playground.png";
 import { PhoneCall } from 'lucide-react'; 
 
@@ -25,7 +25,7 @@ const Playground = () => {
 
   return (
     <>
-      <Navbar />
+      
 
       <PlayWrapper bg={playImg}>
         <Overlay />

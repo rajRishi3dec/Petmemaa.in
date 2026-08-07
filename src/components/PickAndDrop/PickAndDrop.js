@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import Navbar from "../Navbar/Navbar";
+//import Navbar from "../Navbar/Navbar";
 import transportImage from "../../Assets/PickAndDrop/pickanddrop.webp";
 import { PhoneCall } from 'lucide-react'; // Added the icon import
 
@@ -25,7 +25,7 @@ const PickAndDrop = () => {
 
   return (
     <>
-      <Navbar />
+      
 
       <TransportWrapper bg={transportImage}>
         <Overlay />

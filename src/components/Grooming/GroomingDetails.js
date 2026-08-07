@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import Navbar from "../Navbar/Navbar"; 
+//import Navbar from "../Navbar/Navbar"; 
 import "./GroomingDetails.css";
 import { PhoneCall } from 'lucide-react';
 
@@ -45,7 +45,7 @@ const GroomingDetails = () => {
 
   return (
     <>
-      <Navbar />
+      
 
       <div className="grooming-wrapper">
         <div className="grooming-page">

@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import Navbar from "../Navbar/Navbar"; 
+//import Navbar from "../Navbar/Navbar"; 
 import { PhoneCall } from 'lucide-react';
 
 // Import your images (adjust the relative path if needed)
@@ -60,7 +60,7 @@ const Veterinary = () => {
 
   return (
     <>
-      <Navbar />
+      
 
       <VetWrapper>
         <VetPage>

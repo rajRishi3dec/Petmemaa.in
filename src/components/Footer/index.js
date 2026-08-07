@@ -55,11 +55,12 @@ const Footer = () => {
                 <FooterLinkTitle>About Us</FooterLinkTitle>
                 <FooterLink to="/">Services we provide</FooterLink>
                 <FooterLink to="/">Feedbacks</FooterLink>
-                <FooterLink to="/cafe">Cafe</FooterLink>
+                <FooterLink to="/">Cafe</FooterLink>
               </FooterLinkItems>
               <FooterLinkItems>
                 <FooterLinkTitle>Quick Links</FooterLinkTitle>
                 <FooterLink to="/contactus">Contact Us</FooterLink>
+                
                 <StyledAnchor href="/pdfs/tou.pdf" target="_blank" rel="noopener noreferrer">Terms and Conditions</StyledAnchor>
                 <StyledAnchor href="/pdfs/pp.pdf" target="_blank" rel="noopener noreferrer">Privacy Policy</StyledAnchor>
               </FooterLinkItems>

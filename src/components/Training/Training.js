@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import Navbar from "../Navbar/Navbar";
+//import Navbar from "../Navbar/Navbar";
 import trainingImage from "../../Assets/Training/training.png";
 import { PhoneCall } from 'lucide-react'; // Added the icon import
 
@@ -26,7 +26,7 @@ const Training = () => {
 
   return (
     <>
-      <Navbar />
+      
 
       <TrainingWrapper bg={trainingImage}>
         <Overlay />

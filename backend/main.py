@@ -14,7 +14,7 @@ import re
 # LOAD ENV
 # =====================================================
 load_dotenv()
-
+#from blog_routes import router as blog_router
 app = FastAPI()
 
 app.add_middleware(
@@ -28,7 +28,7 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
+#app.include_router(blog_router)
 client = Groq(api_key=os.environ.get("GROQ_API_KEY"))
 
 # =====================================================

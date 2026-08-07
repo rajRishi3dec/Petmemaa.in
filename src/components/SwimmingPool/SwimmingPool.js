@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import Navbar from "../Navbar/Navbar";
+//import Navbar from "../Navbar/Navbar";
 import swimImg from "../../Assets/Swimming/swimmingpool.png";
 import { PhoneCall } from 'lucide-react'; // Imported the icon
 
@@ -25,7 +25,7 @@ const SwimmingPool = () => {
 
   return (
     <>
-      <Navbar />
+      
 
       <PoolWrapper bg={swimImg}>
         <Overlay />
