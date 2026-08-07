@@ -1,188 +1,538 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-export const AboveFooter = styled.div`
-  margin-left: auto;
-  margin-right: auto;
-  width: 80%;
-  @media screen and (max-width: 820px) {
-    margin-top: 20%;
-    margin-left: 0px;
-  }
-`;
-
-export const ImgContainer = styled.div`
-  @media screen and (max-width: 820px) {
-    display: none;
-  }
-`;
-
-export const ImgWrap = styled.img`
-  height: 20%;
-  max-width: 20%;
-  position: absolute;
-  right: 300px;
-  top: 6870px;
-`;
-
-export const ImgWrapCat = styled.img`
-  max-width: 20%;
-  height: 20%;
-  position: absolute;
-  right: 70px;
-  top: 6900px;
-`;
-
-// Footer CSS---------------------
+/* =========================================================
+   FOOTER CONTAINER
+========================================================= */
 
 export const FooterContainer = styled.footer`
-  background-color: #d2f2fa;
-  border-radius: 70px;
-  margin-left: 4%;
-  margin-right: 4%;
-  margin-bottom: 4%;
+  background: #d2f2fa;
+  border-radius: 40px;
+  margin: 0 4% 3%;
+  overflow: hidden;
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
+
+  position: relative;
+
+  @media screen and (max-width: 820px) {
+    margin: 0 3% 4%;
+    border-radius: 28px;
+  }
 `;
+
+
+/* =========================================================
+   FOOTER WRAPPER
+========================================================= */
 
 export const FooterWrap = styled.div`
-  padding: 48px 24px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  max-width: 1100px;
+  position: relative;
+
+  max-width: 1150px;
   margin: 0 auto;
-`;
 
-export const FooterLinksContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  column-gap: 15%;
+  padding: 38px 45px 22px;
 
   @media screen and (max-width: 820px) {
-    padding-top: 32px;
-    flex-direction: column;
-    margin-bottom: 10%;
+    padding: 32px 25px 20px;
+  }
+
+  @media screen and (max-width: 480px) {
+    padding: 28px 18px 18px;
   }
 `;
 
-export const FooterLinksWrapper = styled.div`
-  display: flex;
-  @media screen and (max-width: 820px) {
-    flex-direction: column;
+
+/* =========================================================
+   MAIN CONTENT
+========================================================= */
+
+export const FooterContent = styled.div`
+  display: grid;
+
+  grid-template-columns:
+    1.2fr
+    1fr
+    1fr;
+
+  align-items: center;
+
+  column-gap: 45px;
+
+  @media screen and (max-width: 900px) {
+    column-gap: 25px;
+  }
+
+  @media screen and (max-width: 700px) {
+    grid-template-columns: 1fr;
+
+    row-gap: 28px;
+
+    text-align: center;
   }
 `;
 
-export const FooterLinkItems = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin: 16px;
-  text-align: left;
-  width: 160px;
-  box-sizing: border-box;
-  color: black;
 
-  @media screen and (max-width: 420px) {
-    margin: 0;
-    padding: 10px;
+/* =========================================================
+   COLUMNS
+========================================================= */
+
+export const FooterColumn = styled.div`
+  min-width: 0;
+
+  @media screen and (max-width: 700px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+`;
+
+
+/* =========================================================
+   BRAND COLUMN
+========================================================= */
+
+export const BrandColumn = styled.div`
+  padding-right: 25px;
+
+  @media screen and (max-width: 700px) {
+    padding-right: 0;
+  }
+`;
+
+
+/* =========================================================
+   QUICK LINKS COLUMN
+========================================================= */
+
+export const QuickLinksColumn = styled.div`
+  padding-left: 35px;
+
+  border-left: 1px solid rgba(0, 0, 0, 0.13);
+
+  @media screen and (max-width: 700px) {
+    padding-left: 0;
+
+    border-left: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.13);
+
+    padding-top: 25px;
+
     width: 100%;
   }
 `;
 
-export const FooterLogoImage = styled.img`
-  width: 128px;
-  height: 110px;
+
+/* =========================================================
+   SOCIAL COLUMN
+========================================================= */
+
+export const SocialColumn = styled.div`
+  padding-left: 35px;
+
+  border-left: 1px solid rgba(0, 0, 0, 0.13);
+
+  @media screen and (max-width: 700px) {
+    padding-left: 0;
+
+    border-left: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.13);
+
+    padding-top: 25px;
+
+    width: 100%;
+  }
 `;
 
-export const FooterLinkTitle = styled.h1`
-  font-weight: 600;
-  font-size: 20px;
-  line-height: 24px;
-  color: rgba(0, 0, 0, 0.8);
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+export const FooterLogoImage = styled.img`
+  width: 155px;
+  height: auto;
+  margin-left : 35px;
+  display: block;
+
+  margin-bottom: 12px;
+
+  @media screen and (max-width: 700px) {
+    width: 150px;
+  }
+
+  @media screen and (max-width: 420px) {
+    width: 140px;
+  }
 `;
+
+
+/* =========================================================
+   TAGLINE
+========================================================= */
+
+export const FooterTagline = styled.p`
+  margin: 0;
+  margin-left : 35px;
+  
+  font-family: "Inter", sans-serif;
+
+  font-size: 14px;
+
+  line-height: 1.6;
+
+  font-weight: 500;
+
+  color: rgba(0, 0, 0, 0.72);
+`;
+
+
+/* =========================================================
+   SECTION TITLE
+========================================================= */
+
+export const FooterLinkTitle = styled.h2`
+  position: relative;
+
+  margin: 0 0 20px;
+
+  font-family: "Inter", sans-serif;
+
+  font-size: 20px;
+
+  line-height: 1.3;
+
+  font-weight: 700;
+
+  color: rgba(0, 0, 0, 0.85);
+
+  width: fit-content;
+
+  &::after {
+    content: "";
+
+    display: block;
+
+    width: 40px;
+    height: 2px;
+
+    background: #01a6a6;
+
+    border-radius: 10px;
+
+    margin-top: 7px;
+  }
+`;
+
+
+/* =========================================================
+   QUICK LINKS
+========================================================= */
 
 export const FooterLink = styled(Link)`
-  color: black;
-  text-decoration: none;
-  margin-bottom: 0.5rem;
-  font-size: 14px;
-  color: rgba(0, 0, 0, 0.8);
-  line-height: 21px;
-  font-weight: 400;
-  opacity: 0.8;
-  font-family: 'Inter', sans-serif;
-  font-style: normal;
-
-  &:hover {
-    color: #01bf71;
-    transition: 0.3s ease-out;
-  }
-`;
-
-// New styled component for <a> tags to match FooterLink styling
-export const StyledAnchor = styled.a`
-  color: black;
-  text-decoration: none;
-  margin-bottom: 0.5rem;
-  font-size: 14px;
-  color: rgba(0, 0, 0, 0.8);
-  line-height: 21px;
-  font-weight: 400;
-  opacity: 0.8;
-  font-family: 'Inter', sans-serif;
-  font-style: normal;
-
-  &:hover {
-    color: #01bf71;
-    transition: 0.3s ease-out;
-  }
-`;
-
-export const SocialMedia = styled.section`
-  max-width: 1000px;
-  width: 100%;
-  padding-top: 11px;
-`;
-
-export const SocialMediaWrap = styled.div`
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1100px;
-  margin: 20px auto 0 auto;
 
-  @media screen and (max-width: 820px) {
-    flex-direction: column;
+  align-items: center;
+
+  gap: 9px;
+
+  color: rgba(0, 0, 0, 0.8);
+
+  text-decoration: none;
+
+  margin-bottom: 10px;
+
+  font-family: "Inter", sans-serif;
+
+  font-size: 14px;
+
+  line-height: 1.5;
+
+  font-weight: 400;
+
+  transition: all 0.2s ease;
+
+  span {
+    color: #01a6a6;
+
+    font-size: 22px;
+
+    line-height: 14px;
+
+    transition: transform 0.2s ease;
+  }
+
+  &:hover {
+    color: #01a6a6;
+
+    transform: translateX(3px);
+
+    span {
+      transform: translateX(2px);
+    }
   }
 `;
 
-export const WebsiteRights = styled.small`
-  color: black;
-  font-weight:500px;
-  font-family: 'Inter', sans-serif;
+
+/* =========================================================
+   PDF LINKS
+========================================================= */
+
+export const StyledAnchor = styled.a`
+  display: flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  color: rgba(0, 0, 0, 0.8);
+
+  text-decoration: none;
+
+  margin-bottom: 10px;
+
+  font-family: "Inter", sans-serif;
+
+  font-size: 14px;
+
+  line-height: 1.5;
+
+  font-weight: 400;
+
+  transition: all 0.2s ease;
+
+  span {
+    color: #01a6a6;
+
+    font-size: 22px;
+
+    line-height: 14px;
+
+    transition: transform 0.2s ease;
+  }
+
+  &:hover {
+    color: #01a6a6;
+
+    transform: translateX(3px);
+
+    span {
+      transform: translateX(2px);
+    }
+  }
 `;
+
+
+/* =========================================================
+   SOCIAL ICONS
+========================================================= */
 
 export const SocialIcons = styled.div`
   display: flex;
-  justify-content: space-between;
+
   align-items: center;
-  width: 240px;
+
+  justify-content: flex-start;
+
+  gap: 14px;
+
+  margin-top: 2px;
+
+  margin-bottom: 20px;
+
+  flex-wrap: nowrap;
+
+  width: max-content;
+
+  @media screen and (max-width: 900px) {
+    gap: 10px;
+  }
+
+  @media screen and (max-width: 700px) {
+    justify-content: center;
+
+    width: 100%;
+
+    gap: 14px;
+  }
+
+  @media screen and (max-width: 400px) {
+    gap: 9px;
+  }
 `;
+
+
+/* =========================================================
+   SOCIAL ICON LINK
+========================================================= */
 
 export const SocialIconLink = styled.a`
-  color: #fff;
-  font-size: 24px;
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  width: 42px;
+  height: 42px;
+
+  border-radius: 50%;
+
+  background: #ffffff;
+
+  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.09);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.14);
+  }
 `;
+
+
+/* =========================================================
+   SOCIAL IMAGES
+========================================================= */
 
 export const SocialLogoImage = styled.img`
-  width: 32px;
-  height: 32px;
+  width: 30px;
+
+  height: 30px;
+
+  object-fit: contain;
 `;
 
+
+/* =========================================================
+   SOCIAL DESCRIPTION
+========================================================= */
+
+export const SocialDescription = styled.p`
+  margin: 0;
+
+  font-family: "Inter", sans-serif;
+
+  font-size: 14px;
+
+  line-height: 1.6;
+
+  font-weight: 400;
+
+  color: rgba(0, 0, 0, 0.72);
+`;
+
+
+/* =========================================================
+   DIVIDER
+========================================================= */
+
 export const HorizontalLine = styled.hr`
-  width: 80%;
-  margin: 0 auto;
-  border: 0.5px solid #000000;
-  opacity: 0.3;
-  margin-bottom: 2%;
+  width: 100%;
+
+  margin: 30px 0 15px;
+
+  border: 0;
+
+  border-top: 1px solid rgba(0, 0, 0, 0.13);
+
+  @media screen and (max-width: 700px) {
+    margin-top: 28px;
+  }
+`;
+
+
+/* =========================================================
+   COPYRIGHT
+========================================================= */
+
+export const WebsiteRights = styled.small`
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 8px;
+
+  text-align: center;
+
+  color: rgba(0, 0, 0, 0.68);
+
+  font-family: "Inter", sans-serif;
+
+  font-size: 13px;
+
+  font-weight: 500;
+
+  line-height: 1.5;
+`;
+
+
+/* =========================================================
+   COPYRIGHT ICON
+========================================================= */
+
+export const CopyrightIcon = styled.span`
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 27px;
+  height: 27px;
+
+  border-radius: 50%;
+
+  background: #01a6a6;
+
+  color: white;
+
+  font-size: 13px;
+`;
+
+
+/* =========================================================
+   DECORATIVE PAW PRINTS
+========================================================= */
+
+export const PawDecoration = styled.div`
+  position: absolute;
+
+  font-size: 35px;
+
+  opacity: 0.1;
+
+  pointer-events: none;
+
+  user-select: none;
+
+  &.left-paws {
+    bottom: 12px;
+    left: 20px;
+  }
+
+  &.right-paws {
+    bottom: 12px;
+    right: 20px;
+  }
+
+  @media screen and (max-width: 700px) {
+    font-size: 28px;
+
+    &.left-paws {
+      left: 8px;
+    }
+
+    &.right-paws {
+      right: 8px;
+    }
+  }
 `;

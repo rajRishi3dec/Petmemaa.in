@@ -8,7 +8,7 @@ import team1 from "../../../../Assets/Intro/team1.webp";
 import team3 from "../../../../Assets/Intro/team3.webp";
 //import team4 from "../../../../Assets/Intro/team4.webp";
 //import team5 from "../../../../Assets/Intro/team5.webp";
-import team6 from "../../../../Assets/Intro/team6.webp";
+//import team6 from "../../../../Assets/Intro/team6.webp";
 import team7 from "../../../../Assets/Intro/team7.webp";
 
 import {
@@ -85,11 +85,7 @@ const InfoSection = () => {
 
                     
 
-                    <TeamMemberWrapper>
-                      <TeamImage src={team6} alt="Team Member 6" />
-                      <span>Vikas</span>
-                    </TeamMemberWrapper>
-
+                    
                     <TeamMemberWrapper>
                       <TeamImage src={team7} alt="Team Member 7" />
                       <span>Laxman Kalauni</span>

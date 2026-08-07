@@ -314,67 +314,102 @@ export const TeamImageText = styled.span`
    ========================================= */
 export const ButtonContainer = styled.div`
   display: flex;
-  flex-direction: row; /* Places them side-by-side on desktop */
+  flex-direction: row;
   align-items: center;
-  justify-content: flex-start; 
-  gap: 50px; /* This naturally pushes the WhatsApp button to the right */
+  justify-content: flex-start;
+  gap: 50px;
   margin-top: 10px;
 
   .action-btn {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px; /* Space between the icon and the text */
+    gap: 10px;
+
     height: 55px;
     padding: 0 25px;
+
     border-radius: 30px;
+
     color: white;
     font-size: 16px;
     font-weight: 600;
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
+
     text-decoration: none;
+
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease,
+      background-color 0.3s ease;
   }
 
   .action-btn:hover {
     transform: translateY(-3px);
+
+    /* IMPORTANT */
+    color: white;
   }
 
   .action-icon {
     font-size: 20px;
   }
 
-  /* Specific Button Colors */
+  /* =========================
+     PHONE BUTTON
+  ========================= */
+
   .phone-btn {
-    background-color: #ec4899; /* PetMeMaa Pink */
-  }
-  .phone-btn:hover {
-    box-shadow: 0 8px 20px rgba(236, 72, 153, 0.4);
+    background-color: #ec4899;
   }
 
-  .whatsapp-btn {
-    background-color: #25D366; /* WhatsApp Green */
+  .phone-btn:hover {
+    background-color: #ec4899;
+    color: white;
+
+    box-shadow: 0 8px 20px rgba(255, 107, 205, 0.4);
   }
+
+  /* =========================
+     WHATSAPP BUTTON
+  ========================= */
+
+  .whatsapp-btn {
+    background-color: #25d366;
+  }
+
   .whatsapp-btn:hover {
+    background-color: #25d366;
+    color: white;
+
     box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
   }
 
-  /* Mobile Responsiveness */
+  /* =========================
+     MOBILE
+  ========================= */
+
   @media screen and (max-width: 900px) {
-    flex-direction: column; /* Stacks the buttons vertically on phones */
-    justify-content: center; 
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    gap: 15px; /* Tighter spacing on mobile */
+
+    gap: 15px;
+
     margin-top: 10px;
 
-    /* CRITICAL: Force the buttons to center and fill the mobile screen safely */
     .action-btn {
-      margin-left: 0; /* Resets any rogue desktop margins */
+      margin-left: 0;
+
       width: 100%;
-      max-width: 280px; /* Keeps them from looking ridiculously wide */
+      max-width: 280px;
+
       height: 50px;
+
       padding: 0 20px;
+
       font-size: 15px;
     }
   }

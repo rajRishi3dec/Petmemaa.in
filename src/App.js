@@ -15,7 +15,7 @@ import PickAndDrop from "./components/PickAndDrop/PickAndDrop";
 import Training from "./components/Training/Training";
 import Playground from "./components/Playground/Playground";
 import ShoppingBoutique from "./components/ShoppingBoutique/ShoppingBoutique";
-
+import FAQ from "./components/FAQ/FAQ";
 
 function App() {
   return (
@@ -48,7 +48,7 @@ function App() {
         <Route path="/services/training" element={<Training />} />
         <Route path="/services/playground" element={<Playground />} />
         <Route path="/services/boutique" element={<ShoppingBoutique />} />
-        
+        <Route path="/faq" element={<FAQ />} exact />
         
       </Routes>
     </Router>

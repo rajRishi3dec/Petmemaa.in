@@ -1,0 +1,121 @@
+/* FAQ Container */
+.faq-wrapper {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* Header Styling */
+.faq-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.faq-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #0f172a; /* Deep, professional slate blue */
+  margin: 0 0 10px;
+}
+
+.faq-subtitle {
+  font-size: 16px;
+  color: #64748b; /* Soft gray-blue */
+  margin: 0;
+}
+
+/* List & Item Structure */
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.faq-item {
+  background: #ffffff;
+  border: 1px solid #e0f2fe; /* Light blue border */
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(224, 242, 254, 0.6); /* Soft light blue shadow */
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+/* Hover effect for the entire card */
+.faq-item:hover {
+  border-color: #fbcfe8; /* Shifts to light pink on hover */
+  box-shadow: 0 6px 12px -2px rgba(251, 207, 232, 0.5); /* Soft pink shadow */
+  transform: translateY(-2px);
+}
+
+/* Question Button */
+.faq-question {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 20px;
+  background: transparent;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1e293b; /* Dark navy text for readability */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Question Hover State */
+.faq-question:hover {
+  background: #fdf2f8; /* Ultra-light pink background */
+  color: #be185d; /* Darker pink text for contrast */
+}
+
+/* Icon Styling */
+.faq-icon {
+  font-size: 14px;
+  color: #0284c7; /* Strong light blue */
+  background: #f0f9ff; /* Soft blue background */
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%; /* Makes the icon a nice circular badge */
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s ease, color 0.3s ease;
+  flex-shrink: 0;
+}
+
+/* Icon hover/open state shifting to pink */
+.faq-question:hover .faq-icon {
+  background: #fce7f3; /* Light pink circle */
+  color: #db2777; /* Dark pink icon */
+}
+
+.faq-icon.open {
+  transform: rotate(180deg);
+  background: #fce7f3; 
+  color: #db2777; 
+}
+
+/* Answer Section */
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  background: #fafaf9; /* Very subtle warm off-white */
+}
+
+/* Note: Adjusted max-height to 400px to accommodate slightly longer SEO answers */
+.faq-answer.open {
+  max-height: 400px;
+}
+
+.faq-answer p {
+  padding: 0 20px 20px;
+  margin: 0;
+  font-size: 15px;
+  color: #475569; /* Legible medium slate */
+  line-height: 1.7;
+}
